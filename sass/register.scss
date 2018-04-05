@@ -1,0 +1,146 @@
+@import 'variables';
+@import 'style';
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+hr{
+ 		  display: block;
+          margin-top: 1.5em;
+          margin-bottom: 1.5em;
+          margin-left: 0.9% !important;
+          margin-right: 0.9% !important;
+          border-top: 2px solid #eeeeee !important;
+}
+b{
+	font-size: 15px;
+}
+a{
+    text-shadow: 1px 1px 1px $shadow !important;
+    transition: all 0.5s !important;
+    text-decoration: none !important;
+  h1{
+  	color: #333!important;
+  }
+}
+.header-top{
+	height: 140px!important;
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+.register-container{
+	box-sizing: border-box;
+	background: linear-gradient(to bottom right, #eeeeee, white);
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 40px;
+	padding-left: 34%;
+	padding-right: 25%;
+	position: relative;
+	.register-box , .login-box{
+		background-color: $white;
+		box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+		padding: 20px 10px;
+		max-width: 430px;
+	}
+}
+.register-box{
+	display: none;
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+.register-title{
+	font-size: 32px;
+	margin-top: 15px;
+	color: #535766;
+}
+.register-third-party{
+	margin-top: 30px;
+	.register-btn-info{
+		margin-top: 0px;
+		margin-bottom: 10px;
+	}
+	 .social-login{
+		  position:relative;
+		  float: left;
+		  width: 100%;
+		  height:auto;
+		  padding: 5px 0 30px 10px;
+				  
+			 a{
+			  position:relative;
+			  float: left;
+			  width:calc(40% - 8px);
+			  text-decoration: none;
+			  color: #fff;
+			  border: 1px solid rgba(0,0,0,0.05);
+			  padding: 12px;
+			  border-radius: 2px;
+			  font-size: 12px;
+			  text-transform: uppercase;
+			  margin: 0 5%;
+			  text-align:center;
+			  	&:first-child{
+			  	background-color: #49639F;
+				}
+				&:last-child{
+			  	background-color: #DF4A32;
+				}
+		 i{
+		  position: relative;
+		  float: left;
+		  width: 20px;
+		  top: 2px;
+		}}}
+		}
+
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+.info-text{
+
+	margin-top: 30px;
+	margin-bottom: 20px;
+
+}
+.val_error{
+	color: #FF1F1F;
+}
+.register-input-container{
+	padding: 10px 20px;
+.register-input-item{
+	padding-bottom: 10px;
+	
+
+.register-user-input{
+    display: block;
+    color: #282c3f;
+    font-size: 15px;
+    padding-right: 40px;
+    width: 100%;
+    padding: 15px;
+    outline: none;
+    border-radius: 5px;
+ }   
+}
+}
+.register-button-container,.login-button-container{
+	padding: 10px 20px;
+	margin: 0;
+	border: 0;
+	.register-button , .login-button {
+    background-color: $greenish-blue;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    padding: 15px;
+    display: block;
+    width: 100%;
+   
+    text-transform: uppercase;
+    border-radius: 3px;
+    font-family: $font-style;
+}
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+

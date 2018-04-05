@@ -1,0 +1,925 @@
+
+@import 'variables';
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+body{
+  width: 100%;
+  overflow-x: hidden;
+}
+
+html{
+  width: 100%;
+  text-shadow: 1px 1px 1px $shadow;
+  a{
+    text-shadow: 1px 1px 1px $shadow;
+    transition: all 0.5s;
+    text-decoration: none;
+  }
+ 
+    h1{
+      width: auto;
+      display: inline-block;
+      padding: 0 30px 20px;
+      border-bottom: 2px dotted $gray;
+      }
+      hr{
+          display: block;
+          margin-top: 1.5em;
+          margin-bottom: 1.5em;
+          margin-left: 43.9%;
+          margin-right: 43.9%;
+          border-top: 4px solid $greenish-blue;
+          }
+
+  p {
+    display: block;
+    font-family: $font-style;
+    color: $light-gray;
+    padding-bottom: 10px;
+    
+    word-spacing: 1px;
+    line-height: 25px;
+    font-size: $font1;
+    margin: 1em 0;
+  
+    }}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+.dropdown-content{
+  top: 25px;
+  display: none;
+  position: absolute;
+ 
+  z-index: 1;
+  background-color: white;
+  box-sizing: border-box;
+  border: 2px solid $faded-gray;
+  /*box-shadow: 0px 0px 10px 0 $light-gray;*/
+  a{
+    padding: 5px;
+    font-size: 15px;
+    color: gray!important;
+    text-decoration: none;
+    display: block;
+    border-top: 2px solid $greenish-blue;
+    &:hover{
+      
+      text-decoration: none!important;
+      border-bottom: none!important;
+  }
+}}
+.dropdown:hover .dropdown-content{
+  display: block;
+}
+ /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<--------NAVIGATION(icon + slide)------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+.header-top {
+  
+  width: 100%;
+  background-color: white;
+  height: 165px;
+  .upper-header{
+    height: 100px;
+    text-align: center;
+    font-family: $font-style;
+    .logo{
+      margin: 0 40%;
+        h1{
+          font-size: 50px;
+          font-weight: 20px;
+          margin-bottom: -20px;
+          border-bottom: none !important;
+        }
+        span{
+          font-size: 20px;
+          color: gray;
+       }
+     }
+     .search-form{
+          float: left;
+          width: 330px;
+          border: 2px solid rgba(0,0,0,0.05);
+          padding: 6px 10px 6px;
+          border-radius: 150px;
+          margin-top: 50px;
+          position: relative;
+          color: rgba(0,0,0,0.7);
+          font-family: $font-style;
+          .fa{
+            position: absolute;
+            left: 15px;
+            color: rgba(0,0,0,0.4);
+            top: 30%;
+            font-size: 1.08em;
+          }
+          input[type="text"]{
+            border: none;
+            outline: none;
+            height: 22px;
+            width: 245px;
+            background: transparent;
+            box-sizing: border-box;
+            font-style:italic;
+            overflow: hidden;
+            border-right: 1px solid rgba(0,0,0,0.05);
+            letter-spacing: 0.75px;
+            font-size: 1.08em;
+          } 
+     }
+     .menu{
+    margin-top: -45px;
+    .log{
+        list-style: none;
+        position: relative;
+        right: 10px;
+        li{
+          font-size: 18px;
+          padding-left: 10px;
+          padding-right: 10px;
+          border-right: 2px solid #b1abab;
+          font-family: $font-style;
+          text-decoration: none;
+          display: inline!important;
+          a{
+            color: gray!important;
+            text-decoration: none!important;
+          &:hover{
+            border-bottom: 2px solid $greenish-blue-op;
+            text-decoration: none!important;
+          }
+          }
+        }
+      }
+            /*{
+        font-size: 30px;
+        color: gray;
+        padding: 10px 25px;
+        &:hover{
+          font-size: 33px;
+          color: $greenish-blue;
+          border-bottom: 2px solid $greenish-blue;
+        }
+
+      }*/
+     }
+  }
+  .lower-header{
+  /*  height: 90px;*/
+    text-align: center;
+    font-family: $font-style;
+    
+    .main-nav{
+      list-style: none;
+      position: relative;
+      line-height: 31px;
+      margin-top: 50px;
+      margin-bottom: 0px;
+      li{
+      display: inline!important;
+      margin: 25px;
+      a{
+      font-size: 15px;
+      color: gray !important;
+      /*transform: scale(1);*/
+       &:hover{
+        /*transform: scale(1.3);*/
+          font-size: 16px;
+          color: black !important;
+          transition: all 0.3s ease;
+          text-decoration: none;
+          border-bottom: 2px solid #000;
+        }
+      }
+    }
+    }
+  }
+}
+
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<--------HOME(PAGE-1)--------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+.bg-parallax-1{
+  /*min-height: 720px;*/
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: auto;
+  text-align: center;
+  background-attachment: fixed;
+  position: relative;
+  /*padding: 40px 0 40px 0;*/
+  height: auto;
+.overlay-desc{
+
+  background: rgba(0,0,0,0);
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  display: flex;
+  justify-content: center;
+}
+h1 {
+  z-index: 100;
+  color: white;
+  font-family: $font-style;
+  font-size: 9vw;
+  margin-top: 250px;
+  border-bottom: none;
+  
+}
+.video-container{
+  position: relative;
+}
+video{
+  width: 100%;
+  source{
+    width: 100%;
+
+  }
+}
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-----INTRO(PAGE-2)<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+#intro{
+  background-color: $whitesmoke;
+  padding-top: 2%;
+  padding-right: 6.4%;
+  padding-left: 5%;
+  padding-bottom: 2%;
+  text-align: center;
+  margin-bottom: 50px;
+ 
+
+  a {
+    color: black;
+    font-family: $font-style;
+  }
+   h1{
+      font-size: $font3;
+      text-transform: uppercase;
+      color: $black;
+      letter-spacing: 1px;
+      position: relative;
+      font-weight: bold;
+      font-family: $font-style;
+      -webkit-animation-duration: 2s;
+  -webkit-animation-delay: 0.5s;
+  -webkit-animation-iteration-count: 1;
+
+   }
+    h1:after {
+    content: url(../images/Layer.png);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 102%;
+    padding: 0px 15px;
+    background: $whitesmoke;
+  }
+ 
+.genre-ul{
+  padding-left: 10px !important;
+  padding-top: 10px !important;
+  animation-duration: 3s;
+  animation-delay: 0.8s;
+  animation-iteration-count: 1;
+} 
+ .genre-li{
+        display: inline; 
+        padding: 15px;
+        img{
+            width: 105px;
+            height: 50%;
+            padding-top: 15px;
+            padding-bottom: 5px;
+
+            transform: scale(1);
+            transition: 0.3s ease-in-out;
+            &:hover{
+              transform: scale(1.3);
+            }
+        }
+      }
+
+  }
+  
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<---------FEATURES(PAGE-3)------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+.intro2{
+ 
+  padding-right: 60px;
+  padding-left: 60px;
+  padding-bottom: 10px;
+  text-align: center;
+
+  h1{
+      font-size: $font3;
+      text-transform: uppercase;
+      color: $black;
+      letter-spacing: 1px;
+      position: relative;
+      font-weight: bold;
+      font-family: $font-style;
+        
+   }
+   h1:after {
+       content: url(../images/Layer.png);
+       position: absolute;
+       transform: translate(-50%, -50%);
+       left: 50%;
+       top: 102%;
+       padding: 0px 15px;
+       background: $white;
+  }
+
+   h6{
+        color: $black;
+        font-family: $font-style;
+        font-size: $font3;
+        padding-top: 20px;
+      }
+
+  .icon{
+        height: 230px;
+        width: 175px;
+        line-height: 175px;
+        max-width: 150%;
+        
+        display: block;
+        overflow: hidden;
+        color: $white;
+        font-size: $font4;
+        text-align: center;
+       
+        vertical-align: middle;
+        position: relative;
+        margin: 0 auto 50px;
+        box-sizing: border-box;
+        transition: all 0.5s ease;
+        &:hover{
+          font-size: 70px;
+          height:235px;
+          width: 180px;
+         
+          box-shadow: 0px 0px 30px 0 $greenish-blue;
+        }
+      }
+      #book-ad{
+        width: 100%;
+        height: 100%;
+      }
+     p{
+      padding-bottom: 10px;
+     }
+   }
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-------SPLIT-SCREEN(PAGE-4)----------------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+.responsive-design {
+  display: flex;
+  position: relative;
+  z-index: 1;
+  background: $faded-gray;
+
+  .gray-half-bg {
+    
+    width: 50%;
+    height: 100%;
+    position: absolute;
+
+  }
+
+  .right-img {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      position: relative;
+      width: 100%;
+      height: 460px;
+
+    }
+  }
+  .myCarousel {
+          padding-bottom: 100px;
+  }
+  .carousel {
+    position: relative;
+    text-align: center;
+  }
+}
+
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-------PARALX(PAGE-5)<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+.paralx{
+  background-image: url("../images/bg.jpg");
+  min-height: 250px;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+
+  #swag{
+    padding-top: 70px;
+    padding-bottom: 70px;
+    padding-right: 5px;
+    font-family: $font-style;
+    color: $black;
+    letter-spacing: 5px;
+    font-size: $font2;
+
+    #spn{
+         padding-top: 15px;
+         font-size: $font5;
+         color: $black;
+         padding-bottom: 10px;
+         -webkit-animation-duration: 2s;
+        -webkit-animation-delay: 0.1s;
+        -webkit-animation-iteration-count: 1;
+        }
+       
+    }
+
+ #spn1{
+        font-size: $font2;
+        color: $black;
+        margin-top: 20px;
+        margin-bottom: 0;
+        -webkit-animation-duration: 2s;
+        -webkit-animation-delay: 0.1s;
+        -webkit-animation-iteration-count: 1;
+       }
+       .fa-chevron-down {
+        padding-left: 4px;
+       }
+}
+
+
+.dwn-btn{
+  padding-right: 2px;
+  padding-left: 2px;
+  width: 40px;
+  height: 40px;
+  background-color: $dark-greenish-blue;
+  display: inline-block;
+  margin: 10px auto 20px;
+  color: $white;
+  font-size: 16px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 50%;
+
+    -webkit-animation-delay: 1.5s;
+ 
+  &:hover{
+    background-color: $greenish-blue;
+    color: $white;
+  }
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<------------PORTFOLIO(PAGE-6)<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+.portfolio{
+.col-md-4{
+  padding-top: 80px;
+}
+.image{
+  width: 100%;
+  display: block;
+  height: auto;
+ 
+  position: relative;
+  
+}
+.overly{
+   width: 100%;
+  display: block;
+  height: auto;
+ 
+  position: relative;
+}
+.overlay{
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: $greenish-blue-op;
+  overflow: hidden;
+  width: 0;
+  height: auto;
+  transition: 0.5s ease;
+  text-align: center;
+}
+.overly:hover .overlay{
+  width: 100%;
+}
+
+.glyphicon {
+  color: $white;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+#gly{
+  color: $white;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-----------99-PROBLEMS(PAGE-7)<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+.ignite{
+  background-color: $dark-black;
+  padding: 70px 0;
+  text-align: center;
+}
+
+.ignite-btn{
+  display: inline-block;
+  padding: 25px 40px;
+  color: $white;
+  border: solid 1px $white;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+
+  &:hover{
+     color: $greenish-blue;
+  border-color: $greenish-blue;
+  text-decoration: none;
+  }
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<----TEAM(PAGE-8)-----<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+#team{
+  h1{
+      font-size: $font3;
+      text-transform: uppercase;
+      color: $black;
+      letter-spacing: 1px;
+      padding-top: 80px;
+      padding-bottom: 20px;
+      font-weight: bold;
+      font-family: $font-style;
+      position: relative;
+   }
+ h1:after {
+    content: url("../images/Layer.png");
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    
+    top: 102%;
+    padding: 0px 15px;
+    background: $white;
+  }
+
+
+}
+
+.section-padding{
+  padding: 0 0 70px;
+}
+
+  #a2 {
+  color: $black;
+  font-family: $font-style;
+  font-size: $font3;
+  padding-top: 20px;
+}
+
+
+
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<------SUBSCRIBE(PAGE-9)-------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+.subscribe{
+
+  padding-top: 80px;
+  padding-bottom: 80px;
+    background-image: url("../images/keyboard-bg.jpg");
+    min-height: 400px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+  h1{
+    margin-top: 20px;
+    display: inline-block;
+    color: $white !important;
+    font-family: $font-style;
+    margin-bottom: 60px;
+    font-size: 1.1em;
+    margin: 0.67em 0;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    border: hidden;
+  }
+  i{
+    display: inline-block;
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  input{
+    transition: background 0.55s ease;
+    &[type=text]{
+
+      background-color: $trans-gray;
+      border: solid 1px;
+      border-color: $white;
+      padding: 20px;
+      width: 30%;
+      color: $white;
+      line-height: normal;
+      vertical-align: baseline;
+      font-family: $font-style;
+   
+    }
+    &[type=submit]{
+
+      background-color: $greenish-blue-op;
+      border: solid 1px;
+      border-color: $greenish-blue-op;
+      padding: 20px;
+      color: $white;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      line-height: normal;
+      font-family: $font-style;
+      
+    }
+      &[type=submit]:hover{
+        background-color: $greenish-blue;
+        
+      
+      }
+       &[type=text]:hover{
+        background-color: $trans-gray-hover;
+
+      }
+}
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<------CONTACT(PAGE-10)-------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+.up-btn{
+  transition: 0.5s ease;
+  width: 50px;
+  height: 50px;
+  background-color: $greenish-blue-op;
+  display: block;
+  margin: 0 auto;
+  color: $white;
+  font-size: 20px;
+  line-height: 45px;
+  text-align: center;
+  border-radius: 50px;
+  top: -26px;
+  position: relative;
+  &:hover{
+    background-color: $greenish-blue;
+    color: white;
+  }
+}
+
+.contact{
+  
+  background-color: $whitesmoke;
+
+  h1{
+  font-size: $font3;
+  text-transform: uppercase;
+  color: $black;
+  letter-spacing: 1px;
+  padding-top: 0px;
+  padding-bottom: 20px;
+  font-weight: bold;
+  font-family: $font-style;
+  position: relative;
+  } 
+ h1:after {
+    content: url("../images/Layer.png");
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 102%;
+    padding: 0px 15px;
+    background: $whitesmoke;
+  }
+
+h2{
+  font-size: $font3;
+  text-transform: uppercase;
+  color: $greenish-blue;
+  letter-spacing: 1.5px;
+  padding-top: 15px;
+  padding-bottom: 0px;
+  font-weight: bold;
+  font-family: $font-style;
+
+}
+
+.light-box{
+  transition: all 0.5s ease;
+  background-color: $white;
+  text-align: center;
+  &:hover{
+    border-bottom: 4px solid $greenish-blue;
+    transform: translate3d(0,-5px, 2px);
+    
+  }
+  
+}
+}
+
+.contact-details{
+  margin: 20px 0;
+}
+
+#fa-i{
+  color: black;
+  padding-bottom: 0px;
+  font-size: 25px;
+
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<-------FOOTER-------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+footer{
+
+  background-color: $dark-black;
+  width: 100%;
+  height: 100px;
+  
+   a{
+    color: $gray;
+    &:hover{
+            color: $greenish-blue;
+            text-decoration: none; 
+           }
+    }
+  p{
+    color: $white;
+    font-family: $font-style;
+    padding-top: 25px;
+  }
+ 
+
+}
+
+.legals{
+  text-align: left;
+ 
+}
+.credit{
+  text-align: right;
+  }
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<------------"SOCIAL ICONS"----------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+.social{
+  padding-top: 20px;
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+
+ul#social-button{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+}
+.social-btn{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $black;
+  color: $white;
+  font-size: 17px;
+  line-height: 40px;
+  text-align: center;
+  position: relative;
+  margin: 0 auto 10px;
+  box-sizing: border-box;
+  display: inline-block;
+  &:hover{
+    background-color: $greenish-blue;
+    color: $white;
+    transform: translateY(-10px);
+
+  }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<--------CAROUSELS-------------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+.myCarousel{
+
+    h1{
+      font-size: $font3;
+      text-transform: uppercase;
+      color: $black;
+      letter-spacing: 1px;
+      padding-top: 80px;
+      padding-bottom: 20px;
+      font-weight: bold;
+      font-family: $font-style;
+      position: relative;
+   }
+    h1:after {
+    content: url("../images/Layer.png");
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    
+    top: 102%;
+    padding: 0px 15px;
+    background: #fafafa;
+  }
+}
+
+
+.carousel-indicators{
+    bottom: -40px;
+    li{
+    margin-top: 100px;
+    border-radius: 13px;
+    height: 13px;
+    width: 13px;
+    margin: 2px;
+    font-weight: 800;
+    color: black;
+    border: 3px solid $dark-gray;
+    bottom: 50px;
+    cursor: pointer;
+
+
+  }
+
+}
+ ol.carousel-indicators li.active{
+
+   height: 13px;
+  width: 13px;
+  background-color: $dark-black;
+  }
+
+#carsl{
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: left;
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+#return-to-top {
+  z-index: 99;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: $black-gray;
+    background: $dark-black;
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+
+  i {
+    color: $white;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+}
+#return-to-top:hover {
+    background: $dark-black;
+  i {
+    color: $white;
+    top: 5px;
+  }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+@import 'media-query';
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-----END------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/

@@ -1,0 +1,158 @@
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<------nav------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+@media only screen and (max-width: $md){
+  .nav{
+    top: 3%;
+    left: -7%;
+  }
+    .sidenav {
+      a{
+      padding: 20px 8px 20px 15px;
+      font-size: 25px;
+      }
+    li{
+      margin-left: 20%;
+      margin-right: 20%;
+    }
+    }
+
+  
+}
+ 
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+    a {
+      font-size: 18px;
+    }
+  }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<------home------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+  
+  @media only screen and (max-width: $xs)
+  {
+  .bg-parallax-1{
+    min-height: 400px;
+    .inner{
+      padding-top: 110px;
+    }
+    }
+  }
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<------intro------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+#intro{
+   @media (min-width: $sm+1) and (max-width: $md){
+    
+		    p{
+		      padding-right: 70px;
+		      padding-left: 70px;
+		      text-align: center;
+		      padding-top: 1%;
+		      padding-bottom: 1%;
+		    }
+		 }
+		  @media (min-width: $md+1){
+		      p{
+		      padding-right: 135px;
+		      padding-left: 135px;
+		      text-align: center;
+		      padding-top: 1%;
+		      padding-bottom: 1%;
+		    }
+		  }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<------split-screen------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+	@media only screen and (max-width: $sm){
+      .responsive-design{
+            background: $faded-gray;
+            .myCarousel h1:after{
+                background: $faded-gray;
+            }
+
+        .gray-half-bg {
+          visibility: hidden;
+        }
+      .left-img {
+                    display: none;
+        img {
+        visibility: hidden;
+      }
+    }
+  }}
+.responsive-design{
+  @media only screen and (min-width: $sm+1) and (max-width: $md){
+    .left-img img{
+      right: -140px;
+    }
+  }
+  @media only screen and (min-width: $md+1) and (max-width: $lg) {
+     .left-img img{
+      right: -180px;
+    }
+  }
+  @media only screen and (min-width: $lg+1){
+     .left-img img{
+      right: -220px;
+    }
+  }
+}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<------subscribe------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+@media only screen and (max-width: $mobile){  
+.subscribe input[type=text]{
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<------footer------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+footer{
+@media only screen and (max-width: $xs){
+    footer{
+      height: 125px;
+
+    }
+    p{
+      padding-top: 5px;
+      font-size: 11px;
+
+    }
+    .col-xs-6{
+      width: 100%;
+      margin-top: -11px;
+      margin-bottom: -20px;
+      padding-top: 2px;
+    }
+      .legals{
+        text-align: center;
+      }
+      .credit{
+        text-align: center;
+      }
+      
+    
+  }
+}
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<------carousel------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+
+@media screen and (max-width: $sm){
+  .myCarousel {
+      width: 100%;
+      #carsl{
+         text-align: center;
+         padding-left: 2%;
+         padding-right: 2%;
+        }
+      }}
+      
+       @media screen and (min-width: $md){
+      .carousel-indicators {
+        bottom: -40px;
+          }
+    }
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-----END------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
