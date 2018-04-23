@@ -1,5 +1,16 @@
 <?php 
-  include 'session.php';
+  if(file_exists('config/config.php'))
+    { 
+      include 'config/config.php';      
+    } 
+    else 
+    {
+      throw new Exception('Unable to include Files.');  
+    }
+    error_reporting(E_ERROR | E_PARSE);
+    ini_set("display_errors", ERROR_FLAG);
+    ini_set('memory_limit', '-1');
+
 ?>
 
 <!DOCTYPE html>
@@ -8,18 +19,13 @@
   <title>Books ebook_store</title>
   <link rel="icon" type="images/png" href="images/book.png">
   <meta charset="utf-8">
-  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width,height=device-height">
-  
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width,height=device-height"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round&amp;subset=hebrew,latin-ext,vietnamese" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-    <link rel="stylesheet" type="text/css" href="stylesheets/animate.css">
-    
-    
+  <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/animate.css">   
 </head>
-
 <body>
 
  <header id="home">      
@@ -521,16 +527,6 @@
 
 <script src="javascripts/javas.js"></script>
 <script src="javascripts/wow.min_.js"></script>
-<script>
-  wow = new WOW(
-  {
-    boxClass: 'wow',
-    animateClass: 'animated',
-    offset: 0,
-    mobile: true,
-    live: true
-  })
-  wow.init();
-</script>
+<script src="javascripts/comman.js"></script>
 </body>
 </html>
