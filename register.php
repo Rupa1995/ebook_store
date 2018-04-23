@@ -1,3 +1,39 @@
+<?php 
+  include 'db.php';
+
+   session_start();
+   
+   if($_SERVER["REQUEST_METHOD"] == "POST") {
+      // username and password sent from form 
+      
+      $myusername = mysqli_real_escape_string($conn,$_POST['username_login']);
+      $mypassword = mysqli_real_escape_string($conn,$_POST['password_login']); 
+      
+      $sql = "SELECT uname FROM register WHERE uname = '$myusername' and passwrd = '$mypassword'";
+      $result = mysqli_query($conn,$sql);
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      $active = $row['active'];
+      
+      $count = mysqli_num_rows($result);
+      
+      // If result matched $myusername and $mypassword, table row must be 1 row
+    
+      if($count == 1) {
+       
+         $_SESSION['login_user'] = $myusername;
+         if($myusername == 'Admin@admin'){
+          header("location: /admin/home.php");
+         }
+         else{
+            header("location: index.php");
+        }
+      }
+      else {
+         $error = "Your Login Name or Password is invalid";
+         echo $error;
+      }
+   }
+?> 
 
 <!DOCTYPE html>
 <html>
@@ -71,7 +107,8 @@
     				</div>
 	           	</div>
 	           	<p class="info-text">- OR USING EMAIL -</p>
-	          	<form class="register-form" enctype="multipart/form-data" id="login_form" runat="server">
+	          	<!-- <form class="register-form" enctype="multipart/form-data" id="login_form" runat="server"> -->
+                <form action="" method="post">
 	           		<fieldset class="register-input-container">
 	           		
 	           			<div class="register-input-item">
@@ -209,37 +246,37 @@
       	passwrd.style.border="";
 
       }
-	 $(function(){
-	$('#login_form').on('submit',function(event){
-		event.preventDefault();
-		var formData = new FormData(this);
-		if($('.user-name').val()!="" && $('.user-password').val()!=""){
+	//  $(function(){
+	// $('#login_form').on('submit',function(event){
+	// 	event.preventDefault();
+	// 	var formData = new FormData(this);
+	// 	if($('.user-name').val()!="" && $('.user-password').val()!=""){
 			
-			$.ajax({
-				type: 'POST',
-				url: 'login.php',
-				data: formData,
-				contentType: false,
-				cache: false,
-				processData: false,
-				success: function(data){
-					//alert('form was submitted');
-					//$('#output').val(data);
-					$('#body_log').empty();
-					//$('.login-box').empty();
-					$('#body_log').append(data);
-				},
-				error: function(data){
-					alert('not submitted');
+	// 		$.ajax({
+	// 			type: 'POST',
+	// 			url: 'login.php',
+	// 			data: formData,
+	// 			contentType: false,
+	// 			cache: false,
+	// 			processData: false,
+	// 			success: function(data){
+	// 				//alert('form was submitted');
+	// 				//$('#output').val(data);
+	// 				$('#body_log').empty();
+	// 				//$('.login-box').empty();
+	// 				$('#body_log').append(data);
+	// 			},
+	// 			error: function(data){
+	// 				alert('not submitted');
 
-				},
-				async: false
+	// 			},
+	// 			async: false
 
-			});
-		}
+	// 		});
+	// 	}
 		
-	});
- });
+	// });
+ // });
  
 </script>
 </body>

@@ -189,3 +189,58 @@ a:hover {
   width: 50px;
   -webkit-transition: -webkit-transform 0.5s ease-in;
 }
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+/* line 165, ../sass/admin.scss */
+#add_category input[type=text] {
+  margin-left: 15%;
+  width: 50%;
+  outline: none;
+  border-radius: 5px;
+  padding: 8px;
+}
+/* line 172, ../sass/admin.scss */
+#add_category button {
+  float: right;
+  background-color: #3dc9b3;
+  color: #fff;
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-family: "Varela Round", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  padding: 8px;
+}
+
+/* line 186, ../sass/admin.scss */
+table {
+  font-family: "Varela Round", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* line 194, ../sass/admin.scss */
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* line 203, ../sass/admin.scss */
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+/* line 206, ../sass/admin.scss */
+#add_book {
+  border: 1px solid rgba(61, 201, 179, 0.5);
+  background: #3dc9b3;
+  padding: 10px;
+  float: right;
+  color: white;
+  border-radius: 5px;
+}

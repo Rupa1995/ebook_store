@@ -5,7 +5,7 @@
 <html>
 <head>
   <title>admin</title>
-  <link rel="icon" type="images/png" href="images/book.png">
+  <link rel="icon" type="images/png" href="/..images/book.png">
   <meta charset="utf-8">
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width,height=device-height">
   
@@ -35,7 +35,7 @@
                                 echo '<a href="../logout.php" class="login_user"><i class = "fa fa-user" style = "font-size : 40px"></i></a>';
                                 } 
                                 else{ 
-                                  echo '<a href="register.php?action=logout" class="register_user">Login/SignUp</a>';
+                                  echo '<a href="../register.php?action=logout" class="register_user">Login/SignUp</a>';
                                   }
                                ?>
 	                    </li>
@@ -53,7 +53,7 @@
 	<div class="content container">
 		<div class="col-md-12 container">
 		<div class="link_box col-md-4">
-			<a href="admin/book_category.php">
+			<a href="book_category.php">
 				<div class="box_img">
 						<img src="../images/categ6.png" height="100px" width="150px">
 				</div>
@@ -61,11 +61,11 @@
 			</a>
 		</div>
 		<div class="link_box col-md-4">
-			<a href="">
+			<a href="book.php">
 				<div class="box_img">
 					<img src="../images/categ.gif" height="100px" width="150px">
 				</div>
-				<div class="box_text">Sub-Categories</div>
+				<div class="box_text">Book List</div>
 			</a>
 		</div>
 		<div class="link_box col-md-4">

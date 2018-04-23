@@ -81,16 +81,42 @@
 	<div class="category">
 		<a href="">
 			<img src="../images/categ6.png">
-			<div class="box_text"><h2>Books Categories</h2></div>
+			<div class="box_text"><h2>Book List</h2></div>
 		</a>
 	</div>
 	<hr>
 	<div class="clearfix"></div>
 	<div>
-		<form id="add_category">
-			<input type="text" name="category">
-			<button><b>+</b> Add Category</button>
-		</form>
+		<div>
+			<a href="" id="add_book"><b>+</b> Add Book</a>
+		</div>
+		<div class="clearfix"></div>
+		<table>
+			<tr>
+				<th>id</th>
+				<th>name</th>
+				<th>price</th>
+				<th>author</th>
+				<th>publisher</th>
+				<th>Category</th>
+			</tr>
+			<tr>
+				<td>01</td>
+				<td>phy</td>
+				<td>Rs 450</td>
+				<td>xyz</td>
+				<td>Abc</td>
+				<td>Crime Thriller</td>
+			</tr>
+			<tr>
+				<td>02</td>
+				<td>phy</td>
+				<td>Rs 450</td>
+				<td>xyz</td>
+				<td>Abc</td>
+				<td>Horror</td>
+			</tr>
+		</table>
 	</div>
 </div>
 
