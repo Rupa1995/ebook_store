@@ -1,32 +1,40 @@
 <?php 
-  include 'db.php';
-
+   include 'includes/db.php';
    session_start();
    
    if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and password sent from form 
-      
       $myusername = mysqli_real_escape_string($conn,$_POST['username_login']);
       $mypassword = mysqli_real_escape_string($conn,$_POST['password_login']); 
+      $mypassword = md5($mypassword);
+
+      $sql = "
+            SELECT 
+             user_admin_flag AS admin_flag,
+             user_name AS uname
+            FROM 
+              ".LOGIN_TABLE." 
+            WHERE 
+              user_name = '$myusername' AND 
+              user_password = '$mypassword' AND
+              user_isactive = '1'";
       
-      $sql = "SELECT uname FROM register WHERE uname = '$myusername' and passwrd = '$mypassword'";
       $result = mysqli_query($conn,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $active = $row['active'];
-      
+      $admin_flag = $row['admin_flag'];
+      $uname = $row['uname'];
       $count = mysqli_num_rows($result);
       
-      // If result matched $myusername and $mypassword, table row must be 1 row
-    
-      if($count == 1) {
-       
-         $_SESSION['login_user'] = $myusername;
-         if($myusername == 'Admin@admin'){
-          header("location: /admin/home.php");
+      if($count == 1) 
+      {
+         $_SESSION['login_user'] = $uname;
+         if($admin_flag == '1')
+         {
+          header("location: ./admin/home.php");
          }
-         else{
+         else
+         {
             header("location: index.php");
-        }
+         }
       }
       else {
          $error = "Your Login Name or Password is invalid";
@@ -42,12 +50,9 @@
 	<link rel="icon" type="images/png" href="images/book.png">
   <meta charset="utf-8">
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width,height=device-height">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
   <link href="https://fonts.googleapis.com/css?family=Varela+Round&amp;subset=hebrew,latin-ext,vietnamese" rel="stylesheet">
-
   <link rel="stylesheet" type="text/css" href="stylesheets/register.css">
 </head>
 <body id="body_log">
@@ -189,94 +194,11 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<!-- <script src="javascripts/register.js"></script> -->
-
+<script src="javascripts/register.js"></script>
+<script src="javascripts/register_new.js"></script>
 <script type="text/javascript">
-	$('.message a').click(function() {
-    $('.form1').animate({height: "toggle", opacity: "toggle"}, "slow");
-     $('.form2').animate({height: "toggle", opacity: "toggle"}, "slow");
-  }); 
-	var passwrd = document.getElementById('password');
-	var passwrd_confirm = document.getElementById('password_confirm');
-	var mobile = document.getElementById('mobile');
-	var error = document.getElementById('errors');
-	var error2 = document.getElementById('password_error');
-      function phoneverify()
-          {
-            
-            var phoneno = /^\+91?\d{10}$/;
-            while(mobile.value !=""){
-            if(mobile.value.match(phoneno))
-            {
-               //alert("Phone Number accepted");
-                return true;
-            }
-            else
-            {
-               error.innerHTML= "enter valid Phone Number";
-               mobile.style.border = "1px solid red";
-               error.style.color = "red";
-               return false;
 
-            }
 
-          }
-      }
-      function passwordverify(){
-      	if(passwrd.value == passwrd_confirm.value){
-      		//alert("password match");
-      		return true;
-      	}
-      	else{
-
-      		error2.innerHTML="password do not match";
-      		password_confirm.style.border="1px solid red";
-      		passwrd.style.border="1px solid red";
-      		error2.style.color = "red";
-      	}
-      }
-      function resetvalue(){
-      	error.innerHTML="";
-      	mobile.innerHTML="";
-      	mobile.style.border="";
-      	error2.innerHTML="";
-      	passwrd.style.innerHTML="";
-      	
-      	password_confirm.style.border="";
-      	passwrd.style.border="";
-
-      }
-	//  $(function(){
-	// $('#login_form').on('submit',function(event){
-	// 	event.preventDefault();
-	// 	var formData = new FormData(this);
-	// 	if($('.user-name').val()!="" && $('.user-password').val()!=""){
-			
-	// 		$.ajax({
-	// 			type: 'POST',
-	// 			url: 'login.php',
-	// 			data: formData,
-	// 			contentType: false,
-	// 			cache: false,
-	// 			processData: false,
-	// 			success: function(data){
-	// 				//alert('form was submitted');
-	// 				//$('#output').val(data);
-	// 				$('#body_log').empty();
-	// 				//$('.login-box').empty();
-	// 				$('#body_log').append(data);
-	// 			},
-	// 			error: function(data){
-	// 				alert('not submitted');
-
-	// 			},
-	// 			async: false
-
-	// 		});
-	// 	}
-		
-	// });
- // });
  
 </script>
 </body>
