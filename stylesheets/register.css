@@ -1288,3 +1288,13 @@ a h1 {
 }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+.welcome-modal .modal-content{padding:40px;}
+.welcome{font-family:"Roboto-Medium",Arial, Helvetica, sans-serif;font-size:40px;color:#51A2DA;margin-bottom:30px;margin-top:0;}
+.message-welcome{font-family:"Roboto-Medium"Arial, Helvetica, sans-serif;font-size:15px;margin-bottom:30px;}
+.btn-yellow{background:#F1C317;color:#fff;border-radius:0px;text-transform: uppercase;}
+.btn-yellow:hover, .btn-yellow:focus{background:#E0B004;color:#fff;}
+.btn-blue{background:#548dd4;color:#fff;border-radius:0px;}
+.btn-blue:hover, .btn-blue:focus{background:#3671b9;color:#fff;}
+.btn-grey{background:#f79646;color:#fff;border-radius:0px;}
+.btn-grey:hover, .btn-grey:focus{background:#ee8630;color:#fff;}
+.red{color:#fd3f41;}
