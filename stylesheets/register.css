@@ -1288,3 +1288,47 @@ a h1 {
 }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+.welcome-modal .modal-content{padding:40px;}
+.welcome{font-family:"Roboto-Medium",Arial, Helvetica, sans-serif;font-size:40px;color:#51A2DA;margin-bottom:30px;margin-top:0;}
+.message-welcome{font-family:"Roboto-Medium"Arial, Helvetica, sans-serif;font-size:15px;margin-bottom:30px;}
+.btn-yellow{background:#F1C317;color:#fff;border-radius:0px;text-transform: uppercase;}
+.btn-yellow:hover, .btn-yellow:focus{background:#E0B004;color:#fff;}
+.btn-blue-bor{background:none;border:solid 2px #0070c0;border-radius:0;color:#0070c0;font-size:13px !important;text-transform:uppercase;font-family:"Roboto-Medium",Arial, Helvetica, sans-serif; margin-left: 5px; margin-right: 5px;} 
+.btn-blue-bor:hover{color:#333;border:solid 2px #ECB922;}
+.btn-grey{background:#d8d8d8;border:solid 2px #d8d8d8;border-radius:0;color:#333;font-size:13px !important;text-transform:uppercase;font-family:"Roboto-Medium",Arial, Helvetica, sans-serif;margin-left: 5px !important;margin-right: 5px !important;}
+.btn-grey:hover{background:#b1b1b1;border:solid 2px #b1b1b1;color:#333;}
+.btn-orange{background:#f79646;border:solid 2px #f79646;border-radius:0;color:#fff;font-size:13px !important;text-transform:uppercase;font-family:"Roboto-Medium",Arial, Helvetica, sans-serif;}
+.btn-orange:hover{background:#ee8630;border:solid 2px #ee8630;color:#fff;}
+.btn-orange:focus{color:#fff;}
+.red-btn{background:#c00000;border:solid 2px #c00000;border-radius:0;color:#fff;font-size:13px !important;text-transform:uppercase;font-family:"Roboto-Medium",Arial, Helvetica, sans-serif;margin-left: 5px !important;margin-right: 5px !important;}
+.red-btn:hover{background:#a40000;border:solid 2px #a40000;color:#fff;}
+.red-btn:focus{color: #fff;}
+
+.green-btn{background:#00b050;border:solid 2px #00b050;border-radius:0;color:#fff;font-size:12px !important;text-transform:uppercase;font-family:"Roboto-Medium",Arial, Helvetica, sans-serif;margin-left: 5px !important;margin-right: 5px !important;}
+.green-btn:hover{background:#009343;border:solid 2px #009343;color:#fff;}
+.green-btn:focus{background:#009343;border:solid 2px #009343;color:#fff;}
+.green-btn{background:#00b050;border:solid 2px #00b050;border-radius:0;color:#fff;font-size:12px !important;text-transform:uppercase;font-family:"Roboto-Medium",Arial, Helvetica, sans-serif;margin-left: 5px !important;margin-right: 5px !important;}
+.green-btn:hover{background:#009343;border:solid 2px #009343;color:#fff;}
+.green-btn:focus{color:#fff;}
+.btn-dgrey{background:#7f7f7f;border:solid 2px #7f7f7f;border-radius:0;color:#fff;font-size:12px !important;text-transform:uppercase;font-family:"Roboto-Medium",Arial, Helvetica, sans-serif;margin-left: 5px !important;margin-right: 5px !important;}
+.btn-dgrey:hover{background:#5a5a5a;border:solid 2px #5a5a5a;color:#fff;}
+.btn-blue{background:#548dd4;border:solid 2px #548dd4;border-radius:0;color:#fff;font-size:12px !important;text-transform:uppercase;font-family:"Roboto-Medium",Arial, Helvetica, sans-serif;}
+.btn-blue:hover{background:#3671b9;border:solid 2px #3671b9;color:#fff;}
+.btn-blue:focus{color: #fff;}
+
+.red{color:#fd3f41;}
+.fa-user{cursor: pointer;}
+
+.modal-header{background:#363B65;font-size:13px;color:#fff;padding:10px;}
+.modal-header{background:#363B65;border-radius:5px 5px 0 0; color:#fff;text-align:center;padding:8px 10px;}
+.modal-header h4{font-size:16px;}
+.modal-footer{background:#F5F5F5;}
+
+.btn-file {position: relative;overflow: hidden;border:solid 1px #d9d9d9;color:#6a6a6a;background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f1f1f1),color-stop(1, #dedede));
+background-image: -o-linear-gradient(bottom, #f1f1f1 0%, #dedede 100%);
+background-image: -moz-linear-gradient(bottom, #f1f1f1 0%, #dedede 100%);
+background-image: -webkit-linear-gradient(bottom, #f1f1f1 0%, #dedede 100%);
+background-image: -ms-linear-gradient(bottom, #f1f1f1 0%, #dedede 100%);
+background-image: linear-gradient(to bottom, #f1f1f1 0%, #dedede 100%);
+-webkit-box-shadow:0 2px 0px 0 #b3b3b3;-moz-box-shadow:0 2px 0px 0 #b3b3b3;box-shadow:0 2px 0px 0 #b3b3b3;border-width:1px 1px 1px 1px ;    }
+.btn-file input[type=file] {position: absolute;top: 0;right: 0; min-width: 100%;min-height: 100%;font-size: 100px;text-align: right;filter: alpha(opacity=0);opacity: 0;outline: none;cursor: inherit;display: block;}
