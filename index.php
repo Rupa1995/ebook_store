@@ -7,6 +7,7 @@
     {
       throw new Exception('Unable to include Files.');  
     }
+    session_start();
     error_reporting(E_ERROR | E_PARSE);
     ini_set("display_errors", ERROR_FLAG);
     ini_set('memory_limit', '-1');
@@ -24,7 +25,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round&amp;subset=hebrew,latin-ext,vietnamese" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/animate.css">   
+  <link rel="stylesheet" type="text/css" href="stylesheets/animate.css"> 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>     
 </head>
 <body>
 
@@ -42,21 +45,25 @@
                 <span>ebook store</span>
               </div>  
               <div class="pull-right menu">
-                <div class="right-nav">
-                  <ul class="log">
-                    <li><a href="#">Wishlist</a></li>
-                    <li><a href="#">Cart</a></li>
-                     <li>
-                      <?php 
-                      if(isset($_SESSION['login_user'])){
-                        echo '<a href="logout.php" class="login_user">Logout</a>';
-                        } 
-                        else{ 
-                          echo '<a href="register.php?action=logout" class="register_user">Login/SignUp</a>';
-                          }
-                       ?>
-                    </li>
-                </ul>
+                <div class="right-nav"  style="margin-right:77%;">
+                  <div class="dropdown">
+                    <i class = "fa fa-user dropdown-toggle" style = "font-size : 40px" data-toggle="dropdown"></i>
+                        <ul class="dropdown-menu">
+                         <?php 
+                              if(isset($_SESSION['login_user']))
+                              {
+                                echo '<li><a href="#">Edit Profile</a></li>';
+                                echo '<li><a href="#">Wishlist</a></li>';
+                                echo '<li><a href="#">Order</a></li>';
+                                echo '<li><a href="./logout.php" class="login_user">Logout</i></a></li>';
+                              } 
+                              else
+                              { 
+                                echo '<li><a href="./register.php?action=logout" class="register_user">Login/SignUp</a></li>';
+                               }
+                             ?>
+                      </ul>
+                  </div> 
                 </div>
               </div>
             </div>
