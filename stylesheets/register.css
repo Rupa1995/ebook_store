@@ -1298,3 +1298,4 @@ a h1 {
 .btn-grey{background:#f79646;color:#fff;border-radius:0px;}
 .btn-grey:hover, .btn-grey:focus{background:#ee8630;color:#fff;}
 .red{color:#fd3f41;}
+.fa-user{cursor: pointer;}
