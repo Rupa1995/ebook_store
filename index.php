@@ -25,7 +25,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round&amp;subset=hebrew,latin-ext,vietnamese" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/animate.css">   
+  <link rel="stylesheet" type="text/css" href="stylesheets/animate.css"> 
+
 </head>
 <body>
 
@@ -99,14 +100,14 @@
           <h1 class="wow fadeInDown">Shop by genre</h1>
             <div class="genre-icons container">
               <ul class="genre-ul col-md-12 col-sm-12 hidden-xs wow zoomIn">
-                <li class="genre-li"><a href="#"><img src="/images/Literature-and-Fiction.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="/images/ChildrenYoung-Adult.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="/images/CrimeThriller.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="/images/Romance.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="/images/ExamCentral.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="/images/Sci-fantasy.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="/images/Textbooks.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="/images/Editor_sCorner.png"></a></li>
+                <li class="genre-li"><a href="#"><img src="images/Literature-and-Fiction.png"></a></li>
+                <li class="genre-li"><a href="#"><img src="images/ChildrenYoung-Adult.png"></a></li>
+                <li class="genre-li"><a href="#"><img src="images/CrimeThriller.png"></a></li>
+                <li class="genre-li"><a href="#"><img src="images/Romance.png"></a></li>
+                <li class="genre-li"><a href="#"><img src="images/ExamCentral.png"></a></li>
+                <li class="genre-li"><a href="#"><img src="images/Sci-fantasy.png"></a></li>
+                <li class="genre-li"><a href="#"><img src="images/Textbooks.png"></a></li>
+                <li class="genre-li"><a href="#"><img src="images/Editor_sCorner.png"></a></li>
             </ul>
       </div>
         </div>
