@@ -1293,6 +1293,7 @@ a h1 {
 .message-welcome{font-family:"Roboto-Medium"Arial, Helvetica, sans-serif;font-size:15px;margin-bottom:30px;}
 .btn-yellow{background:#F1C317;color:#fff;border-radius:0px;text-transform: uppercase;}
 .btn-yellow:hover, .btn-yellow:focus{background:#E0B004;color:#fff;}
+<<<<<<< HEAD
 .btn-blue-bor{background:none;border:solid 2px #0070c0;border-radius:0;color:#0070c0;font-size:13px !important;text-transform:uppercase;font-family:"Roboto-Medium",Arial, Helvetica, sans-serif; margin-left: 5px; margin-right: 5px;} 
 .btn-blue-bor:hover{color:#333;border:solid 2px #ECB922;}
 .btn-grey{background:#d8d8d8;border:solid 2px #d8d8d8;border-radius:0;color:#333;font-size:13px !important;text-transform:uppercase;font-family:"Roboto-Medium",Arial, Helvetica, sans-serif;margin-left: 5px !important;margin-right: 5px !important;}
@@ -1332,3 +1333,11 @@ background-image: -ms-linear-gradient(bottom, #f1f1f1 0%, #dedede 100%);
 background-image: linear-gradient(to bottom, #f1f1f1 0%, #dedede 100%);
 -webkit-box-shadow:0 2px 0px 0 #b3b3b3;-moz-box-shadow:0 2px 0px 0 #b3b3b3;box-shadow:0 2px 0px 0 #b3b3b3;border-width:1px 1px 1px 1px ;    }
 .btn-file input[type=file] {position: absolute;top: 0;right: 0; min-width: 100%;min-height: 100%;font-size: 100px;text-align: right;filter: alpha(opacity=0);opacity: 0;outline: none;cursor: inherit;display: block;}
+=======
+.btn-blue{background:#548dd4;color:#fff;border-radius:0px;}
+.btn-blue:hover, .btn-blue:focus{background:#3671b9;color:#fff;}
+.btn-grey{background:#f79646;color:#fff;border-radius:0px;}
+.btn-grey:hover, .btn-grey:focus{background:#ee8630;color:#fff;}
+.red{color:#fd3f41;}
+.fa-user{cursor: pointer;}
+>>>>>>> branch 'master' of https://github.com/Rupa1995/ebook_store.git

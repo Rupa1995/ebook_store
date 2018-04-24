@@ -7,6 +7,7 @@
     {
       throw new Exception('Unable to include Files.');  
     }
+    session_start();
     error_reporting(E_ERROR | E_PARSE);
     ini_set("display_errors", ERROR_FLAG);
     ini_set('memory_limit', '-1');
@@ -15,7 +16,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Books ebook_store</title>
+  <title>Ebook Store</title>
   <link rel="icon" type="images/png" href="images/book.png">
   <meta charset="utf-8">
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width,height=device-height"> 
@@ -23,7 +24,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round&amp;subset=hebrew,latin-ext,vietnamese" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/animate.css">   
+  <link rel="stylesheet" type="text/css" href="stylesheets/animate.css"> 
+
 </head>
 <body>
 
@@ -41,21 +43,25 @@
                 <span>ebook store</span>
               </div>  
               <div class="pull-right menu">
-                <div class="right-nav">
-                  <ul class="log">
-                    <li><a href="#">Wishlist</a></li>
-                    <li><a href="#">Cart</a></li>
-                     <li>
-                      <?php 
-                      if(isset($_SESSION['login_user'])){
-                        echo '<a href="logout.php" class="login_user">Logout</a>';
-                        } 
-                        else{ 
-                          echo '<a href="register.php?action=logout" class="register_user">Login/SignUp</a>';
-                          }
-                       ?>
-                    </li>
-                </ul>
+                <div class="right-nav"  style="margin-right:77%;">
+                  <div class="dropdown">
+                    <i class = "fa fa-user dropdown-toggle" style = "font-size : 40px" data-toggle="dropdown"></i>
+                        <ul class="dropdown-menu">
+                         <?php 
+                              if(isset($_SESSION['login_user']))
+                              {
+                                echo '<li><a href="#">Edit Profile</a></li>';
+                                echo '<li><a href="#">Wishlist</a></li>';
+                                echo '<li><a href="#">Order</a></li>';
+                                echo '<li><a href="./logout.php" class="login_user">Logout</i></a></li>';
+                              } 
+                              else
+                              { 
+                                echo '<li><a href="./register.php?action=logout" class="register_user">Login/SignUp</a></li>';
+                               }
+                             ?>
+                      </ul>
+                  </div> 
                 </div>
               </div>
             </div>
@@ -93,14 +99,14 @@
           <h1 class="wow fadeInDown">Shop by genre</h1>
             <div class="genre-icons container">
               <ul class="genre-ul col-md-12 col-sm-12 hidden-xs wow zoomIn">
-                <li class="genre-li"><a href="#"><img src="/images/Literature-and-Fiction.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="/images/ChildrenYoung-Adult.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="/images/CrimeThriller.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="/images/Romance.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="/images/ExamCentral.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="/images/Sci-fantasy.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="/images/Textbooks.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="/images/Editor_sCorner.png"></a></li>
+                <li class="genre-li"><a href="#"><img src="images/Literature-and-Fiction.png"></a></li>
+                <li class="genre-li"><a href="#"><img src="images/ChildrenYoung-Adult.png"></a></li>
+                <li class="genre-li"><a href="#"><img src="images/CrimeThriller.png"></a></li>
+                <li class="genre-li"><a href="#"><img src="images/Romance.png"></a></li>
+                <li class="genre-li"><a href="#"><img src="images/ExamCentral.png"></a></li>
+                <li class="genre-li"><a href="#"><img src="images/Sci-fantasy.png"></a></li>
+                <li class="genre-li"><a href="#"><img src="images/Textbooks.png"></a></li>
+                <li class="genre-li"><a href="#"><img src="images/Editor_sCorner.png"></a></li>
             </ul>
       </div>
         </div>
