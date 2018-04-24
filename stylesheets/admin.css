@@ -244,3 +244,5 @@ tr:nth-child(even) {
   color: white;
   border-radius: 5px;
 }
+
+.fa-user{cursor: pointer;}
