@@ -1,68 +1,55 @@
--- phpMyAdmin SQL Dump
--- version 4.5.3.1
--- http://www.phpmyadmin.net
+-- MySQL dump 10.13  Distrib 5.6.31, for debian-linux-gnu (x86_64)
 --
--- Host: localhost
--- Generation Time: Apr 24, 2018 at 03:59 PM
--- Server version: 5.6.31-0ubuntu0.15.10.1
--- PHP Version: 5.6.11-1ubuntu3.4
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: ebook
+-- ------------------------------------------------------
+-- Server version	5.6.31-0ubuntu0.15.10.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `ebook`
---
-
--- --------------------------------------------------------
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
 -- Table structure for table `user_table`
 --
 
+DROP TABLE IF EXISTS `user_table`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user_table` (
-  `user_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_name` varchar(45) NOT NULL,
   `user_password` varchar(45) NOT NULL,
   `user_isactive` int(11) NOT NULL DEFAULT '1',
   `user_admin_flag` int(11) NOT NULL DEFAULT '0',
-  `user_mobile` bigint(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `user_mobile` bigint(10) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `user_table`
 --
 
-INSERT INTO `user_table` (`user_id`, `user_name`, `user_password`, `user_isactive`, `user_admin_flag`, `user_mobile`) VALUES
-(1, 'portaladmin@ebook.in', 'af6298443c422b25ac126b1e353d83b8', 1, 1, 0),
-(2, 'riturajreso@gmail.com', '16bfb20e7ca4cbfa4d9dd769fa1db234', 1, 0, 8582949025),
-(3, 'ranirup47@gmail.com', '2fd1e8e224b7aaef09200f44d3ae8049', 1, 0, 7031509154);
+LOCK TABLES `user_table` WRITE;
+/*!40000 ALTER TABLE `user_table` DISABLE KEYS */;
+INSERT INTO `user_table` VALUES (1,'portaladmin@ebook.in','af6298443c422b25ac126b1e353d83b8',1,1,0),(2,'riturajreso@gmail.com','16bfb20e7ca4cbfa4d9dd769fa1db234',1,0,8582949025),(3,'ranirup47@gmail.com','2fd1e8e224b7aaef09200f44d3ae8049',1,0,7031509154);
+/*!40000 ALTER TABLE `user_table` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `user_table`
---
-ALTER TABLE `user_table`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `user_table`
---
-ALTER TABLE `user_table`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2018-04-24 16:31:16
