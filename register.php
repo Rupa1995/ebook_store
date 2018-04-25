@@ -1,6 +1,7 @@
 <?php 
    include 'includes/db.php';
    session_start();
+   if(isset($_GET['val]']))
    $val = $_GET['val'];
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       $myusername = mysqli_real_escape_string($conn,$_POST['username_login']);
@@ -85,7 +86,7 @@
                  <?php 
                       if(isset($_SESSION['login_user']))
                       {
-                        echo '<li><a href="#">Edit Profile</a></li>';
+                        echo '<li><a href="edit_profile.php">Edit Profile</a></li>';
                         echo '<li><a href="#">Wishlist</a></li>';
                         echo '<li><a href="#">Cart</a></li>';
                         echo '<li><a href="logout.php" class="login_user">Logout</a></li>';

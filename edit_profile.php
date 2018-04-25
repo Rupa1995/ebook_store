@@ -1,6 +1,8 @@
 <?php
 	session_start();
+  if(isset($_GET['uid'])){
 	$user_id = $_GET['uid'];
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -29,7 +31,7 @@
           <input type="hidden" name="post_type" value="product">
       </form>
       <div class="logo">
-          <a href="index.html">
+          <a href="index.php">
             <h1>Books</h1>
             <span>ebook store</span>
           </a>
@@ -42,7 +44,7 @@
                  <?php 
                       if(isset($_SESSION['login_user']))
                       {
-                        echo '<li><a href="#">Edit Profile</a></li>';
+                        echo '<li><a href="edit_profile.php">Edit Profile</a></li>';
                         echo '<li><a href="#">Wishlist</a></li>';
                         echo '<li><a href="#">Cart</a></li>';
                         echo '<li><a href="logout.php" class="login_user">Logout</a></li>';
@@ -191,7 +193,9 @@
                       </div>
                     <span class="red"><p class="error-display eProfilePicErr" id="eProfilePicErr"></p></span>
                   <div> 
-                    <span style="color:#23527C"><i>(Image dimension:300px*300px. Allowed image format: jpg, jpeg, png and gif)</i></span>
+                    <span style="color:#23527C">
+                      <i>(Image dimension:300px*300px. Allowed image format: jpg, jpeg, png and gif)</i>
+                    </span>
                   </div> 
                 </div>
                 </div>
