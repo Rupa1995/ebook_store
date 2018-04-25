@@ -1,6 +1,7 @@
 <?php 
    include 'includes/db.php';
    session_start();
+   if(isset($_GET['val]']))
    $val = $_GET['val'];
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       $myusername = mysqli_real_escape_string($conn,$_POST['username_login']);
