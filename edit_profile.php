@@ -64,25 +64,27 @@
 </div>
 
   <div class="modal fade" id="edit_profile_pop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
-     <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
           <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="myModalLabelc">Edit Profile</h4>
         </div>
-         <div class="modal-body" style="overflow-y: scroll; height: 500px;" >
+        <form class="form-horizontal input" action="#" name="updateUserForm" id="updateUserForm" method="POST" enctype="multipart/form-data">
+        <div class="modal-body">
+          <div class="content-main">  
           <div class="form-group">
             <div class="row">
               <div class="col-sm-12">
                 <div class="col-sm-6 col-md-6 col-lg-6">
-                  <label>First Name </label>
-                  <input type="text" class="form-control" placeholder="" name="middleName" id="middleName" onKeyPress="return userMiddleNameKey(event)">
-                  <span class="red"><p class="middleNameErr error-display" id="middleNameErr"></p></span>
+                  <label>First Name <span class="red">*</span></label>
+                  <input type="text" class="form-control" placeholder="" name="upFirstName" id="upFirstName" onKeyPress="return userFirstNameKey(event)">
+                  <p style="color:red" class="eFirstNameErr error-display" id="eFirstNameErr"></p>
                 </div>
                 <div class="col-sm-6 col-md-6 col-lg-6">
                   <label>Last Name <span class="red">*</span></label>
-                  <input type="text" class="form-control" placeholder="" name="lastName" id="lastName" onKeyPress="return userLastNameKey(event)">
-                  <span class="red"><p class="lastNameErr error-display" id="lastNameErr"></p></span>
+                  <input type="text" class="form-control" placeholder="" name="upLastName" id="upLastName" onKeyPress="return userLastNameKey(event)">
+                 <p style="color:red" class="eLastNameErr error-display" id="eLastNameErr"></p>
                 </div>
               </div>
             </div>
@@ -103,12 +105,11 @@
                   <label>Street Address 1 <span class="red">*</span></label>
                   <input type="text" class="form-control" placeholder="Street 1" name="upStreet1" id="upStreet1" onKeyPress="return street1Key(event)">
                   <input type="hidden" name="upStreet1Copy" id="upStreet1Copy">
-                  <span class="red"><p class="estreet1Err error-display" id="estreet1Err"></p></span>
+                  <p style="color:red" class="estreet1Err error-display" id="estreet1Err"></p>
                 </div>
               </div>
             </div>
           </div>
-
           <div class="form-group">
             <div class="row">
               <div class="col-sm-12">
@@ -116,7 +117,7 @@
                   <label>Street Address 2</label>
                   <input type="text" class="form-control" placeholder="Street 2" name="upStreet2" id="upStreet2" onKeyPress="return street2Key(event)">
                   <input type="hidden" name="upStreet2Copy"  id="upStreet2Copy">
-                  <span class="red"><p class="estreet2Err error-display" id="estreet2Err"></p></span>
+                  <p style="color:red" class="estreet2Err error-display" id="estreet2Err"></p>
                 </div>
               </div>
             </div>
@@ -128,10 +129,10 @@
                  <label>City <span class="red">*</span></label>
                   <input type="text" class="form-control" placeholder="" name="upCity" id="upCity" onKeyPress="return cityKey(event)">
                   <input type="hidden" name ="upCityCopy" id ="upCityCopy">
-                  <span class="red"><p class="eCityErr error-display" id="eCityErr"></p></span>
+                  <p style="color:red" class="eCityErr error-display" id="eCityErr"></p>
                 </div>
                  <div class="col-sm-6 col-md-6 col-lg-6">
-                  <label>Country</label>
+                  <label>Country <span class="red">*</span></label>
                     <div class="multi-cust-select1 dropDown_hover">
                       <select class="multiselect custom form-control" name="upCountry" id="upCountry">
                         <option value="">Select</option>
@@ -146,13 +147,13 @@
             <div class="row">
               <div class="col-sm-12">
                 <div class="col-sm-6 col-md-6 col-lg-6 block" id="upStateText">
-                   <label>State <span class="red">*</span></label><input type="text" class="form-control" placeholder="" name="upState1" id="upState1" onKeyPress="return stateKey(event)"><span class="red"><p class="error-display eStateErr1"></p></span></div>
+                   <label>State <span class="red">*</span></label><input type="text" class="form-control" placeholder="" name="upState1" id="upState1" onKeyPress="return stateKey(event)">
+                   <p style="color:red" class="error-display eStateErr1"></p></div>
                  <div class="col-sm-6 col-md-6 col-lg-6">
                   <label>Region / Area</label>
                   <input type="text" class="form-control" placeholder="" name="upRegion" id="upRegion" onKeyPress="return areaKey(event)">
                   <input type="hidden" name ="upRegionCopy" id ="upRegionCopy">
-                  <span class="red"><p class="upRegionErr error-display" id="upRegionErr"></p></span>
-                  
+                  <p style="color:red" class="upRegionErr error-display" id="upRegionErr"></p>                  
                 </div>
               </div>
             </div>
@@ -164,12 +165,12 @@
                   <label>Postal / Zip code <span class="red">*</span></label>
                   <input type="text" class="form-control" placeholder="" name="upZipCode" id="upZipCode" onKeyPress="return zipCodeKey(event)" maxlength="50">
                   <input type="hidden" name="upZipCodeCopy" id="upZipCodeCopy">
-                  <span class="red"><p class="eZipCodeErr error-display" id="eZipCodeErr"></p></span>
+                 <p style="color:red" class="eZipCodeErr error-display" id="eZipCodeErr"></p>
                 </div>
                  <div class="col-sm-6 col-md-6 col-lg-6">
-                  <label>Contact Number </label>
+                  <label>Contact Number <span class="red">*</span></label>
                   <input type="text" class="form-control" placeholder="" name="upContactNo" id="upContactNo" onKeyPress="return contactNoKey(event)">
-                  <span class="red"><p class="eContactNoErr error-display" id="eContactNoErr"></p></span>
+                  <p style="color:red" class="eContactNoErr error-display" id="eContactNoErr"></p>
                 </div>
               </div>
             </div>
@@ -187,11 +188,10 @@
                   </div>
                     <span id ="upProfilePic_filename" class ="upProfilePic_filename"> No file selected. </span>
                       <div style="margin-top: 4px;">
-                         <button class="btn btn-default upresetprofilePic"
-                              id="upresetprofilePic" >Reset File
+                         <button class="btn btn-default upresetprofilePic" id="upresetprofilePic" >Reset File
                         </button> 
                       </div>
-                    <span class="red"><p class="error-display eProfilePicErr" id="eProfilePicErr"></p></span>
+                    <p style="color:red" class="error-display eProfilePicErr" id="eProfilePicErr"></p>
                   <div> 
                     <span style="color:#23527C">
                       <i>(Image dimension:300px*300px. Allowed image format: jpg, jpeg, png and gif)</i>
@@ -202,13 +202,16 @@
               </div>
             </div>
           </div>
-          <div class="modal-footer">
-            <div class="pull-right">
-              <button class="btn btn-sm green-btn" id="editupload"  type="submit" data-toggle="tooltip" data-original-title="">Save</button>
-              <button class="btn btn-grey btn-sm page-scroll-set"  data-dismiss="modal" aria-label="Close" type="button" data-toggle="tooltip" data-original-title="">Cancel</button>
-            </div>
+          </div>
         </div>
+        <div class="modal-footer">
+              <div class="pull-right">
+                <button class="btn btn-sm green-btn" id="editupload"  type="submit" data-toggle="tooltip" data-original-title="">Save</button>
+                <button class="btn btn-grey btn-sm page-scroll-set"  data-dismiss="modal" aria-label="Close" type="button" data-toggle="tooltip" data-original-title="">Cancel</button>
+              </div>
         </div>
+        </form>
+      </div>
     </div>
   </div>
 
@@ -216,6 +219,7 @@
 <script src="javascripts/js/bootstrap.min.js"></script>
 
 <script src="javascripts/edit_profile.js"></script>
+<script src="javascripts/key_validation.js"></script>
 <script type="text/javascript">
 	var user_id= <?php echo $user_id;?>;
 </script>
