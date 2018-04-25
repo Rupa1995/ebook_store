@@ -80,7 +80,7 @@
                  <?php 
                       if(isset($_SESSION['login_user']))
                       {
-                        echo '<li><a href="#">Edit Profile</a></li>';
+                        echo '<li><a href="edit_profile.php">Edit Profile</a></li>';
                         echo '<li><a href="#">Wishlist</a></li>';
                         echo '<li><a href="#">Cart</a></li>';
                         echo '<li><a href="logout.php" class="login_user">Logout</a></li>';

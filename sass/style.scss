@@ -44,7 +44,13 @@ html{
   
     }}
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
+.dropdown-menu{
+  left: -45px!important;
+  min-width: 0!important;
+}
+.pull-right{
+  margin-right: 5%;
+}
 .dropdown-content{
   top: 25px;
   display: none;
