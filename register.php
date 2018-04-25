@@ -8,7 +8,8 @@
       $mypassword = md5($mypassword);
 
       $sql = "
-            SELECT 
+            SELECT
+             user_id AS u_id, 
              user_admin_flag AS admin_flag,
              user_name AS uname
             FROM 
@@ -22,11 +23,13 @@
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       $admin_flag = $row['admin_flag'];
       $uname = $row['uname'];
+
       $count = mysqli_num_rows($result);
       
       if($count == 1) 
       {
          $_SESSION['login_user'] = $uname;
+         $_SESSION['userID'] = $row['u_id'];
          if($admin_flag == '1')
          {
             header("location: ./admin/home.php");
@@ -50,12 +53,14 @@
 	<link rel="icon" type="images/png" href="images/book.png">
   <meta charset="utf-8">
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width,height=device-height">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round&amp;subset=hebrew,latin-ext,vietnamese" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="stylesheets/register.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/css/bootstrap.min.css">
+  
+  <link rel="stylesheet" type="text/css" href="stylesheets/register.css"> 
+
 </head>
 <body id="body_log">
 <div class="container">
@@ -173,7 +178,9 @@
 </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="javascripts/js/jquery-3.3.1.min.js"></script>
+<script src="javascripts/js/bootstrap.min.js"></script>
+
 <script src="javascripts/register.js"></script>
 <script src="javascripts/register_new.js"></script>
 <script type="text/javascript">

@@ -8,12 +8,13 @@
   <link rel="icon" type="images/png" href="/..images/book.png">
   <meta charset="utf-8">
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width,height=device-height">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round&amp;subset=hebrew,latin-ext,vietnamese" rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="stylesheets/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="../stylesheets/admin.css"> 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>   
+  
 </head>
 <body>
 
@@ -136,5 +137,9 @@
 			</div>
 		</div>
 	</div>
+
+<script src="javascripts/js/jquery-3.3.1.min.js"></script>
+<script src="javascripts/js/bootstrap.min.js"></script>
+
 </body>
 </html>
