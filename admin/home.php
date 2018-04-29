@@ -73,7 +73,7 @@
 			</a>
 		</div>
 		<div class="link_box col-md-4">
-			<a href="admin/user.php">
+			<a href="user.php">
 				<div class="box_img">
 					<img src="../images/categ4.gif" height="100px" width="150px">
 				</div>

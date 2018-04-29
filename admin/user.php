@@ -68,12 +68,12 @@
       </div>
       
       <form class="form-horizontal input">
-        <div class="content-main" id= "userresults">        
+        <div class="content-main">        
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <div class="checkbox">
+                  <div class="checkbox" style="margin-left:10px">
                     <label><input type ="checkbox" name="show_inactive" id="show_inactive" class="styled"> Show inactive records</label>
                   </div>
                 </div>
@@ -89,8 +89,6 @@
                 <thead>
                   <tr>
                     <th class="remove_sort" width="5%">No. </th>
-                    <th id="u_sort_agrcode" class="remove_sort" width="8%">Account Code</th>
-                    <th id="u_sort_agrname" class="remove_sort" width="20%">Account</th>
                     <th id="u_sort_firstname" class="sort_user" width="10%">First Name</th>
                     <th id="u_sort_lastname" class="sort_user" width="10%">Last Name</th>
                     <th id="u_sort_username" class="sort_user" width="10%">User Name</th>
