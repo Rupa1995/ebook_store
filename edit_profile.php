@@ -14,11 +14,10 @@
  
   <link href="https://fonts.googleapis.com/css?family=Varela+Round&amp;subset=hebrew,latin-ext,vietnamese" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <link rel="stylesheet" type="text/css" href="stylesheets/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/css/bootstrap.min.css">
-  
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/waitMe.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/register.css">
 </head>
 <body id="body_log">
@@ -133,11 +132,11 @@
                 </div>
                  <div class="col-sm-6 col-md-6 col-lg-6">
                   <label>Country <span class="red">*</span></label>
-                    <div class="multi-cust-select1 dropDown_hover">
-                      <select class="multiselect custom form-control" name="upCountry" id="upCountry">
+                    <div class="dropDown_hover">
+                      <select class="selectpicker form-control" name="upCountry" id="upCountry">
                         <option value="">Select</option>
                       </select>
-                     <input type="hidden" name="upCountryCopy" id="upCountryCopy">
+                     <p style="color:red" class="upCountryErr error-display" id="upCountryErr"></p>
                   </div>
                 </div>            
               </div>
@@ -146,9 +145,15 @@
           <div class="form-group">
             <div class="row">
               <div class="col-sm-12">
-                <div class="col-sm-6 col-md-6 col-lg-6 block" id="upStateText">
-                   <label>State <span class="red">*</span></label><input type="text" class="form-control" placeholder="" name="upState1" id="upState1" onKeyPress="return stateKey(event)">
-                   <p style="color:red" class="error-display eStateErr1"></p></div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <label>State <span class="red">*</span></label>
+                    <div class="dropDown_hover">
+                      <select class="selectpicker form-control" name="upState" id="upState">
+                        <option value="">Select</option>
+                      </select>
+                    <p style="color:red" class="upStateErr error-display" id="upStateErr"></p>
+                  </div>
+                </div>  
                  <div class="col-sm-6 col-md-6 col-lg-6">
                   <label>Region / Area</label>
                   <input type="text" class="form-control" placeholder="" name="upRegion" id="upRegion" onKeyPress="return areaKey(event)">
@@ -164,7 +169,6 @@
                  <div class="col-sm-6 col-md-6 col-lg-6">
                   <label>Postal / Zip code <span class="red">*</span></label>
                   <input type="text" class="form-control" placeholder="" name="upZipCode" id="upZipCode" onKeyPress="return zipCodeKey(event)" maxlength="50">
-                  <input type="hidden" name="upZipCodeCopy" id="upZipCodeCopy">
                  <p style="color:red" class="eZipCodeErr error-display" id="eZipCodeErr"></p>
                 </div>
                  <div class="col-sm-6 col-md-6 col-lg-6">
@@ -175,39 +179,12 @@
               </div>
             </div>
           </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="col-sm-6 col-md-5 col-lg-12">
-                  <label>Upload Photo</label>
-                  <div class="clearfix"></div>                  
-                  <div id="uplaoadUserFile"> 
-                   <div class="btn btn-default btn-file "> Choose a file
-                    <input type="file" id="upProfilePic" name="upProfilePic">
-                    <input type="hidden" id="upProfilePic_check" name="upProfilePic_check">
-                  </div>
-                    <span id ="upProfilePic_filename" class ="upProfilePic_filename"> No file selected. </span>
-                      <div style="margin-top: 4px;">
-                         <button class="btn btn-default upresetprofilePic" id="upresetprofilePic" >Reset File
-                        </button> 
-                      </div>
-                    <p style="color:red" class="error-display eProfilePicErr" id="eProfilePicErr"></p>
-                  <div> 
-                    <span style="color:#23527C">
-                      <i>(Image dimension:300px*300px. Allowed image format: jpg, jpeg, png and gif)</i>
-                    </span>
-                  </div> 
-                </div>
-                </div>
-              </div>
-            </div>
-          </div>
           </div>
         </div>
         <div class="modal-footer">
               <div class="pull-right">
                 <button class="btn btn-sm green-btn" id="editupload"  type="submit" data-toggle="tooltip" data-original-title="">Save</button>
-                <button class="btn btn-grey btn-sm page-scroll-set"  data-dismiss="modal" aria-label="Close" type="button" data-toggle="tooltip" data-original-title="">Cancel</button>
+                <button class="btn btn-grey btn-sm page-scroll-set"  data-dismiss="modal" aria-label="Close" type="button" data-toggle="tooltip" id="cancel" data-original-title="">Cancel</button>
               </div>
         </div>
         </form>
@@ -215,11 +192,36 @@
     </div>
   </div>
 
-<script src="javascripts/js/jquery-3.3.1.min.js"></script>
-<script src="javascripts/js/bootstrap.min.js"></script>
 
-<script src="javascripts/edit_profile.js"></script>
-<script src="javascripts/key_validation.js"></script>
+<!-- alert modal starts here -->
+<div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabela" data-backdrop="static">
+    <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="alertTitle">Message</h4>
+        </div>  
+        <div class="modal-body">
+          <p id="alertBody"></p>
+        </div>
+        <input type="hidden" name="alert_value" id="alert_value">
+        <div class="modal-footer text-center">
+          <button type="button" id = "confirm_ok" data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-navyblue" data-placement="top" data-toggle="tooltip" data-original-title ="OK">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script type='text/javascript' src="js/jquery-3.3.1.min.js"></script>
+<script type='text/javascript' src="js/bootstrap.min.js"></script>
+<script type='text/javascript' src="js/bootstrap-select.min.js"></script>
+<script type='text/javascript' src="js/waitMe.js"></script>
+<script type='text/javascript' src="javascripts/edit_profile.js"></script>
+<script type='text/javascript' src="javascripts/key_validation.js"></script>
+<script type='text/javascript' src="javascripts/comman.js"></script>
+
 <script type="text/javascript">
 	var user_id= <?php echo $user_id;?>;
 </script>
+</body>
+</html.

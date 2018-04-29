@@ -2,199 +2,101 @@ $(document).ready(function()
 {
   var error_arr = new Array();
   var error_id;
-
+  var current_effect = 'win8';//windows 8  effect of loader 
+  var d_state_id = 0;
+  var userInfo;
+  run_waitMe(current_effect);
   $.ajax({
     type: 'POST',
     cache: false,
     data: {ajaxcall : true,function2call: 'getUserDetails',user_id:user_id},
     url: "edit_profile_class.php",
   }).done(function(data){
-  	
-  }).fail(function(){
+    var obj = jQuery.parseJSON(data);
+    var user_list = obj.ebook.user_info;
+    userInfo =user_list;
+    var country_list = obj.ebook.country_info;
+    $('#upCountry').html($("<option></option>")
+             .attr("value"," ")
+             .text("Select")); 
+    $("#upFirstName").val(user_list['fname']);
+    $("#upLastName").val(user_list['lname']);
+    $("#upStreet1").val(user_list['street1']);
+    $("#upStreet2").val(user_list['street2']);
+    $("#upContactNo").val(user_list['contact']);
+    $("#upRegion").val(user_list['region']);
+    $("#upCity").val(user_list['city']);
+    $("#upZipCode").val(user_list['pincode'])
+    for(var i = 0; i<country_list.length; i++)
+    {
+     $.each(country_list[i], function(key, value) {
+      if(key == "id")
+      {
+        cid = value;
+      } 
+      if(key == 'name'){
+        $('#upCountry')
+         .append($("<option></option>")
+                    .attr("value",cid)
+                    .text(value)); 
+       }
+    });
+    }
 
+    $('#upCountry').val(user_list["country_id"]);
+    $('#upCountry').trigger('change');
+    $('#upCountry').selectpicker('refresh');
+    d_state_id = user_list['state_id'];
+    userInfo['country'] = $("#upCountry option[value='"+user_list["country_id"]+"']").text().trim();
+    $('body').waitMe('hide');
+
+  }).fail(function(){
+    displayAlert("Alert Message", "Failed to fetch data.");
+  });
+
+  $("#upCountry").on('change',function(e)
+  {
+    var c_code = $(this).val();
+    $('#upState').html($("<option></option>")
+                 .attr("value"," ")
+                 .text("Select")); 
+    $.ajax({
+    type: 'POST',
+    cache: false,
+    data: {ajaxcall : true,function2call: 'getStateList', c_code : c_code},
+    url: "edit_profile_class.php",
+    }).done(function(data){
+      var obj = jQuery.parseJSON(data);
+      var state_list = obj.ebook.state_info;
+      for(var j =0;j<state_list.length;j++)
+      {
+        $.each(state_list[j], function(key, value) {
+        if(key == "id")
+        {
+          sid = value;
+        } 
+        if(key == 'name'){
+          $('#upState')
+           .append($("<option></option>")
+                      .attr("value",sid)
+                      .text(value)); 
+         }
+      });
+      }
+      if(d_state_id!=0)
+      {
+        $("#upState").val(d_state_id);
+      }
+      $('#upState').selectpicker('refresh');
+      userInfo['state'] = $("#upState option[value='"+userInfo['state_id']+"']").text().trim();
+    }).fail(function(){
+
+    });
   }); 
 
+  
+$("#edit_profile_pop").modal('show');
 
-	$(function () {
-    $("#editupload").bind("click", function () {
-        //Get reference of FileUpload.
-        var fileUpload = $("[name=upProfilePic]")[0]; 
-        //Check whether the file is valid Image.
-        if(fileUpload != ''){
-            var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.png|.gif)$");
-            if (regex.test(fileUpload.value.toLowerCase())) {
-                //Check whether HTML5 is supported.
-                if (typeof (fileUpload.files) != "undefined") {
-                    //Initiate the FileReader object.
-                    var reader = new FileReader();
-                    //Read the contents of Image File.
-                    reader.readAsDataURL(fileUpload.files[0]);
-                    reader.onload = function (e) {
-                        //Initiate the JavaScript Image object.
-                        var image = new Image();
-                        //Set the Base64 string return from FileReader as source.
-                        image.src = e.target.result;
-                        image.onload = function () {
-                            //Determine the Height and Width.
-                            var height = this.height;
-                            var width = this.width;
-                            if (height > 300 || width > 300) {
-                                $("#eProfilePicErr").text("Sorry, Image dimensions must not exceed 300px*300px.").show();                               
-                                return false;
-                            }
-                        };
-                    }
-                } else {                 
-                    return false;
-                }
-            }
-         } else {
-            $("#eProfilePicErr").text("Please select a valid Image file.").show();
-            return false;
-         }
-    });
-});
-
-$('#upProfilePic').attr('title' ,'No file selected');
-$("#upProfilePic_filename").text("No file selected.");
-
-$('#upProfilePic').on('change', function()
-{
-  var upload_pic_name =$('#upProfilePic').val().replace(/C:\\fakepath\\/i, ''); 
-  if(upload_pic_name == '')
-  {
-     $("#upProfilePic_filename").text("No file selected.");
-  }
-  else
-  {
-    $("#upProfilePic_filename").text(upload_pic_name);
-    $("#upProfilePic").attr('title',upload_pic_name);
-  }
-});
-
-$('.upresetprofilePic').on('click', function(e)
-{
-	e.preventDefault();
-	$("#upProfilePic_filename").text("No file selected.");
-	$('#upProfilePic').attr('title' ,'No file selected');
-	$('#eProfilePicErr').hide();
-	$('#upProfilePic').val('');
-	$('#upProfilePic').attr('title' ,'');
-	$('#upProfilePic_check').val(1);
-	$('input[type=file]').val('');
-});	
-	$("#edit_profile_pop").modal('show');
-
-
-function userEditValidation () {
-    var valid = 1;
-    $('.error-display').text('').hide();
-
-    if(userFirstNameValidation('#upFirstName','.eFirstNameErr',1) == 0){
-      valid = 0;
-      error_arr.push("#upFirstName");
-    }
-
-    if(userLastNameValidation('#upLastName','.eLastNameErr',1) == 0){
-      valid = 0;
-      error_arr.push("#upLastName");
-    }
-
-    if(street1Validation('#upStreet1','.estreet1Err',1) == 0){
-      valid = 0;
-      error_arr.push("#upStreet1");
-    }
-
-    if(street2Validation('#upStreet2','.estreet2Err',0) == 0){
-      valid = 0;
-      error_arr.push("#upStreet2");
-    }
-
-    if(cityValidation('#upCity','.eCityErr',1) == 0){
-      valid = 0;
-      error_arr.push("#upCity");
-    }
-
-    if(stateValidation('#upState1','.eStateErr1',1) == 0)
-    {
-      valid = 0;
-      error_arr.push("#upState1");
-    }
-
-    if(areaValidation('#upRegion','.upRegionErr',0) == 0){
-      valid = 0;
-      error_arr.push("#upRegion");
-    }
-
-    if(zipcodeValidation('#upZipCode','.eZipCodeErr',1) == 0){
-      valid = 0;
-      error_arr.push("#upZipCode");
-    }
-
-    if(userContactNoValidation('#upContactNo','.eContactNoErr',0) == 0){
-      valid = 0;
-      error_arr.push("#upContactNo");
-    }
-
-    var file = new Boolean($("form input[type=file]").val());
-    if(file == true){
-      
-      var fsize = $('input:file')[0].files[0].size/1024 ;
-      var ftype = $('input:file')[0].files[0].type;
-      ftype = ftype.split('/');
-      if (ftype[1] !="png" && ftype[1] !="jpg" && ftype[1] !="jpeg"){
-        
-          valid = 0;
-          $('.eProfilePicErr').text('Please upload only png, jpg and jpeg images.').show();
-      }else if(fsize > 1000){
-        valid = 0;
-        $('.eProfilePicErr').text('Please limit image size to 1MB.').show();
-      }
-    }
-   
-      error_id = error_arr[0];
-      if(error_id == undefined)
-       {
-          console.log(error_id);
-       }else
-       {
-
-       var erroroffset_top = parseInt($(error_id).offset().top);
-    
-    if($(error_id).hasClass("multiselect"))
-    {
-            $(error_id).parents(".dropDown_hover").find(".multiselect").focus();
-           $(".modal-open .modal").css("overflow-y","auto");
-           $(".modal").scrollTop(erroroffset_top);
-           error_arr = [];
-    }
-    else
-    {
-        if(error_id == "#eAgrCustomer")
-        {
-        
-          $(error_id).focus();
-          $(".modal-open .modal").css("overflow-y","auto");
-          $(".modal").scrollTop(erroroffset_top);
-          error_arr = [];
-        }
-        else
-        {
-          var window_height = $(window).height();
-          if(window_height >= parseInt(window_height)+erroroffset_top)
-          {
-            $(".modal-open .modal").css("overflow-y","hidden");
-            $(".modal").scrollTop(erroroffset_top);
-          }   
-            $(error_id).focus();
-            error_arr = [];
-            $(".modal-open .modal").css("overflow-y","auto");
-        }     
-    }
-  }
-
-  return valid;  
-  }
 
 /* Function For User First Name Validation */
 function userFirstNameValidation(input_field,err_field,mandatory){  
@@ -348,6 +250,27 @@ function street2Validation(input_field,err_field,mandatory){
   return val;
 }
 
+/* Function for  Area validation */
+function areaValidation(input_field,err_field,mandatory){
+  var val=1;
+  var area = $(input_field).val();
+  if( area == '' && mandatory == 1){
+    val = 0;
+    $(err_field).html(Lang['area_emp_name']).show();
+  }else{
+    var yourInput = area;
+    var re = /[|\\<>/]/gi;
+    var isSplChar = re.test(yourInput);
+    if(isSplChar)
+    {
+      val = 0;
+      $(err_field).html(Lang['area_chk_name']).show();
+    }
+
+  }
+  return val;
+}
+
 /* Function for  city validation */
 function cityValidation(input_field,err_field,mandatory){
   var val=1;
@@ -422,12 +345,209 @@ function zipcodeValidation(input_field,err_field,mandatory){
   return val;
 }
 
+function userEditValidation () {
+    var valid = 1;
+    $('.error-display').text('').hide();
+
+    if(userFirstNameValidation('#upFirstName','.eFirstNameErr',1) == 0){
+      valid = 0;
+      error_arr.push("#upFirstName");
+    }
+
+    if(userLastNameValidation('#upLastName','.eLastNameErr',1) == 0){
+      valid = 0;
+      error_arr.push("#upLastName");
+    }
+
+    if(street1Validation('#upStreet1','.estreet1Err',1) == 0){
+      valid = 0;
+      error_arr.push("#upStreet1");
+    }
+
+    if(street2Validation('#upStreet2','.estreet2Err',0) == 0){
+      valid = 0;
+      error_arr.push("#upStreet2");
+    }
+
+    if(cityValidation('#upCity','.eCityErr',1) == 0){
+      valid = 0;
+      error_arr.push("#upCity");
+    }
+
+    if(stateValidation('#upState','.eStateErr1',1) == 0)
+    {
+      valid = 0;
+      error_arr.push("#upState");
+    }
+
+    if(areaValidation('#upRegion','.upRegionErr',0) == 0){
+      valid = 0;
+      error_arr.push("#upRegion");
+    }
+    
+    if(zipcodeValidation('#upZipCode','.eZipCodeErr',1) == 0){
+      valid = 0;
+      error_arr.push("#upZipCode");
+    }
+
+    if(userContactNoValidation('#upContactNo','.eContactNoErr',1) == 0){
+      valid = 0;
+      error_arr.push("#upContactNo");
+    }
+
+    var file = new Boolean($("form input[type=file]").val());
+    if(file == true){
+      
+      var fsize = $('input:file')[0].files[0].size/1024 ;
+      var ftype = $('input:file')[0].files[0].type;
+      ftype = ftype.split('/');
+      if (ftype[1] !="png" && ftype[1] !="jpg" && ftype[1] !="jpeg"){
+        
+          valid = 0;
+          $('.eProfilePicErr').text('Please upload only png, jpg and jpeg images.').show();
+      }else if(fsize > 1000){
+        valid = 0;
+        $('.eProfilePicErr').text('Please limit image size to 1MB.').show();
+      }
+    }
+   
+      error_id = error_arr[0];
+      if(error_id == undefined)
+       {
+          console.log(error_id);
+       }else
+       {
+
+       var erroroffset_top = parseInt($(error_id).offset().top);
+    
+    if($(error_id).hasClass("multiselect"))
+    {
+            $(error_id).parents(".dropDown_hover").find(".multiselect").focus();
+           $(".modal-open .modal").css("overflow-y","auto");
+           $(".modal").scrollTop(erroroffset_top);
+           error_arr = [];
+    }
+    else
+    {
+        if(error_id == "#eAgrCustomer")
+        {
+        
+          $(error_id).focus();
+          $(".modal-open .modal").css("overflow-y","auto");
+          $(".modal").scrollTop(erroroffset_top);
+          error_arr = [];
+        }
+        else
+        {
+          var window_height = $(window).height();
+          if(window_height >= parseInt(window_height)+erroroffset_top)
+          {
+            $(".modal-open .modal").css("overflow-y","hidden");
+            $(".modal").scrollTop(erroroffset_top);
+          }   
+            $(error_id).focus();
+            error_arr = [];
+            $(".modal-open .modal").css("overflow-y","auto");
+        }     
+    }
+  }
+
+  return valid;  
+  }
+
 $('#updateUserForm').submit(function(e){
   e.preventDefault();
   page_scroll_position = $(window).scrollTop(); // get page scroll position 
   var valid = userEditValidation();
-  alert(valid)
+      data_old = {
+                "userFirstName":userInfo["fname"].trim(),
+                "lastName":userInfo["lname"].trim(),
+                "street1":userInfo["street1"].trim(),
+                "street2":userInfo["street2"].trim(),
+                "area":userInfo["region"].trim(),
+                "city":userInfo["city"].trim(),
+                "state":userInfo["state"].trim(),
+                "country":userInfo['country'],
+                "zipCode":userInfo["pincode"].trim(),
+                "mobile":userInfo["contact"].trim(),
+              };           
+                          
+      data_new = {
+                "userFirstName":escapeHtml($("#upFirstName").val().trim()),
+                "lastName":escapeHtml($("#upLastName").val().trim()),
+                "street1":escapeHtml($("#upStreet1").val().trim()),
+                "street2":escapeHtml($("#upStreet2").val().trim()),
+                "area":escapeHtml($("#upRegion").val().trim()),
+                "city":escapeHtml($("#upCity").val().trim()),
+                "state":$("#upState option:selected").text().trim(),
+                "country":$("#upCountry option:selected").text().trim(),
+                "zipCode":escapeHtml($("#upZipCode").val().trim()),
+                "mobile":escapeHtml($("#upContactNo").val().trim()),      
+              };
+      
+            log_data = filter(data_old, data_new),key;
+            logData = new Array();
+            i = 0;
+            for (key in log_data) {
+                if (log_data.hasOwnProperty(key)) {
+                    logData[i++] = '"'+key+'":{"'+userInfo[key]+'":"'+log_data[key]+'"}';
+                }
+            }
+            if(logData.length > 0){
+                logData ="{"+logData.join(",")+"}";
+            }
+     if(logData!='' && valid == 1)
+     {
+        run_waitMe(current_effect);
+        $.ajax({
+          type: 'POST',
+          cache: false,
+          data: {
+            ajaxcall : true,
+            function2call: 'updateUser',
+            user_id:user_id,
+            fname:$("#upFirstName").val().trim(),
+            lname:$("#upLastName").val().trim(),
+            street1:$("#upStreet1").val().trim(),
+            street2:$("#upStreet2").val().trim(),
+            region:$("#upRegion").val().trim(),
+            city:$("#upCity").val().trim(),
+            country:$("#upCountry option:selected").val(),
+            state:$("#upState option:selected").val(),
+            zip:$("#upZipCode").val().trim(),
+            contact:$("#upContactNo").val().trim(),
+            logData : logData
+        },
+          url: "edit_profile_class.php",
+        }).done(function(data)
+        {
+            $('body').waitMe('hide');
+            displayAlert("Alert Message", "You have successfully updated the <b>"+userInfo['uname']+"</b> user information.");
+            $('#alert_value').val('updated');
+        }).fail(function(){
+          displayAlert("Alert Message", "Failed to Update.");
+        });
+     }
+     else
+     {
+       displayAlert("Alert Message", "Nothing has been changed.");
+     }       
 });
 
+$('.close, #cancel').click(function(){
+  window.location.href = "index.php";
+});
+
+$("#confirm_ok").click(function(){
+  value = $("#alert_value").val();
+  if(value == 'updated')
+  {
+    window.location.href = "index.php";
+  }
+  else
+  {
+    $("#alertModal").modal('hide');
+  }
+});
 
 });
