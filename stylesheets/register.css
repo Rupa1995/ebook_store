@@ -1359,3 +1359,20 @@ background-image: -ms-linear-gradient(bottom, #f1f1f1 0%, #dedede 100%);
 background-image: linear-gradient(to bottom, #f1f1f1 0%, #dedede 100%);
 -webkit-box-shadow:0 2px 0px 0 #b3b3b3;-moz-box-shadow:0 2px 0px 0 #b3b3b3;box-shadow:0 2px 0px 0 #b3b3b3;border-width:1px 1px 1px 1px ;    }
 .btn-file input[type=file] {position: absolute;top: 0;right: 0; min-width: 100%;min-height: 100%;font-size: 100px;text-align: right;filter: alpha(opacity=0);opacity: 0;outline: none;cursor: inherit;display: block;}
+<<<<<<< HEAD
+=======
+
+.btn-navyblue{background:#33414e;padding:5px 10px;color:#fff;text-transform:uppercase;margin-right:10px;}
+.btn-navyblue:hover{color:#fff;}
+.btn-navyblue:focus{color:#fff;}
+
+#alertBody{font-size:16px;color:#373939;margin-top:5px;font-family:"MyriadPro-Regular", Arial, Helvetica, sans-serif;}
+
+#page-wrapper {min-height: 568px;background-color:#f1f1f1;}
+#page-wrapper {padding: 0 15px 15px 0;min-height: 568px;background-color:#f3f4f8;}
+.right-panel > .title{background:#363b65;padding:12px 12px 12px 20px;border-radius:0px;border:0;margin-bottom:15px;font-size:20px;color:#fff;overflow:hidden;}
+
+
+.btn-default-back{background:#fff none repeat scroll 0 0;padding:5px 10px;color:#333;border-radius:0;font-size:13px !important;font-family:"Roboto-Medium",Arial, Helvetica, sans-serif;margin-left: 5px !important;border-color: #ccc !important;}
+.btn-default-back:hover{background-color:#e6e6e6;border-color:#adadad;color:#333;}
+>>>>>>> 07b422e805ef4794e80a390627f45686d38f37b5

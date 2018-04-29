@@ -21,12 +21,11 @@
   <link rel="icon" type="images/png" href="images/book.png">
   <meta charset="utf-8">
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width,height=device-height"> 
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round&amp;subset=hebrew,latin-ext,vietnamese" rel="stylesheet">
-
-  <link rel="stylesheet" type="text/css" href="stylesheets/css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/css/bootstrap.min.css">
+  
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/animate.css"> 
@@ -127,23 +126,23 @@
                 <br><br><br>
                 <div class="row">
                   <div class="col-md-3">
-                      <div class="icon wow fadeIn" data-wow-duration="2s"><img src="/images/book1.jpeg" id="book-ad"></div>
+                      <div class="icon wow fadeIn" data-wow-duration="2s"><img src="images/book1.jpeg" id="book-ad"></div>
                       <h6 class="wow fadeInDown" data-wow-delay:"2s"><b>LINCOLN IN THE BARDO //</b></h6><hr>
                       <p class="wow fadeInUp" data-wow-delay:"3s">Lincoln in the Bardo is a 2017 experimental novel by American writer George Saunders. It is Saunders's first full-length novel and was the New York Times hardcover fiction bestseller for the week of March 5, 2017.</p>
                   </div>
                   <div class="col-md-3">
-                      <div class="icon wow fadeIn" data-wow-duration="3s"><img src="/images/book2.jpg" id="book-ad"></div>
+                      <div class="icon wow fadeIn" data-wow-duration="3s"><img src="images/book2.jpg" id="book-ad"></div>
                       <h6 class="wow fadeInDown" data-wow-delay:"2s"><b>SING, UNBURIED, SING  //</b></h6><hr>
                       <p class="wow fadeInUp" data-wow-delay:"3s">Sing, Unburied, Sing is a 2017 novel by Jesmyn Ward. It is about a family's dynamics in the fictional town of Bois Savauge, Mississippi, where her 2011 National Book Award-winning Salvage the Bones was set pre-Hurricane Katrina</p>
                   </div>
                   <div class="col-md-3">
-                      <div class="icon wow fadeIn" data-wow-duration="4s"><img src="/images/book3.jpg" id="book-ad"></i></div>
+                      <div class="icon wow fadeIn" data-wow-duration="4s"><img src="images/book3.jpg" id="book-ad"></i></div>
                       <h6 class="wow fadeInDown" data-wow-delay:"2s"><b>THREE DAUGHTERS OF EVE //</b></h6><hr>
                       <p class="wow fadeInUp" data-wow-delay:"3s">Elif Shafak’s new novel, Three Daughters of Eve, in its efforts to speak to the broader ideological concerns that underlie the pernicious anti-Muslim hate-filled rhetoric, is a text to linger over.. Shafak focuses her tale on a Polaroid photograph.
                       </p>
                   </div> 
                   <div class="col-md-3">
-                        <div class="icon wow fadeIn" data-wow-duration="4s"><img src="/images/book4.jpg" id="book-ad"></i></div>
+                        <div class="icon wow fadeIn" data-wow-duration="4s"><img src="images/book4.jpg" id="book-ad"></i></div>
                         <h6 class="wow fadeInDown" data-wow-delay:"2s"><b>WHITE TEARS //</b></h6><hr>
                         <p class="wow fadeInUp" data-wow-delay:"3s">Hari Kunzru's "transfixing" novel ,White Tears, is a ghost story, a terrifying murder mystery, a timely meditation on race, and a love letter to all the forgotten geniuses of American music and Delta Mississippi Blues.
                         </p>
@@ -532,11 +531,22 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
-<script src="javascripts/js/jquery-3.3.1.min.js"></script>
-<script src="javascripts/js/bootstrap.min.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 <script src="javascripts/javas.js"></script>
 <script src="javascripts/wow.min_.js"></script>
+<script type="text/javascript">
+  wow = new WOW(
+  {
+    boxClass: 'wow',
+    animateClass: 'animated',
+    offset: 0,
+    mobile: true,
+    live: true
+  })
+  wow.init();
+</script>
 <script src="javascripts/comman.js"></script>
 </body>
 </html>
