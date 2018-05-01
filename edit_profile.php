@@ -133,13 +133,8 @@
                 </div>
                  <div class="col-sm-6 col-md-6 col-lg-6">
                   <label>Country <span class="red">*</span></label>
-<<<<<<< HEAD
-                    <div class="multi-cust-select1 dropDown_hover">
-                      <select class="multiselect custom form-control" name="upCountry" id="upCountry">
-=======
                     <div class="dropDown_hover">
                       <select class="selectpicker form-control" name="upCountry" id="upCountry">
->>>>>>> 07b422e805ef4794e80a390627f45686d38f37b5
                         <option value="">Select</option>
                       </select>
                      <p style="color:red" class="upCountryErr error-display" id="upCountryErr"></p>
@@ -151,11 +146,6 @@
           <div class="form-group">
             <div class="row">
               <div class="col-sm-12">
-<<<<<<< HEAD
-                <div class="col-sm-6 col-md-6 col-lg-6 block" id="upStateText">
-                   <label>State <span class="red">*</span></label><input type="text" class="form-control" placeholder="" name="upState1" id="upState1" onKeyPress="return stateKey(event)">
-                   <p style="color:red" class="error-display eStateErr1"></p></div>
-=======
                 <div class="col-sm-6 col-md-6 col-lg-6">
                   <label>State <span class="red">*</span></label>
                     <div class="dropDown_hover">
@@ -165,7 +155,6 @@
                     <p style="color:red" class="upStateErr error-display" id="upStateErr"></p>
                   </div>
                 </div>  
->>>>>>> 07b422e805ef4794e80a390627f45686d38f37b5
                  <div class="col-sm-6 col-md-6 col-lg-6">
                   <label>Region / Area</label>
                   <input type="text" class="form-control" placeholder="" name="upRegion" id="upRegion" onKeyPress="return areaKey(event)">
@@ -181,10 +170,6 @@
                  <div class="col-sm-6 col-md-6 col-lg-6">
                   <label>Postal / Zip code <span class="red">*</span></label>
                   <input type="text" class="form-control" placeholder="" name="upZipCode" id="upZipCode" onKeyPress="return zipCodeKey(event)" maxlength="50">
-<<<<<<< HEAD
-                  <input type="hidden" name="upZipCodeCopy" id="upZipCodeCopy">
-=======
->>>>>>> 07b422e805ef4794e80a390627f45686d38f37b5
                  <p style="color:red" class="eZipCodeErr error-display" id="eZipCodeErr"></p>
                 </div>
                  <div class="col-sm-6 col-md-6 col-lg-6">
@@ -195,53 +180,16 @@
               </div>
             </div>
           </div>
-<<<<<<< HEAD
-          <div class="form-group">
-            <div class="row">
-              <div class="col-sm-12">
-                <div class="col-sm-6 col-md-5 col-lg-12">
-                  <label>Upload Photo</label>
-                  <div class="clearfix"></div>                  
-                  <div id="uplaoadUserFile"> 
-                   <div class="btn btn-default btn-file "> Choose a file
-                    <input type="file" id="upProfilePic" name="upProfilePic">
-                    <input type="hidden" id="upProfilePic_check" name="upProfilePic_check">
-                  </div>
-                    <span id ="upProfilePic_filename" class ="upProfilePic_filename"> No file selected. </span>
-                      <div style="margin-top: 4px;">
-                         <button class="btn btn-default upresetprofilePic" id="upresetprofilePic" >Reset File
-                        </button> 
-                      </div>
-                    <p style="color:red" class="error-display eProfilePicErr" id="eProfilePicErr"></p>
-                  <div> 
-                    <span style="color:#23527C">
-                      <i>(Image dimension:300px*300px. Allowed image format: jpg, jpeg, png and gif)</i>
-                    </span>
-                  </div> 
-                </div>
-                </div>
-              </div>
-            </div>
           </div>
-          </div>
-=======
-          </div>
->>>>>>> 07b422e805ef4794e80a390627f45686d38f37b5
         </div>
         <div class="modal-footer">
               <div class="pull-right">
                 <button class="btn btn-sm green-btn" id="editupload"  type="submit" data-toggle="tooltip" data-original-title="">Save</button>
-<<<<<<< HEAD
-                <button class="btn btn-grey btn-sm page-scroll-set"  data-dismiss="modal" aria-label="Close" type="button" data-toggle="tooltip" data-original-title="">Cancel</button>
-=======
                 <button class="btn btn-grey btn-sm page-scroll-set"  data-dismiss="modal" aria-label="Close" type="button" data-toggle="tooltip" id="cancel" data-original-title="">Cancel</button>
->>>>>>> 07b422e805ef4794e80a390627f45686d38f37b5
               </div>
         </div>
         </form>
       </div>
-<<<<<<< HEAD
-=======
     </div>
   </div>
 
@@ -262,7 +210,6 @@
           <button type="button" id = "confirm_ok" data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-navyblue" data-placement="top" data-toggle="tooltip" data-original-title ="OK">OK</button>
         </div>
       </div>
->>>>>>> 07b422e805ef4794e80a390627f45686d38f37b5
     </div>
   </div>
 
@@ -274,11 +221,6 @@
 <script type='text/javascript' src="javascripts/key_validation.js"></script>
 <script type='text/javascript' src="javascripts/comman.js"></script>
 
-<<<<<<< HEAD
-<script src="javascripts/edit_profile.js"></script>
-<script src="javascripts/key_validation.js"></script>
-=======
->>>>>>> 07b422e805ef4794e80a390627f45686d38f37b5
 <script type="text/javascript">
 	var user_id= <?php echo $user_id;?>;
 </script>
