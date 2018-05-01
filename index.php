@@ -11,7 +11,6 @@
     error_reporting(E_ERROR | E_PARSE);
     ini_set("display_errors", ERROR_FLAG);
     ini_set('memory_limit', '-1');
-
 ?>
 
 <!DOCTYPE html>
@@ -23,12 +22,13 @@
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width,height=device-height"> 
   <link href="https://fonts.googleapis.com/css?family=Varela+Round&amp;subset=hebrew,latin-ext,vietnamese" rel="stylesheet">
   
-  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-
+  <link rel="stylesheet" type="text/css" href="css/waitMe.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/animate.css"> 
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css"> 
 
 </head>
 <body>
@@ -49,7 +49,7 @@
               <div class="pull-right menu">
                 <div class="right-nav"  style="margin-right:77%;">
                   <div class="dropdown">
-                    <i class = "fa fa-user dropdown-toggle" style = "font-size : 40px" data-toggle="dropdown"></i>
+                    <i class = "fa fa-user dropdown-toggle" style = "font-size : 40px;" data-toggle="dropdown"></i>
                         <ul class="dropdown-menu">
                          <?php 
                               if(isset($_SESSION['login_user']))
@@ -527,15 +527,69 @@
 
     </div>
 </footer>
+
+<div class="modal fade" id="change_pass_pop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+          <button type="button" class="close" id="close_pass" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabelc">Change Password</h4>
+        </div>
+        <div class="modal-body">
+          <div class="content-main">  
+          <div class="form-group">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <label>New Password <span class="red">*</span></label>
+                  <input type="password" name="password" class="form-control" placeholder="New Password" id="pwd">
+                  <p style="color:red" class="pwdErr error-display" id="pwdErr"></p>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                  <label>Confirm Password <span class="red">*</span></label>
+                  <input type="password" name="password" class="form-control" placeholder="Confirm Password" id="cnfpwd">
+                 <p style="color:red" class="cnfpwdErr error-display" id="cnfpwdErr"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="modal-footer">
+          <div class="pull-right">
+            <button class="btn btn-sm green-btn" id="change_pass"  type="button" data-toggle="tooltip" data-original-title="">Save</button>
+            <button class="btn btn-grey btn-sm page-scroll-set"  data-dismiss="modal" aria-label="Close" type="button" data-toggle="tooltip" id="cancelPass" data-original-title="">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <!-- alert modal starts here -->
+<div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabela" data-backdrop="static">
+    <div class="modal-dialog modal-md" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="alertTitle">Message</h4>
+        </div>  
+        <div class="modal-body">
+          <p id="alertBody"></p>
+        </div>
+        <input type="hidden" name="alert_value" id="alert_value">
+        <div class="modal-footer text-center">
+          <button type="button" id="changed_ok" data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-navyblue" data-placement="top" data-toggle="tooltip" data-original-title ="">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-
-<script src="javascripts/javas.js"></script>
-<script src="javascripts/wow.min_.js"></script>
+<script type='text/javascript' src="js/jquery-3.3.1.min.js"></script>
+<script type='text/javascript' src="js/bootstrap.min.js"></script>
+<script type='text/javascript' src="js/waitMe.js"></script>
+<script type='text/javascript' src="javascripts/javas.js"></script>
+<script type='text/javascript' src="javascripts/wow.min_.js"></script>
 <script type="text/javascript">
   wow = new WOW(
   {
@@ -546,7 +600,10 @@
     live: true
   })
   wow.init();
+
+  var first_tym_flag = <?php echo $_SESSION['first_tym_flag']; ?>;
+  var login_uid = <?php echo $_SESSION['userID']; ?>;
 </script>
-<script src="javascripts/comman.js"></script>
+<script type='text/javascript' src="javascripts/comman.js"></script>
 </body>
 </html>

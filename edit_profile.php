@@ -18,6 +18,7 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap-select.min.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="css/waitMe.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/register.css">
 </head>
 <body id="body_log">

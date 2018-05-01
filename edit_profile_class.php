@@ -6,13 +6,15 @@
     	$function2call = $_POST['function2call'];
     	switch($function2call) 
     	{
-        	case 'getUserDetails' : getUserDetails($conn);break;
-          	case 'getStateList' : getStateList($conn);break;
-          	case 'updateUser' : updateUser($conn);break;
-        	case 'other' : 
+          case 'getUserDetails' : getUserDetails($conn);break;
+          case 'getStateList' : getStateList($conn);break;
+          case 'updateUser' : updateUser($conn);break;
+          case 'changePassword' : changePassword($conn);break;
+          case 'other' : 
     	}
 }
- function getUserDetails($conn)
+ 
+function getUserDetails($conn)
     {
 
         $getCountryList = "
@@ -35,6 +37,7 @@
              A.user_mobile AS contact,
              A.user_fname AS fname,
              A.user_lname AS lname,
+             A.first_tym_flag AS first_tym_flag,
              B.street1 AS street1,
              B.street2 AS street2,
              B.astate_id AS state_id,
@@ -94,12 +97,25 @@ function updateUser($conn)
                     SET 
                       user_fname = '$fname',
                       user_lname = '$lname',
-                      user_mobile = '$contact'
+                      user_mobile = '$contact',
+                      first_tym_flag = '2'
                     WHERE
                       user_id = ".$user_id."";
       $updateResult = mysqli_query($conn, $update_sql);
+      $_SESSION['first_tym_flag'] = 2;
+      $check_adress_exist = "
+                          SELECT
+                          acontry_id
+                          FROM
+                          ".ADDRESS."
+                          WHERE
+                            auser_id = ".$user_id."";
+      $result = mysqli_query($conn,$check_adress_exist);
+      $count = mysqli_num_rows($result);
 
-      $update_sql1 = "
+      if($count>1)
+      {
+        $add_sql = "
                     UPDATE
                     ".ADDRESS."
                     SET
@@ -111,19 +127,58 @@ function updateUser($conn)
                       zip = '$zip',
                       city = '$city'
                     WHERE
-                      auser_id = ".$user_id."";  
-      $updateResult1 = mysqli_query($conn, $update_sql1);
+                      auser_id = ".$user_id.""; 
+      }                      
+      else
+      {
+        $add_sql = "
+                    INSERT INTO
+                    ".ADDRESS."
+                    SET
+                      street1 = '$street1',
+                      street2 = '$street2',
+                      astate_id = '$state',
+                      acontry_id = '$country',
+                      region = '$region',
+                      zip = '$zip',
+                      city = '$city',
+                      auser_id = '$user_id'";  
+      
+      }
+      $updateResult1 = mysqli_query($conn, $add_sql);
 
+      if($logData != "" && $logData != null && $logData != undefined)
+      {
+      $modified_by = $_SESSION['userID'];  
       $update_sql2 = "
                     INSERT INTO 
                   ".USER_LOG." 
                 SET 
-                  modified_time = 'now()',  
-                  modified_by = '$user_id', 
-                  log_data = '$logData'";  
+                  modified_time = now(),  
+                  modified_by = '$modified_by', 
+                  log_data = '$logData'
+                  luser_id ='$user_id'";  
       $updateResult2 = mysqli_query($conn, $update_sql2); 
-
+      }
       echo json_encode(array('ebook' => array('updated' => 1,'user_update'=>$updateResult,'add_update'=>$updateResult1,'log_updated'=>$updateResult2)));                
   }    
+
+function changePassword($conn)
+{
+  $user_id = $_POST['user_id'];
+  $pass = $_POST['pass'];
+
+  $pass = md5($pass);
+
+  $update_sql = "UPDATE
+              ".LOGIN_TABLE."
+              SET
+              user_password = '$pass',
+              first_tym_flag = 1
+              WHERE user_id = '$user_id'";
+  $updateResult = mysqli_query($conn, $update_sql);
+  echo json_encode(array('ebook' => array('updated' => 1,'user_update'=>$updateResult)));          
+}
+
 
 ?>

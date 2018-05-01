@@ -14,7 +14,7 @@ $(document).ready(function()
   }).done(function(data){
     var obj = jQuery.parseJSON(data);
     var user_list = obj.ebook.user_info;
-    userInfo =user_list;
+    userInfo = user_list;
     var country_list = obj.ebook.country_info;
     $('#upCountry').html($("<option></option>")
              .attr("value"," ")
@@ -395,30 +395,14 @@ function userEditValidation () {
       error_arr.push("#upContactNo");
     }
 
-    var file = new Boolean($("form input[type=file]").val());
-    if(file == true){
-      
-      var fsize = $('input:file')[0].files[0].size/1024 ;
-      var ftype = $('input:file')[0].files[0].type;
-      ftype = ftype.split('/');
-      if (ftype[1] !="png" && ftype[1] !="jpg" && ftype[1] !="jpeg"){
-        
-          valid = 0;
-          $('.eProfilePicErr').text('Please upload only png, jpg and jpeg images.').show();
-      }else if(fsize > 1000){
-        valid = 0;
-        $('.eProfilePicErr').text('Please limit image size to 1MB.').show();
-      }
-    }
-   
-      error_id = error_arr[0];
-      if(error_id == undefined)
-       {
-          console.log(error_id);
-       }else
-       {
+    error_id = error_arr[0];
+    if(error_id == undefined)
+     {
+        console.log(error_id);
+     }else
+     {
 
-       var erroroffset_top = parseInt($(error_id).offset().top);
+     var erroroffset_top = parseInt($(error_id).offset().top);
     
     if($(error_id).hasClass("multiselect"))
     {
@@ -459,44 +443,48 @@ $('#updateUserForm').submit(function(e){
   e.preventDefault();
   page_scroll_position = $(window).scrollTop(); // get page scroll position 
   var valid = userEditValidation();
-      data_old = {
-                "userFirstName":userInfo["fname"].trim(),
-                "lastName":userInfo["lname"].trim(),
-                "street1":userInfo["street1"].trim(),
-                "street2":userInfo["street2"].trim(),
-                "area":userInfo["region"].trim(),
-                "city":userInfo["city"].trim(),
-                "state":userInfo["state"].trim(),
-                "country":userInfo['country'],
-                "zipCode":userInfo["pincode"].trim(),
-                "mobile":userInfo["contact"].trim(),
-              };           
-                          
-      data_new = {
-                "userFirstName":escapeHtml($("#upFirstName").val().trim()),
-                "lastName":escapeHtml($("#upLastName").val().trim()),
-                "street1":escapeHtml($("#upStreet1").val().trim()),
-                "street2":escapeHtml($("#upStreet2").val().trim()),
-                "area":escapeHtml($("#upRegion").val().trim()),
-                "city":escapeHtml($("#upCity").val().trim()),
-                "state":$("#upState option:selected").text().trim(),
-                "country":$("#upCountry option:selected").text().trim(),
-                "zipCode":escapeHtml($("#upZipCode").val().trim()),
-                "mobile":escapeHtml($("#upContactNo").val().trim()),      
-              };
-      
-            log_data = filter(data_old, data_new),key;
-            logData = new Array();
-            i = 0;
-            for (key in log_data) {
-                if (log_data.hasOwnProperty(key)) {
-                    logData[i++] = '"'+key+'":{"'+userInfo[key]+'":"'+log_data[key]+'"}';
-                }
-            }
-            if(logData.length > 0){
-                logData ="{"+logData.join(",")+"}";
-            }
-     if(logData!='' && valid == 1)
+      var first_tym_flag = userInfo['first_tym_flag'];
+      logData = new Array();
+      if(first_tym_flag==2)
+      {
+        data_old = {
+                  "userFirstName":userInfo["fname"].trim(),
+                  "lastName":userInfo["lname"].trim(),
+                  "street1":userInfo["street1"].trim(),
+                  "street2":userInfo["street2"].trim(),
+                  "area":userInfo["region"].trim(),
+                  "city":userInfo["city"].trim(),
+                  "state":userInfo["state"].trim(),
+                  "country":userInfo['country'],
+                  "zipCode":userInfo["pincode"].trim(),
+                  "mobile":userInfo["contact"].trim(),
+                };           
+                            
+        data_new = {
+                  "userFirstName":escapeHtml($("#upFirstName").val().trim()),
+                  "lastName":escapeHtml($("#upLastName").val().trim()),
+                  "street1":escapeHtml($("#upStreet1").val().trim()),
+                  "street2":escapeHtml($("#upStreet2").val().trim()),
+                  "area":escapeHtml($("#upRegion").val().trim()),
+                  "city":escapeHtml($("#upCity").val().trim()),
+                  "state":$("#upState option:selected").text().trim(),
+                  "country":$("#upCountry option:selected").text().trim(),
+                  "zipCode":escapeHtml($("#upZipCode").val().trim()),
+                  "mobile":escapeHtml($("#upContactNo").val().trim()),      
+                };
+        
+              log_data = filter(data_old, data_new),key;
+              i = 0;
+              for (key in log_data) {
+                  if (log_data.hasOwnProperty(key)) {
+                      logData[i++] = '"'+key+'":{"'+userInfo[key]+'":"'+log_data[key]+'"}';
+                  }
+              }
+              if(logData.length > 0){
+                  logData ="{"+logData.join(",")+"}";
+              }
+      }        
+     if(valid == 1)
      {
         run_waitMe(current_effect);
         $.ajax({
@@ -542,7 +530,14 @@ $("#confirm_ok").click(function(){
   value = $("#alert_value").val();
   if(value == 'updated')
   {
-    window.location.href = "index.php";
+    if(userInfo['admin_flag']==1)
+    {
+      window.location.href = "./admin/home.php";
+    }
+    else
+    {
+      window.location.href = "index.php";  
+    }
   }
   else
   {

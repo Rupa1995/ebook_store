@@ -32,6 +32,17 @@
       }
   }
 
+    function isEmailKey(e){
+    var charCode = (e.which) ? e.which : e.keyCode;
+      //alert(charCode);
+      if ((charCode >= 97 && charCode <= 122) || (charCode >= 65 && charCode <= 90) || charCode == 8 || charCode == 46 || charCode == 9 || (charCode >= 48 && charCode <= 57) || charCode == 64 || (e.shiftKey == false && charCode == 37) || (e.which == 0  && charCode == 39) || (e.shiftKey == false && charCode == 36) || (charCode == 39) || (e.shiftKey == false && charCode == 35) || (e.shiftKey == true && charCode == 95) || (e.shiftKey == false && charCode == 45)){
+           return true;
+      }else{
+           return false;
+      }
+  }
+
+
   /* Key validation for Street1 */
 function street1Key(e){
     var charCode = (e.which) ? e.which : e.keyCode;

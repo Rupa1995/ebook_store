@@ -12,17 +12,19 @@
             SELECT
              user_id AS u_id, 
              user_admin_flag AS admin_flag,
-             user_name AS uname
+             user_name AS uname,
+             first_tym_flag
             FROM 
               ".LOGIN_TABLE." 
             WHERE 
               user_name = '$myusername' AND 
               user_password = '$mypassword' AND
               user_isactive = '1'";
-
+      
       $result = mysqli_query($conn,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       $admin_flag = $row['admin_flag'];
+      $first_tym_flag = $row['first_tym_flag'];
       $uname = $row['uname'];
 
       $count = mysqli_num_rows($result);
@@ -30,6 +32,7 @@
       if($count == 1) 
       {
          $_SESSION['login_user'] = $uname;
+         $_SESSION['first_tym_flag'] = $first_tym_flag;
          $_SESSION['userID'] = $row['u_id'];
          if($admin_flag == '1')
          {
@@ -60,7 +63,8 @@
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   
-  <link rel="stylesheet" type="text/css" href="stylesheets/register.css"> 
+  <link rel="stylesheet" type="text/css" href="stylesheets/register.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/main.css"> 
 
 </head>
 <body id="body_log">
@@ -108,14 +112,14 @@
 <div class="container-fluid register-container">
   <div class="login-box form1">
 	<div><p class="register-title">Log In</p></div>
-	<div class="register-third-party">
+<!-- 	<div class="register-third-party">
 		<p class="register-btn-info">- EASILY USING -</p>
 		<div class="social-login">
     	<a href="#"><i class="fa fa-facebook fa-lg"></i>facebook</a>
     	<a href="#"><i class="fa fa-google-plus fa-lg"></i>Google</a>
     </div>
 	</div>
-	<p class="info-text">- OR USING EMAIL -</p>
+	<p class="info-text">- OR USING EMAIL -</p> -->
   <form action="" method="post">
 		<fieldset class="register-input-container">
 			<div class="register-input-item">
@@ -140,14 +144,14 @@
   </div>   
 <div class="register-box form2">
 	<div><p class="register-title">Sign Up with Us</p></div>
-	<div class="register-third-party">
+	<!-- <div class="register-third-party">
 		<p class="register-btn-info">- EASILY USING -</p>
 		 <div class="social-login">
 	     <a href="#"><i class="fa fa-facebook fa-lg"></i>facebook</a>
 	     <a href="#"><i class="fa fa-google-plus fa-lg"></i>Google</a>
     </div>
 	</div>
-	<p class="info-text">- OR USING EMAIL -</p>
+	<p class="info-text">- OR USING EMAIL -</p> -->
 	<form class="register-form" action="registered_user.php" method="post">
 		<fieldset class="register-input-container">
 			<div class="register-input-item">

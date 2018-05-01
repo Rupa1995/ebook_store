@@ -33,7 +33,7 @@ CREATE TABLE `address` (
   `city` varchar(45) DEFAULT NULL,
   `zip` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`address_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `address` (
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
-INSERT INTO `address` VALUES (1,2,'Banneghatta Road','JP Nagar',17,101,'3rd Phase','Bangalore','560078');
+INSERT INTO `address` VALUES (1,2,'Banneghatta Road','JP Nagar',17,101,'3rd Phase','Bangalore','560078'),(2,1,'Salt Lake','',41,101,'','Kolkata','700091'),(5,1,'AJ  - 109 Salt Lake','',41,101,'','Kolkata','700091');
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,8 +109,9 @@ CREATE TABLE `user_log` (
   `modified_time` datetime DEFAULT NULL,
   `modified_by` varchar(45) DEFAULT NULL,
   `log_data` text,
+  `luser_id` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`user_log_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -119,6 +120,7 @@ CREATE TABLE `user_log` (
 
 LOCK TABLES `user_log` WRITE;
 /*!40000 ALTER TABLE `user_log` DISABLE KEYS */;
+INSERT INTO `user_log` VALUES (1,'2018-04-29 23:23:15','2','{\"area\":{\"3rd\":\"Bannerghatta Road\"}}','2'),(2,'2018-04-30 22:54:29','1','{\"userStatus\":{\"Activate\":\"Deactivate\"}}','2'),(4,'2018-04-30 23:47:18','1','{\"userStatus\":{\"Deactivate\":\"Activate\"}}','2'),(5,'2018-05-01 23:04:36','1','{\"street1\":{\"Salt Lake\":\"AJ  - 109 Salt Lake\"}}','1');
 /*!40000 ALTER TABLE `user_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -138,8 +140,9 @@ CREATE TABLE `user_table` (
   `user_mobile` bigint(10) DEFAULT NULL,
   `user_fname` varchar(45) DEFAULT NULL,
   `user_lname` varchar(45) DEFAULT NULL,
+  `first_tym_flag` int(11) DEFAULT '0',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -148,7 +151,7 @@ CREATE TABLE `user_table` (
 
 LOCK TABLES `user_table` WRITE;
 /*!40000 ALTER TABLE `user_table` DISABLE KEYS */;
-INSERT INTO `user_table` VALUES (1,'portaladmin@ebook.in','af6298443c422b25ac126b1e353d83b8',1,1,0,NULL,NULL),(2,'riturajreso@gmail.com','16bfb20e7ca4cbfa4d9dd769fa1db234',1,0,8582949025,'Rituraj','Verma'),(3,'ranirup47@gmail.com','2fd1e8e224b7aaef09200f44d3ae8049',1,0,7031509154,NULL,NULL);
+INSERT INTO `user_table` VALUES (1,'portaladmin@ebook.in','202cb962ac59075b964b07152d234b70',1,1,33445566,'Portal','Admin',2),(2,'riturajreso@gmail.com','202cb962ac59075b964b07152d234b70',1,0,8582949025,'Rituraj','Verma',1),(9,'ranirupa47@gmail.com','202cb962ac59075b964b07152d234b70',1,0,NULL,'Rupa','Rani',1);
 /*!40000 ALTER TABLE `user_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -161,4 +164,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-04-29 18:37:17
+-- Dump completed on 2018-05-01 23:46:56
