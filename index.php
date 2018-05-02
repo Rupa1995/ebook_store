@@ -8,9 +8,6 @@
       throw new Exception('Unable to include Files.');  
     }
     session_start();
-    error_reporting(E_ERROR | E_PARSE);
-    ini_set("display_errors", ERROR_FLAG);
-    ini_set('memory_limit', '-1');
 ?>
 
 <!DOCTYPE html>
@@ -605,5 +602,6 @@
   var login_uid = <?php echo $_SESSION['userID']; ?>;
 </script>
 <script type='text/javascript' src="javascripts/comman.js"></script>
+<script type='text/javascript' src="javascripts/index_out.js"></script>
 </body>
 </html>

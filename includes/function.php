@@ -1,8 +1,6 @@
 <?php
-define('MAIL_FROM_ADDRESS', 'riturajreso@gmail.com');
-define('MAIL_FROM_NAME', 'Client services');
-define('GUSER', 'burrelles.bang@gmail.com'); // Mail username
-define('GPWD', 'burrelles@123'); 
+
+include 'db.php';
 include 'class.phpmailer.php';
 include 'class.smtp.php';
 
