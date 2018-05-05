@@ -57,7 +57,7 @@ CREATE TABLE `author_table` (
   `author_id` int(11) NOT NULL AUTO_INCREMENT,
   `author_name` varchar(100) NOT NULL,
   PRIMARY KEY (`author_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `author_table` (
 
 LOCK TABLES `author_table` WRITE;
 /*!40000 ALTER TABLE `author_table` DISABLE KEYS */;
-INSERT INTO `author_table` VALUES (1,'Harper Lee'),(2,'Gabriel García Márquez');
+INSERT INTO `author_table` VALUES (1,'Harper Lee'),(2,'Gabriel Garcia Marquez'),(3,'Stephen King'),(4,'J. K. Rowling'),(5,'Ruskin Bond');
 /*!40000 ALTER TABLE `author_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,7 +111,7 @@ CREATE TABLE `book_table` (
   `book_mrp` int(10) NOT NULL,
   `book_quantity` int(10) NOT NULL,
   PRIMARY KEY (`book_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,8 +120,35 @@ CREATE TABLE `book_table` (
 
 LOCK TABLES `book_table` WRITE;
 /*!40000 ALTER TABLE `book_table` DISABLE KEYS */;
-INSERT INTO `book_table` VALUES (1,'To Kill a Mockingbird',1,1,1,'2018-05-07',456,3),(2,'One Hundred Years of Solitude',2,2,2,'2018-05-01',797,2);
+INSERT INTO `book_table` VALUES (1,'To Kill a Mockingbird',1,1,1,'2018-05-07',45,3),(2,'One Hundred Years of Solitude',2,2,2,'2018-05-01',797,4),(3,'Go Set a Watchman',2,1,2,'2018-05-01',786,6);
 /*!40000 ALTER TABLE `book_table` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `book_table_log`
+--
+
+DROP TABLE IF EXISTS `book_table_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `book_table_log` (
+  `bt_log_id` int(10) NOT NULL AUTO_INCREMENT,
+  `bt_book_id` int(10) NOT NULL,
+  `modified_by` int(10) NOT NULL,
+  `modified_time` datetime NOT NULL,
+  `log_data` text NOT NULL,
+  PRIMARY KEY (`bt_log_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `book_table_log`
+--
+
+LOCK TABLES `book_table_log` WRITE;
+/*!40000 ALTER TABLE `book_table_log` DISABLE KEYS */;
+INSERT INTO `book_table_log` VALUES (1,1,1,'2018-05-05 15:21:17','{\"quantity\":{\"3\":\"4\"}}'),(2,2,1,'2018-05-05 15:23:04','{\"quantity\":{\"2\":\"3\"}}'),(3,2,1,'2018-05-05 15:23:49','{\"quantity\":{\"3\":\"4\"}}'),(4,1,1,'2018-05-05 15:25:05','{\"quantity\":{\"4\":\"3\"}}'),(5,3,1,'2018-05-05 22:12:21','{\"book_mrp\":{\"78\":\"786\"}}');
+/*!40000 ALTER TABLE `book_table_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -161,7 +188,7 @@ CREATE TABLE `pub_info` (
   `pub_id` int(11) NOT NULL AUTO_INCREMENT,
   `pub_name` varchar(100) NOT NULL,
   PRIMARY KEY (`pub_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -170,7 +197,7 @@ CREATE TABLE `pub_info` (
 
 LOCK TABLES `pub_info` WRITE;
 /*!40000 ALTER TABLE `pub_info` DISABLE KEYS */;
-INSERT INTO `pub_info` VALUES (1,'J. B. Lippincott & Co.'),(2,'Harper & Row');
+INSERT INTO `pub_info` VALUES (1,'J. B. Lippincott & Co.'),(2,'Harper & Row'),(3,'Jaico Publishing House');
 /*!40000 ALTER TABLE `pub_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -266,4 +293,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-04  0:57:00
+-- Dump completed on 2018-05-06  2:27:15

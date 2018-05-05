@@ -27,7 +27,6 @@ if($(window).scrollTop() >= intvalue -10 && temp == 0 && !busy) {
 });
 
 $("#show_inactive").change(function () {
-	$(this).prop('disabled',true).css('cursor','default');
   total_count_flag   = 1;
   $('#current_record_count ').text('0');
   offset = 0;        
@@ -51,90 +50,110 @@ function displayRecords(offset)
 	$('#loadingDiv').remove();      
 	html = '';
 	busy = false;
-	data = JSON.parse(data); 
-	count = data.ebook.user_info.length;
-
-	if(total_count_flag == 1){
-	$('#total_records_count').text(data.ebook.usersCountList);
-	}
-	var current_count_text = $('#current_record_count ').text();
-	var updated_current_count = parseInt(current_count_text) + count;
-	$('#current_record_count').text(updated_current_count);
- 	if(data.ebook.user_info.length > 0)
- 	{                            
-      No = 0;                     
-      for(var i=0; i < count ; i++)
-      {
-      	var admin_flag = data.ebook.user_info[i].admin_flag
-      	if(data.ebook.user_info[i].user_isactive == '1')
-      	{
+	data = JSON.parse(data);
+	if(data.ebook.user_info!=null)
+	{
+		count = data.ebook.user_info.length;
+		if(total_count_flag == 1){
+			$('#total_records_count').text(data.ebook.usersCountList);
+		}
+		var current_count_text = $('#current_record_count ').text();
+		var updated_current_count = parseInt(current_count_text) + count;
+		$('#current_record_count').text(updated_current_count);
+		if(data.ebook.user_info.length > 0)
+		{                            
+			No = 0;                     
+			for(var i=0; i < count ; i++)
+			{
+			var admin_flag = data.ebook.user_info[i].admin_flag
+			if(data.ebook.user_info[i].user_isactive == '1')
+			{
 			if($('#show_inactive').is(':disabled'))
 			{
 				$("#show_inactive").prop('disabled',false);
 			}
- 	    }	
-        color = '';
-        title = 'Deactivate';                     
-        if(data.ebook.user_info[i].user_isactive == '0')
-        {
-          color = "red";
-          title = 'Activate';
-          if($('#show_inactive').is(':disabled'))
-          	{
-                $("#show_inactive").prop('disabled',false);
- 			}
-        }
+			}	
+			color = '';
+			title = 'Deactivate';                     
+			if(data.ebook.user_info[i].user_isactive == '0')
+			{
+			color = "red";
+			title = 'Activate';
+			if($('#show_inactive').is(':disabled'))
+				{
+			    $("#show_inactive").prop('disabled',false);
+				}
+			}
 
-        html += '<tr>';
-		html += '<td>';
-		html += ++No+offset;
-		html += '</td>';
-                          
-		html += '<td>';
-		html += data.ebook.user_info[i].user_fname;
-		html += '</td>';
-                      
-		html += '<td>';
-		html += data.ebook.user_info[i].user_lname;
-		html += '</td>';
+			html += '<tr>';
+			html += '<td>';
+			html += ++No+offset;
+			html += '</td>';
+			              
+			html += '<td>';
+			html += data.ebook.user_info[i].user_fname;
+			html += '</td>';
+			          
+			html += '<td>';
+			html += data.ebook.user_info[i].user_lname;
+			html += '</td>';
 
-		html += '<td class="userName">';
-		html += data.ebook.user_info[i].user_name;
-		html += '</td>';
+			html += '<td class="userName">';
+			html += data.ebook.user_info[i].user_name;
+			html += '</td>';
 
-        html += '<td class="action">';
-                      
-        if((flag == 0 && admin_flag !=1) || (flag == 1 && admin_flag !=1)){
-         html += '<span data-toggle="tooltip" data-placement="top" title="'+title+'"><a href="#" class="deleteUser icon-red '+color+'" id="'+data.ebook.user_info[i].user_id+'"><span  aria-hidden="true" class="glyphicon glyphicon-ban-circle"></span></a></span>';   
-        }
-                        
-        html +='<span data-toggle="tooltip" data-placement="top" title="List Logs"><a href="#" class="link_show_log_user icon-yellow" id="'+data.ebook.user_info[i].user_id+'"><span aria-hidden="true" class="fa fa-history"></span></a></span>';
-        
-        html += '</td>';
-        html += '</tr>';
+			html += '<td class="action">';
+			          
+			if((flag == 0 && admin_flag !=1) || (flag == 1 && admin_flag !=1)){
+			html += '<span data-toggle="tooltip" data-placement="top" title="'+title+'"><a href="#" class="deleteUser icon-red '+color+'" id="'+data.ebook.user_info[i].user_id+'"><span  aria-hidden="true" class="glyphicon glyphicon-ban-circle"></span></a></span>';   
+			}
+			            
+			html +='<span data-toggle="tooltip" data-placement="top" title="List Logs"><a href="#" class="link_show_log_user icon-yellow" id="'+data.ebook.user_info[i].user_id+'"><span aria-hidden="true" class="fa fa-history"></span></a></span>';
 
-      }
-       	$('#userListTBody').append(html);
-        $('[data-toggle="tooltip"]').tooltip();
-  	}
-  	else
-  	{
-		loading_flag=1;
-		$('#loadingDiv').remove();
+			html += '</td>';
+			html += '</tr>';
+
+			}
+			$('#userListTBody').append(html);
+			$('[data-toggle="tooltip"]').tooltip();
+			}
+		else
+		{
+			loading_flag=1;
+			$('#loadingDiv').remove();
+			if( $('#userListTBody').is(':empty') ) 
+			{
+				$("#contents").hide();
+				$('#loader_message').html('<p style="margin-left:20px;color:red ;text-align: center;">No records found.</p>');
+			if($('#show_inactive').is(':disabled'))
+			{
+				$("#show_inactive").prop('disabled',false);
+			}
+			}
+			else
+			{
+				$('#loader_message').html('<p style="margin-left:20px;color:red ; text-align: center;">No more records.</p>');
+			}
+		}
+	}
+	else
+	{
+		$('#total_records_count').text(0);
 		if( $('#userListTBody').is(':empty') ) 
 		{
 			$("#contents").hide();
 			$('#loader_message').html('<p style="margin-left:20px;color:red ;text-align: center;">No records found.</p>');
-			if($('#show_inactive').is(':disabled'))
-			{
-				$("#show_inactive").prop('disabled',false);
-			}
+		if($('#show_inactive').is(':disabled'))
+		{
+			$("#show_inactive").prop('disabled',false);
+		}
 		}
 		else
 		{
 			$('#loader_message').html('<p style="margin-left:20px;color:red ; text-align: center;">No more records.</p>');
 		}
-	}      
+	} 
+	      
 	}).fail(function(){
 
 	});

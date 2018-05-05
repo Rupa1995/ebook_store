@@ -125,3 +125,8 @@ background-image: linear-gradient(to bottom, #f1f1f1 0%, #dedede 100%);
 .icon-yellow{color:#e8a838;}
 .icon-pink{color:#FF6600;}
 .action a{padding-right:8px;}
+.calendar-icon {    position: absolute;    right: 5px;    top: 12px; cursor: pointer;}
+.date_timepicker {position: relative;}
+.bootstrap-datetimepicker-widget > ul{padding:0;}
+
+

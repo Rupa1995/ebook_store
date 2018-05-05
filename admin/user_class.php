@@ -18,7 +18,8 @@
 function getUserList($conn)
 {
   $flag = $_POST['flag'];
-  
+  $offset = $_POST['offset'];
+  $limit = " LIMIT ".PAGINATION_COUNT." OFFSET $offset";
   $sql ="
         SELECT
           user_id,
@@ -30,7 +31,7 @@ function getUserList($conn)
         FROM
           ".LOGIN_TABLE."
         WHERE 
-          user_isactive = '$flag'";
+          user_isactive = '$flag'".$limit;
   $result = mysqli_query($conn, $sql);
   $rowcount=mysqli_num_rows($result);     
   $result = mysqli_fetch_all($result,MYSQLI_ASSOC);
