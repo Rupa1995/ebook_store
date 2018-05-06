@@ -660,7 +660,8 @@ $('body').on('click','#yes_create',function()
 
 $('body').on('click','#confirm_ok',function(){
 	offset = 0;
-	$('#bookListTBody').append('');
+	$('#bookListTBody').html('');
+	$('#current_record_count ').text('0');
 	displayRecords(offset);
 });
 

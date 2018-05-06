@@ -84,11 +84,11 @@
 	<div class="col-md-12 container">
 		
 		<div class="link_box col-md-4">
-			<a href="">
+			<a href="author.php">
 				<div class="box_img">
 					<img src="../images/categ7.gif" height="100px" width="150px">
 				</div>
-				<div class="box_text">Records</div>
+				<div class="box_text">Authors</div>
 			</a>
 		</div>
 		<div class="link_box col-md-4">
@@ -100,11 +100,11 @@
 			</a>
 		</div>
 		<div class="link_box col-md-4">
-			<a href="">
+			<a href="publisher.php">
 				<div class="box_img">
 					<img src="../images/categ8.gif" height="100px" width="150px">
 				</div>
-				<div class="box_text">Queries</div>
+				<div class="box_text">Publisher</div>
 			</a>
 		</div>
 	</div>

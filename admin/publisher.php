@@ -32,7 +32,7 @@
   <div id="page-wrapper" class="full-width">
     <div class="right-panel">         
       <div class="title">
-        Manage Book Category
+        Manage Publisher
         <div class="pull-right">   
               <a href="#" id="backid" class="form-group btn btn-sm btn-default-back" title ="" data-placement="top" data-toggle="tooltip" data-original-title="">
               <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back </a>
@@ -53,7 +53,7 @@
               <div class="col-md-6">
                 <div class="pull-right"> 
                   <span class="total-records">Showing Records <span id="current_record_count">0</span> of <span id="total_records_count">0</span></span>
-                 <a href="#" id="create_bCat" class="btn btn-orange mar-bot-10" title ="" data-placement="left" data-toggle="tooltip" data-original-title = ""><span class="glyphicon glyphicon-plus-sign " aria-hidden="true"></span> Add Book Category</a></div>
+                 <a href="#" id="create_pub" class="btn btn-orange mar-bot-10" title ="" data-placement="left" data-toggle="tooltip" data-original-title = ""><span class="glyphicon glyphicon-plus-sign " aria-hidden="true"></span> Add Publisher</a></div>
               </div>
             </div>
             <div class="table-responsive search-customer">
@@ -61,11 +61,11 @@
                 <thead>
                   <tr>
                     <th class="remove_sort" width="5%">No. </th>
-                    <th id="b_sort_bookcat" class="sort_book" width="10%">Book Category</th>
+                    <th id="b_sort_bookcat" class="sort_book" width="10%">Publisher Name</th>
                     <th class="remove_sort" width="9%">Action</th>
                   </tr>
                 </thead>
-                <tbody id="bookListTBody"></tbody>
+                <tbody id="pubListTBody"></tbody>
               </table>
             </div>
           </div>
@@ -117,19 +117,19 @@
 </div>
 </div>
 
-<div class="modal fade form-modal" id="create_bcat_pop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+<div class="modal fade form-modal" id="create_pub_pop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
 	<div class="modal-dialog modal-sm" role="document">
 		<div class="modal-content">
 		    <div class="modal-header">
 		      <button type="button" class="close page-scroll-set" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		      <h4 class="modal-title">Add Book Category</h4>
+		      <h4 class="modal-title">Add Publisher</h4>
 		    </div>
 		    <div class="modal-body"> 
 		       <div class="form-group">
 		        <div class="row">
 		          <div class="col-sm-12">
 		            <div class="col-sm-12 col-md-12 col-lg-12 ">
-		              <label id="create_label">Book Category <span class="red">*</span></label>
+		              <label id="create_label">Publisher Name <span class="red">*</span></label>
 		              <input type="text" class="form-control" name="create_val" id="create_val" >
 		              <p style="color:red" class="create_valErr" id="create_valErr"></p>
 		            </div>
@@ -146,19 +146,19 @@
 	</div>
 </div>
 
-<div class="modal fade form-modal" id="edit_bcat_pop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+<div class="modal fade form-modal" id="edit_pub_pop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
 	<div class="modal-dialog modal-sm" role="document">
 		<div class="modal-content">
 		    <div class="modal-header">
 		      <button type="button" class="close page-scroll-set" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		      <h4 class="modal-title">Edit Book Category</h4>
+		      <h4 class="modal-title">Edit Publisher</h4>
 		    </div>
 		    <div class="modal-body"> 
 		       <div class="form-group">
 		        <div class="row">
 		          <div class="col-sm-12">
 		            <div class="col-sm-12 col-md-12 col-lg-12 ">
-		              <label id="edit_label">Book Category <span class="red">*</span></label>
+		              <label id="edit_label">Publisher Name <span class="red">*</span></label>
 		              <input type="text" class="form-control" name="edit_val" id="edit_val" >
 		              <p style="color:red" class="edit_valErr" id="edit_valErr"></p>
 		            </div>
@@ -172,7 +172,7 @@
 		    </div>
     		<input type="hidden" name="type_val" id="type_val">
     		<input type="hidden" name="id_val" id="id_val">
-    		<input type="hidden" name="old_cat_val" id="old_cat_val">
+    		<input type="hidden" name="old_pub_val" id="old_pub_val">
 		</div>
 	</div>
 </div>
@@ -229,6 +229,6 @@
 <script type='text/javascript' src="../js/bootstrap.min.js"></script>
 <script type='text/javascript' src="../js/bootstrap-select.min.js"></script>
 <script type='text/javascript' src="../js/waitMe.js"></script>
-<script type='text/javascript' src="../javascripts/manage_book_cat.js"></script>
+<script type='text/javascript' src="../javascripts/manage_publisher.js"></script>
 <script type='text/javascript' src="../javascripts/key_validation.js"></script>
 <script type='text/javascript' src="../javascripts/comman.js"></script>

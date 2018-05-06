@@ -56,8 +56,9 @@ DROP TABLE IF EXISTS `author_table`;
 CREATE TABLE `author_table` (
   `author_id` int(11) NOT NULL AUTO_INCREMENT,
   `author_name` varchar(100) NOT NULL,
+  `author_isactive` int(11) NOT NULL DEFAULT '1' COMMENT '1= Active 0 =Inactive',
   PRIMARY KEY (`author_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,8 +67,35 @@ CREATE TABLE `author_table` (
 
 LOCK TABLES `author_table` WRITE;
 /*!40000 ALTER TABLE `author_table` DISABLE KEYS */;
-INSERT INTO `author_table` VALUES (1,'Harper Lee'),(2,'Gabriel Garcia Marquez'),(3,'Stephen King'),(4,'J. K. Rowling'),(5,'Ruskin Bond');
+INSERT INTO `author_table` VALUES (1,'Harper Lee',1),(2,'Gabriel Garcia Marquez',1),(3,'Stephen King',1),(4,'J. K. Rowling',1),(5,'Ruskin Bond',1),(6,'Chetan Bhagats',0);
 /*!40000 ALTER TABLE `author_table` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `author_table_log`
+--
+
+DROP TABLE IF EXISTS `author_table_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `author_table_log` (
+  `at_log_id` int(10) NOT NULL AUTO_INCREMENT,
+  `at_author_id` int(10) NOT NULL,
+  `modified_by` int(10) NOT NULL,
+  `modified_time` datetime NOT NULL,
+  `log_data` text NOT NULL,
+  PRIMARY KEY (`at_log_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `author_table_log`
+--
+
+LOCK TABLES `author_table_log` WRITE;
+/*!40000 ALTER TABLE `author_table_log` DISABLE KEYS */;
+INSERT INTO `author_table_log` VALUES (1,6,1,'2018-05-06 19:57:39','{\"author_name\":{\"Chetan Bhagat\":\"Chetan Bhagats\"}}'),(2,6,1,'2018-05-06 20:00:56','{\"catStatus\":{\"Activate\":\"Deactivate\"}}');
+/*!40000 ALTER TABLE `author_table_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -80,8 +108,9 @@ DROP TABLE IF EXISTS `book_cat`;
 CREATE TABLE `book_cat` (
   `cat_id` int(11) NOT NULL AUTO_INCREMENT,
   `cat_name` varchar(100) NOT NULL,
+  `cat_isactive` int(11) NOT NULL DEFAULT '1' COMMENT '1= Active 0 =Inactive',
   PRIMARY KEY (`cat_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -90,8 +119,35 @@ CREATE TABLE `book_cat` (
 
 LOCK TABLES `book_cat` WRITE;
 /*!40000 ALTER TABLE `book_cat` DISABLE KEYS */;
-INSERT INTO `book_cat` VALUES (1,'Southern Gothic'),(2,'Magic realism');
+INSERT INTO `book_cat` VALUES (1,'Southern Gothic',1),(2,'Magic realism',1),(3,'Tragedy',1),(4,'Tragic comedy',1),(5,'Mythology',1),(6,'Adventure',1),(7,'Mystery',1),(8,'Horror',1);
 /*!40000 ALTER TABLE `book_cat` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `book_cat_log`
+--
+
+DROP TABLE IF EXISTS `book_cat_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `book_cat_log` (
+  `bc_log_id` int(10) NOT NULL AUTO_INCREMENT,
+  `bc_cat_id` int(10) NOT NULL,
+  `modified_by` int(10) NOT NULL,
+  `modified_time` datetime NOT NULL,
+  `log_data` text NOT NULL,
+  PRIMARY KEY (`bc_log_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `book_cat_log`
+--
+
+LOCK TABLES `book_cat_log` WRITE;
+/*!40000 ALTER TABLE `book_cat_log` DISABLE KEYS */;
+INSERT INTO `book_cat_log` VALUES (1,1,1,'2018-05-06 18:16:11','{\"cat_name\":{\"Southern Gothi\":\"Southern Gothic\"}}'),(2,1,1,'2018-05-06 18:52:16','{\"catStatus\":{\"Deactivate\":\"Activate\"}}'),(3,1,1,'2018-05-06 18:54:11','{\"catStatus\":{\"Activate\":\"Deactivate\"}}'),(4,1,1,'2018-05-06 19:00:19','{\"catStatus\":{\"Deactivate\":\"Activate\"}}');
+/*!40000 ALTER TABLE `book_cat_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -187,8 +243,9 @@ DROP TABLE IF EXISTS `pub_info`;
 CREATE TABLE `pub_info` (
   `pub_id` int(11) NOT NULL AUTO_INCREMENT,
   `pub_name` varchar(100) NOT NULL,
+  `pub_isactive` int(11) NOT NULL DEFAULT '1' COMMENT '1= Active 0 =Inactive',
   PRIMARY KEY (`pub_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -197,8 +254,35 @@ CREATE TABLE `pub_info` (
 
 LOCK TABLES `pub_info` WRITE;
 /*!40000 ALTER TABLE `pub_info` DISABLE KEYS */;
-INSERT INTO `pub_info` VALUES (1,'J. B. Lippincott & Co.'),(2,'Harper & Row'),(3,'Jaico Publishing House');
+INSERT INTO `pub_info` VALUES (1,'J. B. Lippincott & Co.',1),(2,'Harper & Row',1),(3,'Jaico Publishing House',1),(4,'Westland Publication',1);
 /*!40000 ALTER TABLE `pub_info` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pub_table_log`
+--
+
+DROP TABLE IF EXISTS `pub_table_log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pub_table_log` (
+  `pt_log_id` int(10) NOT NULL AUTO_INCREMENT,
+  `pt_pub_id` int(10) NOT NULL,
+  `modified_by` int(10) NOT NULL,
+  `modified_time` datetime NOT NULL,
+  `log_data` text NOT NULL,
+  PRIMARY KEY (`pt_log_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pub_table_log`
+--
+
+LOCK TABLES `pub_table_log` WRITE;
+/*!40000 ALTER TABLE `pub_table_log` DISABLE KEYS */;
+INSERT INTO `pub_table_log` VALUES (1,4,1,'2018-05-06 21:08:23','{\"pub_name\":{\"Westland Publications\":\"Westland Publication\"}}'),(2,4,1,'2018-05-06 21:10:57','{\"catStatus\":{\"Activate\":\"Deactivate\"}}'),(3,4,1,'2018-05-06 21:11:15','{\"catStatus\":{\"Activate\":\"Deactivate\"}}'),(4,4,1,'2018-05-06 21:12:22','{\"catStatus\":{\"Activate\":\"Deactivate\"}}'),(5,4,1,'2018-05-06 21:27:58','{\"catStatus\":{\"Activate\":\"Deactivate\"}}'),(6,4,1,'2018-05-06 21:31:04','{\"catStatus\":{\"Deactivate\":\"Activate\"}}');
+/*!40000 ALTER TABLE `pub_table_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -293,4 +377,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-06  2:27:15
+-- Dump completed on 2018-05-06 21:41:53

@@ -16,7 +16,9 @@ define('AUTHOR','author_table ');
 define('PUBLISHER', 'pub_info');
 define('BOOK_CAT','book_cat');
 define('BOOK_LOG','book_table_log');
-
+define('CAT_LOG','book_cat_log');
+define('AUTHOR_LOG','author_table_log');
+define('PUB_LOG','pub_table_log');
 
 define('MAIL_FROM_ADDRESS', 'no-reply@gmail.com');
 define('MAIL_FROM_NAME', 'Book Services');

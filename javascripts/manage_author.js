@@ -8,7 +8,7 @@ $(document).ready(function()
 	var total_count_flag = 1;
 	var current_effect = 'win8';
 
-	$('#bookListTBody').html('');  
+	$('#authorListTBody').html('');  
 	$('#current_record_count ').text('0');      
 	displayRecords(offset);
 
@@ -30,7 +30,7 @@ $("#show_inactive").change(function () {
   total_count_flag   = 1;
   $('#current_record_count ').text('0');
   offset = 0;        
-  $('#bookListTBody').html('');
+  $('#authorListTBody').html('');
    displayRecords(offset); 
 });
 
@@ -45,27 +45,27 @@ function displayRecords(offset)
 	$.ajax({
 	type: 'POST',//method type
 	cache: false,//do not allow requested page to be cache
-	data: {ajaxcall : true,function2call: 'getBookCatList', offset:offset,flag :flag , total_count_flag : total_count_flag},
+	data: {ajaxcall : true,function2call: 'getAuthorList', offset:offset,flag :flag , total_count_flag : total_count_flag},
 	url: "book_class.php",
 	}).done(function(data){
 	$('#loadingDiv').remove();      
 	html = '';
 	busy = false;
 	data = JSON.parse(data); 
-	count = data.ebook.book_cat.length;
+	count = data.ebook.author.length;
 	
 	if(total_count_flag == 1){
-	$('#total_records_count').text(data.ebook.bookcatCountList);
+	$('#total_records_count').text(data.ebook.authorCountList);
 	}
 	var current_count_text = $('#current_record_count ').text();
 	var updated_current_count = parseInt(current_count_text) + count;
 	$('#current_record_count').text(updated_current_count);
- 	if(data.ebook.book_cat.length > 0)
+ 	if(data.ebook.author.length > 0)
  	{                            
       No = 0;                     
       for(var i=0; i < count ; i++)
       {
-      	if(data.ebook.book_cat[i].cat_isactive == '1')
+      	if(data.ebook.author[i].author_isactive == '1')
 		{
 		if($('#show_inactive').is(':disabled'))
 		{
@@ -74,7 +74,7 @@ function displayRecords(offset)
 		}	
 		color = '';
 		title = 'Deactivate';                     
-		if(data.ebook.book_cat[i].cat_isactive == '0')
+		if(data.ebook.author[i].author_isactive == '0')
 		{
 		color = "red";
 		title = 'Activate';
@@ -88,32 +88,32 @@ function displayRecords(offset)
 		html += ++No+offset;
 		html += '</td>';
                           
-		html += '<td class="cat_name">';
-		html += data.ebook.book_cat[i].cat_name;
+		html += '<td class="author_name">';
+		html += data.ebook.author[i].author_name;
 		html += '</td>';
                       
         html += '<td class="action">';
         
-        html += '<span data-toggle="tooltip" data-placement="top" title="Edit"><a href="#" class="editBookCat icon-green" id="'+data.ebook.book_cat[i].cat_id+'"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span></a></span>';
+        html += '<span data-toggle="tooltip" data-placement="top" title="Edit"><a href="#" class="editAuthor icon-green" id="'+data.ebook.author[i].author_id+'"><span aria-hidden="true" class="glyphicon glyphicon-pencil"></span></a></span>';
 		
 		if((flag == 0) || (flag == 1)){
-			html += '<span data-toggle="tooltip" data-placement="top" title="'+title+'"><a href="#" class="deleteBookCat icon-red '+color+'" id="'+data.ebook.book_cat[i].cat_id+'"><span  aria-hidden="true" class="glyphicon glyphicon-ban-circle"></span></a></span>';   
+			html += '<span data-toggle="tooltip" data-placement="top" title="'+title+'"><a href="#" class="deleteAuthor icon-red '+color+'" id="'+data.ebook.author[i].author_id+'"><span  aria-hidden="true" class="glyphicon glyphicon-ban-circle"></span></a></span>';   
 			}              
                                 
-        html +='<span data-toggle="tooltip" data-placement="top" title="List Logs"><a href="#" class="link_show_log_book_cat icon-yellow" id="'+data.ebook.book_cat[i].cat_id+'"><span aria-hidden="true" class="fa fa-history"></span></a></span>';
+        html +='<span data-toggle="tooltip" data-placement="top" title="List Logs"><a href="#" class="link_show_log_author icon-yellow" id="'+data.ebook.author[i].author_id+'"><span aria-hidden="true" class="fa fa-history"></span></a></span>';
         
         html += '</td>';
         html += '</tr>';
 
       }
-       	$('#bookListTBody').append(html);
+       	$('#authorListTBody').append(html);
         $('[data-toggle="tooltip"]').tooltip();
   	}
   	else
   	{
 		loading_flag=1;
 		$('#loadingDiv').remove();
-		if( $('#bookListTBody').is(':empty') ) 
+		if( $('#authorListTBody').is(':empty') ) 
 		{
 			$("#contents").hide();
 			$('#loader_message').html('<p style="margin-left:20px;color:red ;text-align: center;">No records found.</p>');
@@ -132,9 +132,9 @@ function displayRecords(offset)
 	});
 }
 
-$('body').on('click','#create_bCat',function(){
-	$("#type_val").val(3);
-	$("#create_bcat_pop").modal('show');
+$('body').on('click','#create_author',function(){
+	$("#type_val").val(2);
+	$("#create_author_pop").modal('show');
 	
 });
 
@@ -156,8 +156,8 @@ $('body').on('click','#yes_create',function()
 		$('body').waitMe('hide');
 		if(data.ebook.updated == true)
 			{
-				displayAlert("Alert Message", "Book Category successfully created.");
-				$('#create_bcat_pop').modal('hide');
+				displayAlert("Alert Message", "Author successfully created.");
+				$('#create_author_pop').modal('hide');
 			}
 	  });
 	}
@@ -167,14 +167,14 @@ $('body').on('click','#yes_create',function()
 	}  
 });
 
-$('body').on('click','.editBookCat',function(){
+$('body').on('click','.editAuthor',function(){
 	var cat_id = $(this).attr('id');
-	$("#type_val").val(3);
-	var val = $(this).closest('td').siblings('.cat_name').text();
+	$("#type_val").val(2);
+	var val = $(this).closest('td').siblings('.author_name').text();
 	$("#edit_val").val(val);
 	$("#id_val").val(cat_id);
-	$("#old_cat_val").val(val);
-	$("#edit_bcat_pop").modal('show');
+	$("#old_auth_val").val(val);
+	$("#edit_author_pop").modal('show');
 	
 });
 
@@ -183,13 +183,13 @@ $('body').on('click','#yes_edit',function()
 	var name_type = $("#edit_val").val().trim();
 	logData = new Array();
 	oldDataInfo = new Array();
-	oldDataInfo["cat_name"] = $("#old_cat_val").val();
+	oldDataInfo["author_name"] = $("#old_auth_val").val();
 	data_old = {
-          "cat_name":escapeHtml(oldDataInfo["cat_name"].trim()),       
+          "author_name":escapeHtml(oldDataInfo["author_name"].trim()),       
         };           
                     
 	data_new = {
-          "cat_name":escapeHtml($("#edit_val").val().trim()),      
+          "author_name":escapeHtml($("#edit_val").val().trim()),      
         };
 
     log_data = filter(data_old, data_new),key;
@@ -217,8 +217,8 @@ $('body').on('click','#yes_edit',function()
 		$('body').waitMe('hide');
 		if(data.ebook.updated == true)
 			{
-				displayAlert("Alert Message", "Book Category successfully updated.");
-				$('#edit_bcat_pop').modal('hide');
+				displayAlert("Alert Message", "Author successfully updated.");
+				$('#edit_author_pop').modal('hide');
 			}
 	  });
 	}
@@ -228,11 +228,11 @@ $('body').on('click','#yes_edit',function()
 	}  
 });
 
-$('body').on("click",".link_show_log_book_cat", function()
+$('body').on("click",".link_show_log_author", function()
 	{
-		var cat_id = $(this).attr('id');
+		var author_id = $(this).attr('id');
 		logLabels = new Array();
-		logLabels["cat_name"] = "Book Category";
+		logLabels["author_name"] = "Author Name";
 		logLabels["catStatus"] = "Status";
 		page_scroll_position = $(window).scrollTop(); // get page scroll position 
 		run_waitMe(current_effect);// start the loader
@@ -241,7 +241,7 @@ $('body').on("click",".link_show_log_book_cat", function()
 		    type: 'POST',//method type
 		    dataType:'text',
 		    cache: false,//do not allow requested page to be cached
-		    data: {ajaxcall : true,function2call: 'getBookCatLog',cat_id:cat_id}
+		    data: {ajaxcall : true,function2call: 'getAuthorLog',author_id:author_id}
 		  }).done(function(data)
 		  {
 			$('body').waitMe('hide');
@@ -252,19 +252,19 @@ $('body').on("click",".link_show_log_book_cat", function()
 		  });
 	});
 
-$('body').on('click', '.deleteBookCat', function(e)
+$('body').on('click', '.deleteAuthor', function(e)
 {
 	e.preventDefault();
 	$('.error-display').text('').hide();
 	page_scroll_position = $(window).scrollTop(); // get page scroll position 
 	var prf_id = $(this).attr('id');
-	var profileName = $(this).closest('td').siblings('.cat_name').text();
+	var profileName = $(this).closest('td').siblings('.author_name').text();
 
 	if($(this).hasClass( "red" ))
 	{
 	  $('#actPrfId').val(prf_id);
 	  $('#actProfileName').val(profileName);
-	  $('#profile_act_text').html('Are you sure you want to activate <b>' +profileName+ '</b> Category?');
+	  $('#profile_act_text').html('Are you sure you want to activate <b>' +profileName+ '</b> Author?');
 	  $('#activate').modal('show');
 
 	}
@@ -272,7 +272,7 @@ $('body').on('click', '.deleteBookCat', function(e)
 	{
 	  $('#deactPrfId').val(prf_id);
 	  $('#deactProfileName').val(profileName);
-	  $('#profile_deact_text').html('Are you sure you want to deactivate <b>' +profileName+ '</b> Category?');
+	  $('#profile_deact_text').html('Are you sure you want to deactivate <b>' +profileName+ '</b> Author?');
 	  $('#deacticate').modal('show');
 	}
 });
@@ -282,14 +282,14 @@ $('body').on("click",'#yes_ac', function(e){
 	$.ajax({
 	type: 'POST',//method type
 	cache: false,//do not allow requested page to be cache
-	data: {ajaxcall : true,function2call: 'activateBookCat', cat_id : $("#actPrfId").val() },
+	data: {ajaxcall : true,function2call: 'activateAuthor', author_id : $("#actPrfId").val() },
 	url: "book_class.php",
 	}).done(function(data){
 	data = JSON.parse(data);
 	$('body').waitMe('hide');
 	if(data.ebook.activate == true)
 	{
-		displayAlert("Alert Message", "Book Category successfully activated.");
+		displayAlert("Alert Message", "Author successfully activated.");
 		$('#activate').modal('hide');
 	}
 	}).fail(function(){
@@ -302,14 +302,14 @@ $('body').on("click",'#yes_deac', function(e){
 	$.ajax({
 	type: 'POST',//method type
 	cache: false,//do not allow requested page to be cache
-	data: {ajaxcall : true,function2call: 'deactivateBookCat', cat_id : $("#deactPrfId").val()},
+	data: {ajaxcall : true,function2call: 'deactivateAuthor', author_id : $("#deactPrfId").val()},
 	url: "book_class.php",
 	}).done(function(data){
 	data = JSON.parse(data);
 	$('body').waitMe('hide');
 	if(data.ebook.deactivate == true)
 	{
-		displayAlert("Alert Message", "Book Category successfully deactivated.");
+		displayAlert("Alert Message", "Author successfully deactivated.");
 		$('#deacticate').modal('hide');
 	}
 	}).fail(function(){
@@ -319,7 +319,7 @@ $('body').on("click",'#yes_deac', function(e){
 
 $('body').on('click','#confirm_ok',function(){
 	offset = 0;
-	$('#bookListTBody').html('');
+	$('#authorListTBody').html('');
 	$('#current_record_count ').text('0');
 	displayRecords(offset);
 });
