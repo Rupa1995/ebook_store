@@ -129,4 +129,14 @@ background-image: linear-gradient(to bottom, #f1f1f1 0%, #dedede 100%);
 .date_timepicker {position: relative;}
 .bootstrap-datetimepicker-widget > ul{padding:0;}
 
+.admin-box{width:250px;float:right; margin:0 15px 0 20px;}
+.panel-back {background-color:#fff;border:solid 1px #d8d8d8;border-radius:0;}
+.panel-back:hover{background-color:#F4F4F4;}
+.noti-box {min-height:200px;padding:15px;cursor:pointer;margin-bottom:30px !important;}
+.noti-box .icon-box {display: block;font-size: 22px;height:50px;line-height: 49px;margin: 0 auto;overflow: hidden;text-align: center;vertical-align: middle;width:50px;}
+.set-icon {border-radius:50px;-moz-border-radius:50px;-webkit-border-radius:50px;}
+.text-box p {margin:10px 0 0;text-align:center;}
+
+
+
 
