@@ -157,3 +157,42 @@ position: relative;
 
 .btn-cart{font-size: 30px; color: gray; margin:8px;}
 .btn-wish{font-size: 30px; color: gray; margin:8px; float: right;}
+/*---------------------------------------------------------------------------------------------------------------*/
+hr{margin-bottom: 15px!important;}
+.bag{float: left; margin: 0; font-size: 25px; color: black; border-bottom: 1px dotted black;}
+.total-price{margin-left: 60%;}
+.book-detail{border: 2px solid #e3e0e0; float: left; width: 70%;}
+.book-receipt{border-left: 2px solid #e3e0e0; float: right; width: 28%;}
+.book-img{float: left; width: 30%; margin: 10px; padding: 5px; border: 1px solid beige;}
+#book-name{float: left;margin: 0;}
+#book-price{margin-left: 88%; font-size: 15px; color: black;margin-bottom: 0;}
+#seller{margin:0; float: left;}
+#book-price-prev{margin-left: 76%; font-size: 15px; color: red;margin-bottom: 0;margin-top: 0;}
+#book-price-prev em{color: gray; margin-right: 10px; border-right: 2px solid #bbbec0;}
+#drp{color: black; font-size: 14px;}
+#remove-link{color: black; margin-right: 10px; margin-bottom: 5px; padding-left: 20px;}
+#move-to-wishlist{color: blue; margin-left: 10px; margin-bottom: 5px;}
+.add-more{border:2px solid #e3e0e0; width: 62%; float: left; margin: -30px 0 0 75px; padding-top: 10px;padding-bottom: 10px; padding-left: 25%; color: gray; font-size: 15px;}
+.add-more a{ color: gray; font-size: 15px; }
+#coupons{ float: right; border: 2px solid blue; background: white; color: blue; border-radius: 4px;}
+#place-order{
+    margin-top: 25px;
+    margin-left: 80px;
+    display: inline-block;
+        padding: 15px 15px;
+        font-size: 15px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: $white;
+        background-color: #62f2ce;
+        border: none;
+        border-radius: 5px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: bold;
+        box-sizing: border-box;
+        box-shadow: 0px 3px 0px 0px #19b78a;
+        color: whitesmoke;
+}
