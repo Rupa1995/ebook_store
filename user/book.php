@@ -52,7 +52,7 @@
           <input type="hidden" name="post_type" value="product">
       </form>
       <div class="logo">
-          <a href="index.php">
+          <a href="../index.php">
             <h1>Books</h1>
             <span>ebook store</span>
           </a>
@@ -65,14 +65,14 @@
                  <?php 
                       if(isset($_SESSION['login_user']))
                       {
-                        echo '<li><a href="edit_profile.php">Edit Profile</a></li>';
+                        echo '<li><a href="../edit_profile.php">Edit Profile</a></li>';
                         echo '<li><a href="#">Wishlist</a></li>';
                         echo '<li><a href="#">Cart</a></li>';
-                        echo '<li><a href="logout.php" class="login_user">Logout</a></li>';
+                        echo '<li><a href="../logout.php" class="login_user">Logout</a></li>';
                       } 
                       else
                       { 
-                        echo '<li><a href="register.php?action=logout" class="register_user">Login/SignUp</a></li>';
+                        echo '<li><a href="../register.php?action=logout" class="register_user">Login/SignUp</a></li>';
                        }
                      ?>
               </ul>
@@ -92,10 +92,13 @@ for ($i = 0; $i < count($_SESSION['BookArr']); $i++)
 	{ 
 echo '<div class="admin-box" id="">';
 echo '<div class="panel panel-back noti-box">';
-echo '<div class="icon-box set-icon red"><i class="fa fa-user"></i>';//yaha image daalna
+echo '<div class="image-logo"><img src="../images/portfolio-01.jpg">';//yaha image daalna
+
+echo '<p class="image-title">'.$_SESSION['BookArr'][$i]['book_title'].'</p>'; //text mei aut design krna ki pic ke upar aaye
+// echo '</div>';
 echo '</div>';
-echo '<div class="text-box"><p>'.$_SESSION['BookArr'][$i]['book_title'].'</p>'; //text mei aut design krna ki pic ke upar aaye
-echo '</div>';
+echo '<button class="btn-cart"><i class="fa fa-cart-plus"></i></button>';
+echo '<button class="btn-wish"><i class="fa fa-heart-o"></i></button>';
 echo '</div>';
 echo '</div>';
 //box ke nice ek aur box rahega chota sa jismei 2 button hoga buy or Add to chart

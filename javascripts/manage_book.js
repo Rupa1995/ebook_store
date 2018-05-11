@@ -73,11 +73,11 @@ function createBookValidation()
 		valid = 0;
 		$('#b_catErr').text("Please select atleast one Book Category.");
 	}
-	if(($('#b_pubDate').val()=='') || ($('#b_pubDate').val()==null))
+	/*if(($('#b_pubDate').val()=='') || ($('#b_pubDate').val()==null))
 	{
 		valid = 0;
 		$('#pubDateErr1').text("Please select Published Date.");
-	}
+	}*/
 
 	return valid;
 }
@@ -428,6 +428,7 @@ $('body').on("click","#createBook", function()
 
 $('body').on("click","#add_book", function()
 {
+
 	var book_title = $("#b_name").val();
 	var book_price = $("#b_price").val();
 	var book_quant = $("#b_quan").val();
@@ -436,7 +437,6 @@ $('body').on("click","#add_book", function()
 	var book_pub = $("#b_pub option:selected").val();
 	var book_pub_date = $(".b_pubDate").val();
 	var valid = createBookValidation();
-	
 	if(valid == 1)
 	{
 		run_waitMe(current_effect);// start the loader

@@ -24,7 +24,8 @@
                 SET 
                 user_name = '$u_name', 
                 user_password = '$u_password', 
-                user_isactive = '1', 
+                user_isactive = '1',
+                first_tym_flag = '1'
                 user_admin_flag = '0', 
                 user_mobile = '$u_mobile'";
     $result = mysqli_query($conn,$sql_insert);              
