@@ -19,6 +19,8 @@ define('BOOK_LOG','book_table_log');
 define('CAT_LOG','book_cat_log');
 define('AUTHOR_LOG','author_table_log');
 define('PUB_LOG','pub_table_log');
+define('CHART','book_cart');
+define('WISHLIST','book_wish');
 
 define('MAIL_FROM_ADDRESS', 'no-reply@gmail.com');
 define('MAIL_FROM_NAME', 'Book Services');

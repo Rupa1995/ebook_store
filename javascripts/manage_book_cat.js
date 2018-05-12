@@ -159,6 +159,11 @@ $('body').on('click','#yes_create',function()
 				displayAlert("Alert Message", "Book Category successfully created.");
 				$('#create_bcat_pop').modal('hide');
 			}
+		else if(data.ebook.updated == 0)
+			{
+				$('#create_bcat_pop').modal('hide');
+				displayAlert("Alert Message", name_type+' already exits.');
+			}	
 	  });
 	}
 	else

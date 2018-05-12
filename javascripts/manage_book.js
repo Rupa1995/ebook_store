@@ -46,38 +46,62 @@ function createBookValidation()
 	if(($('#b_name').val()=='') || ($('#b_name').val()==null))
 	{
 		valid = 0;
-		$('#b_nameErr').text("Please enter Book Title.");
+		$('#b_nameErr').text("Please enter Book Title.").show();
 	}
 	if(($('#b_price').val()=='') || ($('#b_price').val()==null))
 	{
 		valid = 0;
-		$('#b_priceErr').text("Please enter Book Price.");
+		$('#b_priceErr').text("Please enter Book Price.").show();
 	}
-	if(($('#b_pub option:selected').val()==''))
+	if(($('#b_pub option:selected').val().trim()=='') || ($('#b_pub option:selected').val().trim()==null))
 	{
 		valid = 0;
-		$('#b_pubErr').text("Please select atleast one Publisher.");
+		$('#b_pubErr').text("Please select atleast one Publisher.").show();
 	}
 	if(($('#b_quan').val()=='') || ($('#b_quan').val()==null))
 	{
 		valid = 0;
-		$('#b_quanErr').text("Please enter Book Quantity.");
+		$('#b_quanErr').text("Please enter Book Quantity.").show();
 	}
-	if(($('#b_auth option:selected').val()=='') || ($('#b_auth option:selected').val()==null))
+	else
+	{
+		if(($('#b_quan').val()<0))
+		{
+			valid = 0;
+			$('#b_quanErr').text("Please enter Book Quantity more than 0 (zero).").show();
+		}
+	}	
+
+	if(($('#b_auth option:selected').val().trim()=='') || ($('#b_auth option:selected').val().trim()==null))
 	{
 		valid = 0;
-		$('#b_authErr').text("Please select atleast one Author.");
+		$('#b_authErr').text("Please select atleast one Author.").show();
 	}
-	if(($('#b_cat option:selected').val()=='') || ($('#b_cat option:selected').val()==null))
+	if(($('#b_cat option:selected').val().trim()=='') || ($('#b_cat option:selected').val().trim()==null))
 	{
 		valid = 0;
-		$('#b_catErr').text("Please select atleast one Book Category.");
+		$('#b_catErr').text("Please select atleast one Book Category.").show();
 	}
-	/*if(($('#b_pubDate').val()=='') || ($('#b_pubDate').val()==null))
+	
+	if(($('.b_pubDate').val().trim()=='') || ($('.b_pubDate').val().trim()==null))
 	{
 		valid = 0;
-		$('#pubDateErr1').text("Please select Published Date.");
-	}*/
+		$('#pubDateErr1').text("Please enter Published Date.").show();
+	}
+	var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|.png|.gif)$");
+	var fileUpload = $("[name=profilePic]")[0];
+	if(fileUpload.files[0]=='' || fileUpload.files[0]==undefined)
+	{
+		valid = 0;
+		$("#profilePicErr").text("Please select images for book Cover image.").show();
+	}
+	else
+	{
+		if (!regex.test(fileUpload.value.toLowerCase())) 
+		{
+			$("#profilePicErr").text("Please select a valid Image file.").show();
+		}
+	}
 
 	return valid;
 }
@@ -89,39 +113,40 @@ function editBookValidation()
 	if(($('#eb_name').val()=='') || ($('#eb_name').val()==null))
 	{
 		valid = 0;
-		$('#eb_nameErr').text("Please enter Book Title.");
+		$('#eb_nameErr').text("Please enter Book Title.").show();
 	}
 	if(($('#eb_price').val()=='') || ($('#eb_price').val()==null))
 	{
 		valid = 0;
-		$('#eb_priceErr').text("Please enter Book Price.");
+		$('#eb_priceErr').text("Please enter Book Price.").show();
 	}
-	if(($('#eb_pub option:selected').val()==''))
+	
+	if(($('#eb_pub option:selected').val().trim())=='' || ($('#eb_pub option:selected').val().trim()) == null)
 	{
 		valid = 0;
-		$('#eb_pubErr').text("Please select atleast one Publisher.");
+		$('#eb_pubErr').text("Please select atleast one Publisher.").show();
 	}
 	if(($('#eb_quan').val()=='') || ($('#eb_quan').val()==null))
 	{
 		valid = 0;
-		$('#eb_quanErr').text("Please enter Book Quantity.");
+		$('#eb_quanErr').text("Please enter Book Quantity.").show();
 	}
-	if(($('#eb_auth option:selected').val()=='') || ($('#eb_auth option:selected').val()==null))
+	if(($('#eb_auth option:selected').val().trim()=='') || ($('#eb_auth option:selected').val().trim()==null))
 	{
 		valid = 0;
-		$('#eb_authErr').text("Please select atleast one Author.");
+		$('#eb_authErr').text("Please select atleast one Author.").show();
 	}
-	if(($('#eb_cat option:selected').val()=='') || ($('#eb_cat option:selected').val()==null))
+	if(($('#eb_cat option:selected').val().trim()=='') || ($('#eb_cat option:selected').val().trim()==null))
 	{
 		valid = 0;
-		$('#eb_catErr').text("Please select atleast one Book Category.");
+		$('#eb_catErr').text("Please select atleast one Book Category.").show();
 	}
-	if(($('#eb_pubDate').val()=='') || ($('#eb_pubDate').val()==null))
+	if(($('.eb_pubDate').val().trim()=='') || ($('.eb_pubDate').val().trim()==null))
 	{
 		valid = 0;
-		$('#epubDateErr1').text("Please select Published Date.");
+		$('#epubDateErr1').text("Please enter Published Date.").show();
 	}
-
+   
 	return valid;
 }
 
@@ -423,12 +448,12 @@ function bookDetails(iauth,icat,ipub)
 $('body').on("click","#createBook", function()
 	{
 		bookDetails('#b_auth','#b_cat','#b_pub');
+		$('.error-display').hide();
 		$('#create_book_pop').modal('show');
 	});
 
 $('body').on("click","#add_book", function()
 {
-
 	var book_title = $("#b_name").val();
 	var book_price = $("#b_price").val();
 	var book_quant = $("#b_quan").val();
@@ -436,16 +461,31 @@ $('body').on("click","#add_book", function()
 	var book_cat = $("#b_cat option:selected").val();
 	var book_pub = $("#b_pub option:selected").val();
 	var book_pub_date = $(".b_pubDate").val();
+	var fileUpload = $("[name=profilePic]")[0];
 	var valid = createBookValidation();
+
 	if(valid == 1)
 	{
+		
+		var dataimg = new FormData();
+		dataimg.append('function2call', 'addBook');
+		dataimg.append('book_title', book_title);
+		dataimg.append('book_price', book_price);
+		dataimg.append('book_quant', book_quant);
+		dataimg.append('book_auth', book_auth);
+		dataimg.append('book_cat', book_cat);
+		dataimg.append('book_pub', book_pub);
+		dataimg.append('book_pub_date', book_pub_date);
+		dataimg.append('profilePic', fileUpload.files[0]);
 		run_waitMe(current_effect);// start the loader
 		$.ajax({
-		    url: "book_class.php",
+		 	url: "book_class.php",
 		    type: 'POST',//method type
 		    dataType:'text',
 		    cache: false,//do not allow requested page to be cached
-		    data: {ajaxcall : true,function2call: 'addBook',book_title:book_title,book_price:book_price,book_quant:book_quant,book_auth:book_auth,book_cat:book_cat,book_pub:book_pub,book_pub_date:book_pub_date}
+		    processData: false,
+    		contentType: false,
+		    data: dataimg,
 		  }).done(function(data)
 		  {
 			data = JSON.parse(data);
@@ -534,14 +574,14 @@ $('body').on('click','.editBook',function(){
 		$('#eb_auth').selectpicker('refresh');
 		$('#eb_cat').selectpicker('refresh');			
 		$('#eb_pub').selectpicker('refresh');
+		
 	});
+	$('.error-display').hide();
 	$("#edit_book_pop").modal('show');
 });
 
 $('body').on('click','#edit_book',function(){
 	var valid = editBookValidation();
-	if(valid==1)
-	{
 	logData = new Array();
 	data_old = {
 	      "book_title":book_info["book_title"].trim(),
@@ -573,7 +613,8 @@ $('body').on('click','#edit_book',function(){
 		if(logData.length > 0){
 		  logData ="{"+logData.join(",")+"}";
 		}
-	if(logData!='')
+		
+	if(valid==1 && logData!='')
 	{
 		var ebook_title = $("#eb_name").val();
 		var ebook_price = $("#eb_price").val();
@@ -582,13 +623,28 @@ $('body').on('click','#edit_book',function(){
 		var ebook_cat = $("#eb_cat option:selected").val();
 		var ebook_pub = $("#eb_pub option:selected").val();
 		var ebook_pub_date = $(".eb_pubDate").val();
+		
+		var dataimg = new FormData();
+		dataimg.append('function2call', 'editBook');
+		dataimg.append('ebook_id', book_info['book_id']);
+		dataimg.append('ebook_title', ebook_title);
+		dataimg.append('ebook_price', ebook_price);
+		dataimg.append('ebook_quant', ebook_quant);
+		dataimg.append('ebook_auth', ebook_auth);
+		dataimg.append('ebook_cat', ebook_cat);
+		dataimg.append('ebook_pub', ebook_pub);
+		dataimg.append('ebook_pub_date', ebook_pub_date);
+		dataimg.append('logData', logData);
+		
 		run_waitMe(current_effect);// start the loader
 		$.ajax({
 		    url: "book_class.php",
 		    type: 'POST',//method type
 		    dataType:'text',
 		    cache: false,//do not allow requested page to be cached
-		    data: {ajaxcall : true,function2call: 'editBook',ebook_id : book_info['book_id'] ,ebook_title:ebook_title,ebook_price:ebook_price,ebook_quant:ebook_quant,ebook_auth:ebook_auth,ebook_cat:ebook_cat,ebook_pub:ebook_pub,ebook_pub_date:ebook_pub_date,logData:logData}
+		    processData: false,
+    		contentType: false,
+		    data: dataimg,
 		  }).done(function(data)
 		  {
 			data = JSON.parse(data);
@@ -599,8 +655,11 @@ $('body').on('click','#edit_book',function(){
 				displayAlert("Alert Message", "Book update successfully.");
 			}
 		  });
-		}		
 	}
+		else
+		{
+			displayAlert("Alert Message", "Nothing Changed.");
+		}		
 	
 });
 
@@ -650,6 +709,11 @@ $('body').on('click','#yes_create',function()
 				bookDetails('#b_auth','#b_cat','#b_pub');
 				$('#create').modal('hide');
 			}
+		else if(data.ebook.updated == 0)
+			{
+				$('#create').modal('hide');
+				displayAlert("Alert Message", name_type+' already exits.');
+			}	
 	  });
 	}
 	else
@@ -664,5 +728,29 @@ $('body').on('click','#confirm_ok',function(){
 	$('#current_record_count ').text('0');
 	displayRecords(offset);
 });
+
+
+$('.profilePic').on('change', function(){
+  var upload_pic_name =$('.profilePic').val().replace(/C:\\fakepath\\/i, ''); 
+  if(upload_pic_name == '')
+  {
+     $("#profilePic_filename").text("No file selected.");
+  }
+  else
+  {
+    $("#profilePic_filename").text(upload_pic_name);
+    $('.profilePic').attr('title' ,upload_pic_name);
+  }
+});
+
+$('.resetprofilePic').on('click', function(e){
+    e.preventDefault();
+    $("#profilePic_filename").text("No file selected.");
+    $('.profilePic').attr('title' ,'No file selected');
+    $('#profilePicErr').hide();
+    $('.profilePic').val('');
+    $('input[type=file]').val('');
+});
+
 
 });

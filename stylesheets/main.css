@@ -129,9 +129,9 @@ background-image: linear-gradient(to bottom, #f1f1f1 0%, #dedede 100%);
 .date_timepicker {position: relative;}
 .bootstrap-datetimepicker-widget > ul{padding:0;}
 
-.admin-box{width:250px;float:right; margin:0 35px 0 20px;display: inline-block;}
+.admin-box{width:250px;float:left; margin:0 35px 0 20px;display: inline-block;}
 .panel-back {background-color:#fff;border:solid 1px #d8d8d8;border-radius:0;position: relative;}
-.panel-back:hover{background-color:#F4F4F4;}
+/*.panel-back:hover{background-color:#F4F4F4;}*/
 .noti-box {min-height:200px;padding:15px;cursor:pointer;margin-bottom:30px !important;}
 .noti-box .icon-box {display: block;font-size: 22px;height:50px;line-height: 49px;margin: 0 auto;overflow: hidden;text-align: center;vertical-align: middle;width:50px;}
 .set-icon {border-radius:50px;-moz-border-radius:50px;-webkit-border-radius:50px;}
@@ -141,7 +141,10 @@ background-image: linear-gradient(to bottom, #f1f1f1 0%, #dedede 100%);
 width: 100%;
 display: block;
 height: auto;
+max-height: 300px;
 position: relative;
+transition: .5s ease;
+backface-visibility: hidden;
 }
 .image-title{
     position: absolute;
@@ -149,15 +152,33 @@ position: relative;
     left: 50%;
     transform: translate(-50%,-50%);
     font-size: 15px;
-    color: #fff;
+    color: #000;
     margin: 0;
     font-style: italic;
+    opacity: 0;
 }
 /*.admin-box .text-box{position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}*/
 
-.btn-cart{font-size: 30px; color: gray; margin:8px;}
-.btn-wish{font-size: 30px; color: gray; margin:8px; float: right;}
-/*---------------------------------------------------------------------------------------------------------------*/
+.panel-back:hover .image-logo {
+  opacity: 0.3;
+}
+
+.panel-back:hover .image-title {
+  opacity: 1;
+}
+
+/*.admin-box .text-box{position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}*/
+
+.btn-cart{font-size: 20px; margin:10px;background-color: white;color: grey;border: 2px solid #555555;border-radius:0;}
+.btn-cart:hover { color: black; background-color: #e7e7e7;}
+.btn-wish{font-size: 20px; margin:10px; float: right;background-color: white;color: grey;border: 2px solid #555555;border-radius:0;}
+.btn-wish:hover {color: black; background-color: #e7e7e7;}
+
+.icon-red{color:#c00000;}
+
+.dropdown-menu{margin-left: 15px;}
+.error-display{display: none;}
+
 hr{margin-bottom: 15px!important;}
 .bag{float: left; margin: 0; font-size: 25px; color: black; border-bottom: 1px dotted black;}
 .total-price{margin-left: 60%;}

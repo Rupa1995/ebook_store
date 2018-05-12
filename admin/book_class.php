@@ -185,6 +185,19 @@ function addBook($conn)
     $book_pub = $_POST['book_pub'];
     $book_pub_date = $_POST['book_pub_date'];
 
+    $target_dir = "../images/book_img/";
+    $target_file = $target_dir . basename($_FILES["profilePic"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    if(move_uploaded_file($_FILES["profilePic"]["tmp_name"], $target_file)) 
+    {
+      $uploaded = 1;
+    } 
+    else 
+    {
+      $uploaded = 0;
+      $target_file = "Error";  
+    }
 
     $sql_insert = "INSERT INTO 
                   ".BOOK." 
@@ -195,7 +208,8 @@ function addBook($conn)
                   book_cat_id  = '$book_cat', 
                   book_published_date = '$book_pub_date', 
                   book_mrp  = '$book_price',
-                  book_quantity  = '$book_quant'";
+                  book_quantity  = '$book_quant',
+                  book_image = '$target_file'";
 
     $result_insert = mysqli_query($conn,$sql_insert); 
 
@@ -241,6 +255,7 @@ function getBookDetails($conn)
                 book_published_date,
                 book_mrp,
                 book_quantity,
+                book_image,
                 author_id,
                 author_name,
                 cat_id,
@@ -273,7 +288,7 @@ function editBook($conn)
     $ebook_pub = $_POST['ebook_pub'];
     $ebook_pub_date = $_POST['ebook_pub_date'];
     $log_data = $_POST['logData'];
-
+    
     $sql_update = "UPDATE
                     ".BOOK."
                   SET
@@ -309,6 +324,13 @@ function createAttributes($conn)
 
     if($type_val == 1)
     {
+        $check_exits = "SELECT 
+                          pub_id 
+                        FROM
+                        ".PUBLISHER."
+                        WHERE 
+                        pub_name = '$create_val'";
+
         $sql = "INSERT INTO
                 ".PUBLISHER."
                 SET
@@ -316,6 +338,13 @@ function createAttributes($conn)
     }
     elseif ($type_val == 2) 
     {
+        $check_exits = "SELECT 
+                          author_id 
+                        FROM
+                        ".AUTHOR."
+                        WHERE 
+                        author_name = '$create_val'";
+
         $sql = "INSERT INTO
                 ".AUTHOR."
                 SET
@@ -323,13 +352,29 @@ function createAttributes($conn)
     }
     else
     {
+        $check_exits = "SELECT 
+                          book_cat_id 
+                        FROM
+                        ".BOOK_CAT."
+                        WHERE 
+                        cat_name = '$create_val'";
+
         $sql = "INSERT INTO
                 ".BOOK_CAT."
                 SET
                 cat_name = '$create_val'";
     }
-
-    $result_insert = mysqli_query($conn, $sql);
+    $result_exist = mysqli_query($conn,$check_exits);
+    $count = mysqli_num_rows($result_exist);              
+    if($count>0)
+    {
+      $result_insert = 0;
+    }
+    else
+    {
+      $result_insert = mysqli_query($conn, $sql);  
+    }
+    
     echo json_encode(array('ebook' => array('updated' => $result_insert)));
 }
 

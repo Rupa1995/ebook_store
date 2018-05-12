@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.22, for Linux (x86_64)
 --
 -- Host: localhost    Database: ebook
 -- ------------------------------------------------------
--- Server version	5.7.21-0ubuntu0.16.04.1
+-- Server version	5.7.22-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -67,7 +67,7 @@ CREATE TABLE `author_table` (
 
 LOCK TABLES `author_table` WRITE;
 /*!40000 ALTER TABLE `author_table` DISABLE KEYS */;
-INSERT INTO `author_table` VALUES (1,'Harper Lee',1),(2,'Gabriel Garcia Marquez',1),(3,'Stephen King',1),(4,'J. K. Rowling',1),(5,'Ruskin Bond',1),(6,'Chetan Bhagats',0);
+INSERT INTO `author_table` VALUES (1,'Harper Lee',1),(2,'Gabriel Garcia Marquez',1),(3,'Stephen King',1),(4,'J. K. Rowling',1),(5,'Ruskin Bond',1),(6,'Chetan Bhagats',1);
 /*!40000 ALTER TABLE `author_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,7 +85,7 @@ CREATE TABLE `author_table_log` (
   `modified_time` datetime NOT NULL,
   `log_data` text NOT NULL,
   PRIMARY KEY (`at_log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,8 +94,34 @@ CREATE TABLE `author_table_log` (
 
 LOCK TABLES `author_table_log` WRITE;
 /*!40000 ALTER TABLE `author_table_log` DISABLE KEYS */;
-INSERT INTO `author_table_log` VALUES (1,6,1,'2018-05-06 19:57:39','{\"author_name\":{\"Chetan Bhagat\":\"Chetan Bhagats\"}}'),(2,6,1,'2018-05-06 20:00:56','{\"catStatus\":{\"Activate\":\"Deactivate\"}}');
+INSERT INTO `author_table_log` VALUES (1,6,1,'2018-05-06 19:57:39','{\"author_name\":{\"Chetan Bhagat\":\"Chetan Bhagats\"}}'),(2,6,1,'2018-05-06 20:00:56','{\"catStatus\":{\"Activate\":\"Deactivate\"}}'),(3,6,1,'2018-05-12 02:33:24','{\"catStatus\":{\"Deactivate\":\"Activate\"}}');
 /*!40000 ALTER TABLE `author_table_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `book_cart`
+--
+
+DROP TABLE IF EXISTS `book_cart`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `book_cart` (
+  `book_cart_id` int(10) NOT NULL AUTO_INCREMENT,
+  `bc_book_id` int(10) NOT NULL,
+  `bc_user_id` int(10) NOT NULL,
+  `bc_added_tym` datetime NOT NULL,
+  PRIMARY KEY (`book_cart_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `book_cart`
+--
+
+LOCK TABLES `book_cart` WRITE;
+/*!40000 ALTER TABLE `book_cart` DISABLE KEYS */;
+INSERT INTO `book_cart` VALUES (1,1,2,'2018-05-11 22:55:19'),(2,2,2,'2018-05-12 00:07:38');
+/*!40000 ALTER TABLE `book_cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -166,8 +192,10 @@ CREATE TABLE `book_table` (
   `book_published_date` date NOT NULL,
   `book_mrp` int(10) NOT NULL,
   `book_quantity` int(10) NOT NULL,
+  `book_visitor` int(10) NOT NULL DEFAULT '10',
+  `book_image` text NOT NULL,
   PRIMARY KEY (`book_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -176,7 +204,7 @@ CREATE TABLE `book_table` (
 
 LOCK TABLES `book_table` WRITE;
 /*!40000 ALTER TABLE `book_table` DISABLE KEYS */;
-INSERT INTO `book_table` VALUES (1,'To Kill a Mockingbird',1,1,1,'2018-05-07',45,3),(2,'One Hundred Years of Solitude',2,2,2,'2018-05-01',797,4),(3,'Go Set a Watchman',2,1,2,'2018-05-01',786,6);
+INSERT INTO `book_table` VALUES (1,'To Kill a Mockingbird',1,1,1,'2018-05-01',45,4,0,'../images/book_img/220px-To_Kill_a_Mockingbird.JPG'),(2,'One Hundred Years of Solitude',2,2,2,'2018-05-01',797,4,0,'../images/book3.jpg'),(3,'Go Set a Watchman',2,1,2,'2018-05-01',786,6,0,'../images/book4.jpg'),(4,'Half Girlfriend',5,6,5,'2018-05-11',123,2,10,'../images/book_img/Half_Girlfriend.jpg');
 /*!40000 ALTER TABLE `book_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -194,7 +222,7 @@ CREATE TABLE `book_table_log` (
   `modified_time` datetime NOT NULL,
   `log_data` text NOT NULL,
   PRIMARY KEY (`bt_log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -203,8 +231,34 @@ CREATE TABLE `book_table_log` (
 
 LOCK TABLES `book_table_log` WRITE;
 /*!40000 ALTER TABLE `book_table_log` DISABLE KEYS */;
-INSERT INTO `book_table_log` VALUES (1,1,1,'2018-05-05 15:21:17','{\"quantity\":{\"3\":\"4\"}}'),(2,2,1,'2018-05-05 15:23:04','{\"quantity\":{\"2\":\"3\"}}'),(3,2,1,'2018-05-05 15:23:49','{\"quantity\":{\"3\":\"4\"}}'),(4,1,1,'2018-05-05 15:25:05','{\"quantity\":{\"4\":\"3\"}}'),(5,3,1,'2018-05-05 22:12:21','{\"book_mrp\":{\"78\":\"786\"}}');
+INSERT INTO `book_table_log` VALUES (1,1,1,'2018-05-05 15:21:17','{\"quantity\":{\"3\":\"4\"}}'),(2,2,1,'2018-05-05 15:23:04','{\"quantity\":{\"2\":\"3\"}}'),(3,2,1,'2018-05-05 15:23:49','{\"quantity\":{\"3\":\"4\"}}'),(4,1,1,'2018-05-05 15:25:05','{\"quantity\":{\"4\":\"3\"}}'),(5,3,1,'2018-05-05 22:12:21','{\"book_mrp\":{\"78\":\"786\"}}'),(6,1,1,'2018-05-06 23:46:33','{\"book_published_date\":{\"2018-05-07\":\"2018-05-09\"}}'),(7,1,1,'2018-05-06 23:50:00','{\"book_published_date\":{\"2018-05-09\":\"2018-05-01\"}}'),(8,1,1,'2018-05-06 23:58:40','{\"book_published_date\":{\"2018-05-01\":\"2018-05-04\"}}'),(9,1,1,'2018-05-07 00:10:38','{\"book_published_date\":{\"2018-05-04\":\"2018-05-02\"}}'),(10,1,1,'2018-05-07 00:13:12','{\"book_published_date\":{\"2018-05-02\":\"2018-05-01\"}}'),(11,1,1,'2018-05-07 00:14:29','{\"book_published_date\":{\"2018-05-01\":\"2018-05-16\"}}'),(12,1,1,'2018-05-12 01:33:32','{\"book_quantity\":{\"3\":\"4\"}}'),(13,1,1,'2018-05-12 01:34:42','{\"book_quantity\":{\"3\":\"4\"}}'),(14,1,1,'2018-05-12 01:35:33','{\"book_quantity\":{\"3\":\"4\"}}'),(15,1,1,'2018-05-12 01:38:00','{\"book_published_date\":{\"2018-05-16\":\"2018-05-01\"}}'),(16,3,1,'2018-05-12 01:49:55',''),(17,3,1,'2018-05-12 01:51:04',''),(18,3,1,'2018-05-12 01:53:57',''),(19,3,1,'2018-05-12 01:54:30',''),(20,3,1,'2018-05-12 01:55:39',''),(21,1,1,'2018-05-12 02:23:26',''),(22,1,1,'2018-05-12 02:24:18',''),(23,1,1,'2018-05-12 02:24:42',''),(24,2,1,'2018-05-12 02:24:58','');
 /*!40000 ALTER TABLE `book_table_log` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `book_wish`
+--
+
+DROP TABLE IF EXISTS `book_wish`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `book_wish` (
+  `book_wish_id` int(10) NOT NULL AUTO_INCREMENT,
+  `bw_book_id` int(10) NOT NULL,
+  `bw_user_id` int(10) NOT NULL,
+  `bw_added_tym` datetime NOT NULL,
+  PRIMARY KEY (`book_wish_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `book_wish`
+--
+
+LOCK TABLES `book_wish` WRITE;
+/*!40000 ALTER TABLE `book_wish` DISABLE KEYS */;
+INSERT INTO `book_wish` VALUES (1,3,2,'2018-05-12 00:24:54');
+/*!40000 ALTER TABLE `book_wish` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -245,7 +299,7 @@ CREATE TABLE `pub_info` (
   `pub_name` varchar(100) NOT NULL,
   `pub_isactive` int(11) NOT NULL DEFAULT '1' COMMENT '1= Active 0 =Inactive',
   PRIMARY KEY (`pub_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -254,7 +308,7 @@ CREATE TABLE `pub_info` (
 
 LOCK TABLES `pub_info` WRITE;
 /*!40000 ALTER TABLE `pub_info` DISABLE KEYS */;
-INSERT INTO `pub_info` VALUES (1,'J. B. Lippincott & Co.',1),(2,'Harper & Row',1),(3,'Jaico Publishing House',1),(4,'Westland Publication',1);
+INSERT INTO `pub_info` VALUES (1,'J. B. Lippincott & Co.',1),(2,'Harper & Row',1),(3,'Jaico Publishing House',1),(4,'Westland Publication',1),(5,'Rupa & Co.',1);
 /*!40000 ALTER TABLE `pub_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -364,7 +418,7 @@ CREATE TABLE `user_table` (
 
 LOCK TABLES `user_table` WRITE;
 /*!40000 ALTER TABLE `user_table` DISABLE KEYS */;
-INSERT INTO `user_table` VALUES (1,'portaladmin@ebook.in','202cb962ac59075b964b07152d234b70',1,1,33445566,'Portal','Admin',2),(2,'riturajreso@gmail.com','ae32b0c654b15f76d7d0bacb409c6884',1,0,NULL,'Ravi','Kumar',0);
+INSERT INTO `user_table` VALUES (1,'portaladmin@ebook.in','202cb962ac59075b964b07152d234b70',1,1,33445566,'Portal','Admin',2),(2,'riturajreso@gmail.com','202cb962ac59075b964b07152d234b70',1,0,NULL,'Ravi','Kumar',1);
 /*!40000 ALTER TABLE `user_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -377,4 +431,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-06 21:41:53
+-- Dump completed on 2018-05-12 14:42:57

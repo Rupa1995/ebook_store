@@ -173,6 +173,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabelc">Add Book</h4>
       </div>
+       <form class="form-horizontal input" action="#" name="createBookForm" id="createBookForm" method="POST" enctype="multipart/form-data">
       <div class="modal-body overflow-nohidden">
         <div class="content-main overflow-nohidden">  
         <div class="form-group">
@@ -181,12 +182,12 @@
               <div class="col-sm-6 col-md-6 col-lg-6">
                 <label>Book Title <span class="red">*</span></label>
                 <input type="text" class="form-control" placeholder="" name="b_name" id="b_name" onKeyPress="return userFirstNameKey(event)">
-                <p style="color:red" class="b_nameErr" id="b_nameErr"></p>
+                <p style="color:red" class="b_nameErr error-display" id="b_nameErr"></p>
               </div>
               <div class="col-sm-6 col-md-6 col-lg-6">
                 <label>MRP(₹) <span class="red">*</span></label>
                 <input type="text" class="form-control" placeholder="" name="b_price" id="b_price" onKeyPress="return userLastNameKey(event)">
-               <p style="color:red" class="b_priceErr" id="b_priceErr"></p>
+               <p style="color:red" class="b_priceErr error-display" id="b_priceErr"></p>
               </div>
             </div>
           </div>
@@ -201,13 +202,13 @@
                       <option value="">Select</option>
                     </select>
                     <a data-toggle="tooltip" data-placement="top" title="" id="prConLink" style="" class="create_bPub" href="#"><i class="fa fa-plus-circle"></i> Create Publisher</a>
-                    <p style="color:red" class="b_pubErr" id="b_pubErr"></p>
+                    <p style="color:red" class="b_pubErr error-display" id="b_pubErr"></p>
                 </div>
               </div>
               <div class="col-sm-3 col-md-3 col-lg-3">
                 <label>Quantity <span class="red">*</span></label>
                 <input type="number" class="form-control" name="b_quan" id="b_quan" >
-                <p style="color:red" class="b_quanErr" id="b_quanErr"></p>
+                <p style="color:red" class="b_quanErr error-display" id="b_quanErr"></p>
               </div>
             </div>
           </div>
@@ -221,7 +222,7 @@
                   <option value="">Select</option>
                 </select>
                 <a data-toggle="tooltip" data-placement="top" title="" id="prConLink" style="" class="create_bAuth" href="#"><i class="fa fa-plus-circle"></i> Create Author</a>
-                <p style="color:red" class="b_authErr" id="b_authErr"></p>
+                <p style="color:red" class="b_authErr error-display" id="b_authErr"></p>
               </div>
                <div class="col-sm-6 col-md-6 col-lg-6">
                 <label>Book Category <span class="red">*</span></label>
@@ -230,7 +231,7 @@
                       <option value="">Select</option>
                     </select>
                     <a data-toggle="tooltip" data-placement="top" title="" id="prConLink" style="" class="create_bCat" href="#"><i class="fa fa-plus-circle"></i> Create Book Category </a>
-                   <p style="color:red" class="b_catErr" id="b_catErr"></p>
+                   <p style="color:red" class="b_catErr error-display" id="b_catErr"></p>
                 </div>
               </div>            
             </div>
@@ -242,14 +243,38 @@
               <div class="col-sm-6 col-md-6 col-lg-6">
               <label>Publication Date <span class="red">*</span></label>
                <div id="b_pubDate" class="input-append date date_timepicker fromDate1">
-                  <input type="text" placeholder="YYYY-MM-DD" data-format="YYYY-MM-DD" class="date_inp b_pubDate form-control" name="fromDate" id="fromDate">
+                  <input type="text" placeholder="YYYY-MM-DD" data-format="YYYY-MM-DD" class="date_inp b_pubDate form-control" name="fromDate1" id="fromDate1">
                   <span class="add-on calendar-icon tog_class">
                     <i data-time-icon="icon-time" data-date-icon="icon-calendar">
                       <i class="fa fa-calendar" aria-hidden="true"></i>
                     </i>
                   </span>  
-                  <p style="color:red" class=" id="pubDateErr1"></p>
+                  <p style="color:red" class="pubDateErr1 error-display" id="pubDateErr1"></p>
                 </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="col-sm-6 col-md-5 col-lg-12">
+                <label>Upload Photo</label>
+                <div class="clearfix"></div>
+                <div id="uplaoadUserFile"> 
+                <div class="btn btn-default btn-file "> Choose a file
+                  <input type="file" id="profilePic" name="profilePic" class="profilePic"  value="">
+                </div>
+                  <span id ="profilePic_filename" class ="profilePic_filename"> No file selected. </span>
+                   <div style="margin-top: 4px;">
+                       <button id="resetprofilePic" class ="btn btn-default resetprofilePic">Reset File
+                      </button> 
+                    </div>
+                  <p style="color:red" class="profilePicErr error-display" id="profilePicErr"></p>
+                <div> 
+                  <span style="color:#23527C"><i>(Image dimension:300px*300px. Allowed image format: jpg, jpeg, png and gif)</i></span>
+                </div>
+              </div> 
               </div>
             </div>
           </div>
@@ -261,6 +286,7 @@
           <button class="btn btn-grey btn-sm page-scroll-set"  data-dismiss="modal" aria-label="Close" type="button" data-toggle="tooltip" id="cancel" data-original-title="">Cancel</button>
         </div>
       </div>
+    </form>
     </div>
   </div>
 </div>
@@ -273,6 +299,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabelc">Edit Book</h4>
       </div>
+       <form class="form-horizontal input" action="#" name="updateUserForm" id="updateUserForm" method="POST" enctype="multipart/form-data">
       <div class="modal-body overflow-nohidden">
         <div class="content-main overflow-nohidden">  
         <div class="form-group">
@@ -281,12 +308,12 @@
               <div class="col-sm-6 col-md-6 col-lg-6">
                 <label>Book Title <span class="red">*</span></label>
                 <input type="text" class="form-control" placeholder="" name="eb_name" id="eb_name" onKeyPress="return userFirstNameKey(event)">
-                <p style="color:red" class="eb_nameErr" id="eb_nameErr"></p>
+                <p style="color:red" class="eb_nameErr error-display" id="eb_nameErr"></p>
               </div>
               <div class="col-sm-6 col-md-6 col-lg-6">
                 <label>MRP(₹) <span class="red">*</span></label>
                 <input type="text" class="form-control" placeholder="" name="eb_price" id="eb_price" onKeyPress="return userLastNameKey(event)">
-               <p style="color:red" class="eb_priceErr" id="eb_priceErr"></p>
+               <p style="color:red" class="eb_priceErr error-display" id="eb_priceErr"></p>
               </div>
             </div>
           </div>
@@ -300,13 +327,13 @@
                     <select class="selectpicker form-control" name="eb_pub" id="eb_pub">
                       <option value="">Select</option>
                     </select>
-                   <p style="color:red" class="eb_pubErr" id="eb_pubErr"></p>
+                   <p style="color:red" class="eb_pubErr error-display" id="eb_pubErr"></p>
                 </div>
               </div>
               <div class="col-sm-3 col-md-3 col-lg-3">
                 <label>Quantity <span class="red">*</span></label>
                 <input type="number" class="form-control" name="eb_quan" id="eb_quan" >
-                <p style="color:red" class="eb_quanErr" id="eb_quanErr"></p>
+                <p style="color:red" class="eb_quanErr error-display" id="eb_quanErr"></p>
               </div>
             </div>
           </div>
@@ -319,7 +346,7 @@
                 <select class="selectpicker form-control" name="eb_auth" id="eb_auth">
                   <option value="">Select</option>
                 </select>
-                <p style="color:red" class="eb_authErr" id="eb_authErr"></p>
+                <p style="color:red" class="eb_authErr error-display" id="eb_authErr"></p>
               </div>
                <div class="col-sm-6 col-md-6 col-lg-6">
                 <label>Book Category <span class="red">*</span></label>
@@ -327,7 +354,7 @@
                     <select class="selectpicker form-control" name="eb_cat" id="eb_cat">
                       <option value="">Select</option>
                     </select>
-                   <p style="color:red" class="eb_catErr" id="eb_catErr"></p>
+                   <p style="color:red" class="eb_catErr error-display" id="eb_catErr"></p>
                 </div>
               </div>            
             </div>
@@ -345,12 +372,12 @@
                       <i class="fa fa-calendar" aria-hidden="true"></i>
                     </i>
                   </span>  
-                  <p style="color:red" class=" id="epubDateErr1"></p>
+                  <p style="color:red" class="epubDateErr1 error-display" id="epubDateErr1"></p>
                 </div>  
               </div>
             </div>
           </div>
-        </div>
+        </div> 
       </div>
       <div class="modal-footer">
         <div class="pull-right">
@@ -358,6 +385,7 @@
           <button class="btn btn-grey btn-sm page-scroll-set"  data-dismiss="modal" aria-label="Close" type="button" data-toggle="tooltip" id="cancel" data-original-title="">Cancel</button>
         </div>
       </div>
+    </form>
     </div>
   </div>
 </div>

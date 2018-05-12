@@ -159,6 +159,11 @@ $('body').on('click','#yes_create',function()
 				displayAlert("Alert Message", "Author successfully created.");
 				$('#create_author_pop').modal('hide');
 			}
+		else if(data.ebook.updated == 0)
+			{
+				$('#create_author_pop').modal('hide');
+				displayAlert("Alert Message", name_type+' already exits.');
+			}	
 	  });
 	}
 	else

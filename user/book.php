@@ -1,29 +1,47 @@
 <?php
 	session_start();
+  $current_user = $_SESSION['userID'];
+  if(!isset($_SESSION['login_user']))
+  {
+    header("location: ../register.php?action=logout");
+  }
 	include 'includes/db.php';
-    include 'includes/function.php';
-	$sql = "SELECT
-                book_id,
-                book_title,
-                book_published_date,
-                book_mrp,
-                book_quantity,
-                author_name,
-                cat_name,
-                pub_name
-            FROM
-                ".BOOK." AS B
-            LEFT JOIN ".BOOK_CAT." AS C ON B.book_cat_id = C.cat_id 
-            LEFT JOIN ".AUTHOR." AS A ON B.book_authid = A.author_id 
-            LEFT JOIN ".PUBLISHER." AS P ON B.book_pubid = P.pub_id";
-
+  
+  $sql = "SELECT
+            book_id,
+            book_title,
+            book_published_date,
+            book_mrp,
+            book_quantity,
+            author_name,
+            book_image,
+            cat_name,
+            pub_name,
+            if(book_wish_id  is null ,'' ,book_wish_id )AS wish_id,
+          if(book_cart_id  is null ,'' ,book_cart_id )AS cart_id
+        FROM
+            book_table AS B
+        LEFT JOIN book_cat AS C
+        ON
+            B.book_cat_id = C.cat_id
+        LEFT JOIN author_table AS A
+        ON
+            B.book_authid = A.author_id
+        LEFT JOIN pub_info AS P
+        ON
+            B.book_pubid = P.pub_id
+        LEFT JOIN book_wish AS W
+        ON
+            B.book_id = W.bw_book_id AND W.bw_user_id = '$current_user'
+        LEFT JOIN book_cart AS CA
+        ON
+            B.book_id = CA.bc_book_id AND CA.bc_user_id = '$current_user'";
 
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result); 
     $result = mysqli_fetch_all($result,MYSQLI_ASSOC);
     $_SESSION['BookArr'] = $result;
 
-    
 ?>
 <!DOCTYPE html>
 <html>
@@ -90,29 +108,66 @@
 <?php 
 for ($i = 0; $i < count($_SESSION['BookArr']); $i++) 
 	{ 
-echo '<div class="admin-box" id="">';
-echo '<div class="panel panel-back noti-box">';
-echo '<div class="image-logo"><img src="../images/portfolio-01.jpg">';//yaha image daalna
+    if($_SESSION['BookArr'][$i]['cart_id']!='')
+    {
+      $cart_class = "icon-red";
+      $cart_title = "Added To Cart";
+    }
+    else
+    {
+      $cart_class = ""; 
+      $cart_title = "Add To Cart";
+    }
 
-echo '<p class="image-title">'.$_SESSION['BookArr'][$i]['book_title'].'</p>'; //text mei aut design krna ki pic ke upar aaye
-// echo '</div>';
-echo '</div>';
-echo '<button class="btn-cart"><i class="fa fa-cart-plus"></i></button>';
-echo '<button class="btn-wish"><i class="fa fa-heart-o"></i></button>';
-echo '</div>';
-echo '</div>';
-//box ke nice ek aur box rahega chota sa jismei 2 button hoga buy or Add to chart
+    if($_SESSION['BookArr'][$i]['wish_id']!='')
+    {
+      $wish_class = "icon-red";
+      $wish_title = "Added To Wishlist";
+    }
+    else
+    {
+      $wish_class = ""; 
+      $wish_title = "Add To Wishlist";
+    }
+
+    echo '<div class="admin-box" id="">';
+    echo '<div class="panel panel-back noti-box">';
+    echo '<div class="image-logo"><img src="'.$_SESSION['BookArr'][$i]['book_image'].'">';
+    echo '<p class="image-title">'.$_SESSION['BookArr'][$i]['book_title'].'</p>'; 
+    echo '</div>';
+    echo '<button class="btn-cart" title ="'.$cart_title.'" data-placement="top" data-toggle="tooltip" data-original-title="" id="'.$_SESSION['BookArr'][$i]['book_id'].'"><i class="fa fa-cart-plus '.$cart_class.'"></i></button>';
+    echo '<button class="btn-wish" title ="'.$wish_title.'" data-placement="top" data-toggle="tooltip" data-original-title="" id="'.$_SESSION['BookArr'][$i]['book_id'].'"><i class="fa fa-heart '.$wish_class.'"></i></button>';
+    echo '</div>';
+    echo '</div>';
 	}	
 ?>
       </div>
     </div>
   </div>
- 
+<!-- alert modal starts here -->
+<div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabela" data-backdrop="static">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="alertTitle">Message</h4>
+        </div>  
+        <div class="modal-body">
+          <p id="alertBody"></p>
+        </div>
+        <input type="hidden" name="alert_value" id="alert_value">
+        <div class="modal-footer text-center">
+          <button type="button" id = "confirm_ok" data-dismiss="modal" aria-label="Close" class="btn btn-sm btn-navyblue" data-placement="top" data-toggle="tooltip" data-original-title ="">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
 <script type='text/javascript' src="../js/jquery-3.3.1.min.js"></script>
 <script type='text/javascript' src="../js/bootstrap.min.js"></script>
 <script type='text/javascript' src="../js/bootstrap-select.min.js"></script>
 <script type='text/javascript' src="../js/waitMe.js"></script>
 <script type='text/javascript' src="../javascripts/key_validation.js"></script>
 <script type='text/javascript' src="../javascripts/comman.js"></script>
+<script type='text/javascript' src="../javascripts/buy_book.js"></script>
 </body>
 </html>
