@@ -74,8 +74,8 @@
                   <li><a href="#">Best Sellers</a></li>
                   <li><a href="#">Browse Genres</a></li>
                   <li><a href="#">TextBooks</a></li>
-                  <li><a href="#">Exam Central</a></li>
-                  <li><a href="#">Childern's & Young Adult</a></li>
+                  <li><a href="#">Blogs</a></li>
+                  <li><a href="#">About Us</a></li>
                 </ul>
               </div>
             </div>
@@ -92,28 +92,6 @@
         </div>
     </section>  
  </header>
-
-<section class="text-center section-padding" id="intro">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <h1 class="wow fadeInDown">Shop by genre</h1>
-            <div class="genre-icons container">
-              <ul class="genre-ul col-md-12 col-sm-12 hidden-xs wow zoomIn">
-                <li class="genre-li"><a href="#"><img src="images/Literature-and-Fiction.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="images/ChildrenYoung-Adult.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="images/CrimeThriller.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="images/Romance.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="images/ExamCentral.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="images/Sci-fantasy.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="images/Textbooks.png"></a></li>
-                <li class="genre-li"><a href="#"><img src="images/Editor_sCorner.png"></a></li>
-            </ul>
-      </div>
-        </div>
-      </div>
-    </div>
-</section>
 
 <section class="text-center section-padding" id="features">
       <div class="intro2 container">
@@ -150,65 +128,14 @@
           </div>
         </div>
 </section>
-
-<section class="responsive-design">
-  <div class="gray-half-bg">&nbsp;</div>
-  <div class="container">
-    <div class="row">
-      
-      <div class="col-sm-6 block">
-        <div class="myCarousel wow zoomIn" data-wow-duration="3s">
-           
-                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                  <div class="carousel slide" data-ride="carousel">
-                      <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active">
-                        </li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
-                      <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
-                      </ol>
-                    <div class="carousel-inner">
-                      <div class="item active">
-                        <div class="row">
-                             <h1>RESPONSIVE DESIGN SPECIALIST</h1>
-                              <br><br>
-                          </div>
-                        <p id="carsl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                        <p id="carsl">Mauris ultrices odio vitae nulla ultrices iaculis. Nulla rhoncus odio eu lectus faucibus facilisis.Maecenas ornare augue vitae sollicitudin accumsan.</p>
-                        <p id="carsl">Etiam eget libero et erat eleifend consectetur a nec lectus. Sed id tellus lorem. Suspendisse sed venenatis odio, quis lobortis eros..</p>
-                        </div>
-                      <div class="item">
-                        <div class="row">
-                            <h1>BOOTSTRAP SPECIALIST</h1>
-                            <br><br>
-                          </div>
-                        <p id="carsl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                        <p id="carsl">Mauris ultrices odio vitae nulla ultrices iaculis. Nulla rhoncus odio eu lectus faucibus facilisis.Maecenas ornare augue vitae sollicitudin accumsan.</p>
-                        <p id="carsl">Etiam eget libero et erat eleifend consectetur a nec lectus. Sed id tellus lorem. Suspendisse sed venenatis odio, quis lobortis eros..</p>
-                      </div>
-                      <div class="item">
-                      <div class="row">
-                        <h1>BOOTSTRAP SPECIALIST 2</h1>
-                        <br><br>
-                      </div>
-                      <p id="carsl">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                      <p id="carsl">Mauris ultrices odio vitae nulla ultrices iaculis. Nulla rhoncus odio eu lectus faucibus facilisis.Maecenas ornare augue vitae sollicitudin accumsan.</p>
-                      <p id="carsl">Etiam eget libero et erat eleifend consectetur a nec lectus. Sed id tellus lorem. Suspendisse sed venenatis odio, quis lobortis eros..</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>    
-          </div>
-
-      </div>
-      <div class="col-sm-6 right-img block" ><img src="./images/b-desc.jpg" class="img-responsive wow slideInRight" data-wow-duration="3s"> </div>
-    </div>
-  </div>
+<section class="section-padding text-center">
+  <img src="../images/book-ad3.png" style="width: 100%;">
 </section>
+
 <section class="portfolio text-center section-padding" id="portfolio">
     <div class="container">
         <div class="row">
-          <div class="card card-raised card-carousel wow zoomIn" data-wow-duration="2s">
+          <div class="card card-raised card-carousel">
           <div id="carousel-generic" class="carousel slide" data-ride="carousel">
           <div class="carousel slide" data-ride="carousel">
               <ol class="carousel-indicators">
@@ -217,99 +144,11 @@
               </ol>
           <div class="carousel-inner">
             <div class="item active">
-                  <div class="col-md-4">
-                    <div class="imge">
-                      <div class="overly">
-                        
-                          <a href="#home">
-                            <img src="images/portfolio-01.jpg" alt="Lights" class="image">
-                            <div class="overlay">
-                              <div class="glyphicon glyphicon-search">
-                                <p id="gly"><b>view more</b></p>
-                              </div>
-                            </div>
-                          </a>
-                        </div>
-                        <h6 id="a2"><b>CREATIVE MINDS</b></h6>
-                        <hr>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                    </div>
-                </div>
-                  <div class="col-md-4">
-                    <div class="imge">
-                       <div class="overly">
-                        <a href="#home">
-                        <img src="images/portfolio-02.jpg" alt="laptop" class="image">
-                        <div class="overlay">
-                              <div class="glyphicon glyphicon-search"><p id="gly"><b>view more</b></p>
-                              </div>
-                            </div>
-                        </a>
-                      </div>
-                      <h6 id="a2"><b>CREATIVE HEARTS</b></h6>
-                      <hr>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                    </div>
-                </div>
-                  <div class="col-md-4">
-                    <div class="imge">
-                      <div class="overly">
-                       <a href="#home">
-                       <img src="images/portfolio-03.jpg" alt="dog" class="image">
-                         <div class="overlay">
-                              <div class="glyphicon glyphicon-search">
-                                <p id="gly"><b>view more</b></p>
-                              </div>
-                            </div>
-                               </a>
-                             </div>
-                        <h6 id="a2"><b>CREATIVE IDEAS</b></h6>
-                        <hr>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                        </div>
-                </div>
-              </div>
-              <div class="item">
-                    <div class="col-md-4">
-                      <div class="imge">
-                        <div class="overly">
-                          <a href="#home">
-                            <img src="images/portfolio-01.jpg" alt="Lights" class="image">
-                            <div class="overlay">
-                                <div class="glyphicon glyphicon-search">
-                                  <p id="gly"><b>view more</b></p>
-                                </div>
-                              </div>
-                            </a>
-                          </div>
-                          <h6 id="a2"><b>CREATIVE MINDS</b></h6>
-                          <hr>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                      </div>
-                  </div>
-                    <div class="col-md-4">
-                      <div class="imge">
-                        <div class="overly">
-                          <a href="#home">
-                          <img src="images/portfolio-02.jpg" alt="laptop" class="image">
-                          <div class="overlay">
-                                <div class="glyphicon glyphicon-search">
-                                  <p id="gly"><b>view more</b></p>
-                                </div>
-                              </div>
-                          </a>
-                        </div>
-                        <h6 id="a2"><b>CREATIVE HEARTS</b></h6>
-                        <hr>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
-                      </div>
-                    </div>
-                  
-                    <div class="col-md-4">
+              <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
                          <a href="#home">
-                         <img src="images/portfolio-03.jpg" alt="dog" class="image">
+                         <img src="images/book_img/Half_Girlfriend.jpg" alt="book10" class="image">
                            <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
                                   <p id="gly"><b>view more</b></p>
@@ -317,11 +156,132 @@
                               </div>
                                  </a>
                              </div>
-                          <h6 id="a2"><b>CREATIVE IDEAS</b></h6>
+                          <h6 id="a2"><b>book 6</b></h6>
                           <hr>
                           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
                           </div>
                        </div>
+                  <div class="col-md-3">
+                    <div class="imge">
+                      <div class="overly">
+                        
+                          <a href="#home">
+                            <img src="images/book12.jpeg" alt="book12" class="image">
+                            <div class="overlay">
+                              <div class="glyphicon glyphicon-search">
+                                <p id="gly"><b>view more</b></p>
+                              </div>
+                            </div>
+                          </a>
+                        </div>
+                        <h6 id="a2"><b>book 1</b></h6>
+                        <hr>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                    </div>
+                </div>
+                  <div class="col-md-3">
+                    <div class="imge">
+                       <div class="overly">
+                        <a href="#home">
+                        <img src="images/book11.jpeg" alt="book11" class="image">
+                        <div class="overlay">
+                              <div class="glyphicon glyphicon-search"><p id="gly"><b>view more</b></p>
+                              </div>
+                            </div>
+                        </a>
+                      </div>
+                      <h6 id="a2"><b>book 2</b></h6>
+                      <hr>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                    </div>
+                </div>
+                  <div class="col-md-3">
+                    <div class="imge">
+                      <div class="overly">
+                       <a href="#home">
+                       <img src="images/book5.jpg" alt="book5" class="image">
+                         <div class="overlay">
+                              <div class="glyphicon glyphicon-search">
+                                <p id="gly"><b>view more</b></p>
+                              </div>
+                            </div>
+                               </a>
+                             </div>
+                        <h6 id="a2"><b>book 3</b></h6>
+                        <hr>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                        </div>
+                </div>
+              </div>
+              <div class="item">
+                    <div class="col-md-3">
+                      <div class="imge">
+                        <div class="overly">
+                          <a href="#home">
+                            <img src="images/book6.jpg" alt="book6" class="image">
+                            <div class="overlay">
+                                <div class="glyphicon glyphicon-search">
+                                  <p id="gly"><b>view more</b></p>
+                                </div>
+                              </div>
+                            </a>
+                          </div>
+                          <h6 id="a2"><b>book 4</b></h6>
+                          <hr>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                      </div>
+                  </div>
+                    <div class="col-md-3">
+                      <div class="imge">
+                        <div class="overly">
+                          <a href="#home">
+                          <img src="images/book13.jpeg" alt="book13" class="image">
+                          <div class="overlay">
+                                <div class="glyphicon glyphicon-search">
+                                  <p id="gly"><b>view more</b></p>
+                                </div>
+                              </div>
+                          </a>
+                        </div>
+                        <h6 id="a2"><b>book 5</b></h6>
+                        <hr>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                      </div>
+                    </div>
+                  
+                    <div class="col-md-3">
+                      <div class="imge">
+                        <div class="overly">
+                         <a href="#home">
+                         <img src="images/book8.jpeg" alt="book8" class="image">
+                           <div class="overlay">
+                                <div class="glyphicon glyphicon-search">
+                                  <p id="gly"><b>view more</b></p>
+                                </div>
+                              </div>
+                                 </a>
+                             </div>
+                          <h6 id="a2"><b>book 6</b></h6>
+                          <hr>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                          </div>
+                       </div>
+                       <div class="col-md-3">
+                    <div class="imge">
+                       <div class="overly">
+                        <a href="#home">
+                        <img src="images/book9.jpeg" alt="book9" class="image">
+                        <div class="overlay">
+                              <div class="glyphicon glyphicon-search"><p id="gly"><b>view more</b></p>
+                              </div>
+                            </div>
+                        </a>
+                      </div>
+                      <h6 id="a2"><b>book 2</b></h6>
+                      <hr>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                    </div>
+                </div>
                 </div>
             </div>
           </div>
@@ -332,27 +292,21 @@
 </section> 
 
 <div class="ignite text-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12">
-          <a href="#home" class="ignite-btn wow infinite pulse" id="ign">Ignite Your Passion</a>
-        </div>
-      </div>
-    </div>
+  <img src="../images/book-ad.jpg">
 </div>
   
 <section class="feature text-center section-padding" id="team">
     <div id="intro2" class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="wow fadeInDown">WE'RE A TEAM THAT ADORE WHAT WE DO</h1>
+          <h1 class="wow fadeInDown">Authors you may love</h1>
           <br><br><br>
           <div class="row">
             <div class="col-md-4">
              
                     <img src="images/team-01.png" alt="john snow" class="wow zoomIn">
                 
-              <h6 id="a2" class="wow fadeInUp"><b>JON SNOW</b></h6><hr>
+              <h6 id="a2" class="wow fadeInUp"><b>George Saunders</b></h6><hr>
               <p class="wow fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
                <div class="social">
                  <ul id="social-button" class="list-inline">
@@ -378,7 +332,7 @@
              
                   <img src="images/team-02.png" alt="cersei lannister" class="wow zoomIn">
                 
-              <h6 id="a2" class="wow fadeInUp"><b>CERSEI LANNISTER</b></h6><hr>
+              <h6 id="a2" class="wow fadeInUp"><b>Elif Shafak</b></h6><hr>
               <p class="wow fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
               <div class="social">
                   <ul id="social-button" class="list-inline">
@@ -404,7 +358,7 @@
                 
                     <img src="images/team-03.png" alt="jamie lannister" class="wow zoomIn">
                 
-              <h6 id="a2" class="wow fadeInUp"><b>JAMIE LANNISTER</b></h6><hr>
+              <h6 id="a2" class="wow fadeInUp"><b>Hari Kunzru</b></h6><hr>
               <p class="wow fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
               <div class="social">
                  <ul id="social-button" class="list-inline">
@@ -430,19 +384,6 @@
           <div class="clearfix"></div>
         </div>
       </div>
-    </div>
-</section>
-  
-<section class="subscribe text-center wow slideInLeft" data-wow-duration="2s">
-    <div class="container">
-      <h1>
-        <i class="fa fa-paper-plane wow lightSpeedIn" data-wow-delay="2s" ></i><br>
-        <span>Subscribe to stay in the loop</span>
-      </h1>
-      <form action="#home">
-        <input type="text" name="placeholder required">
-        <input type="submit" value="Send">
-      </form>
     </div>
 </section>
 

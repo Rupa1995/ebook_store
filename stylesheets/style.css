@@ -570,31 +570,8 @@ html p {
   font-size: 15px;
   text-transform: uppercase;
 }
-
+.imge{width: 82%;}
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-----------99-PROBLEMS(PAGE-7)<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-/* line 542, ../sass/style.scss */
-.ignite {
-  background-color: #242830;
-  padding: 70px 0;
-  text-align: center;
-}
-
-/* line 548, ../sass/style.scss */
-.ignite-btn {
-  display: inline-block;
-  padding: 25px 40px;
-  color: #fff;
-  border: solid 1px #fff;
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 1px;
-}
-/* line 557, ../sass/style.scss */
-.ignite-btn:hover {
-  color: #3dc9b3;
-  border-color: #3dc9b3;
-  text-decoration: none;
-}
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<----TEAM(PAGE-8)-----<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 /* line 565, ../sass/style.scss */
@@ -634,77 +611,7 @@ html p {
 }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<------SUBSCRIBE(PAGE-9)-------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-/* line 605, ../sass/style.scss */
-.subscribe {
-  padding-top: 80px;
-  padding-bottom: 80px;
-  background-image: url("../images/keyboard-bg.jpg");
-  min-height: 400px;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  text-align: center;
-}
-/* line 616, ../sass/style.scss */
-.subscribe h1 {
-  margin-top: 20px;
-  display: inline-block;
-  color: #fff !important;
-  font-family: "Varela Round", sans-serif;
-  margin-bottom: 60px;
-  font-size: 1.1em;
-  margin: 0.67em 0;
-  text-transform: uppercase;
-  font-weight: bold;
-  margin-top: 20px;
-  letter-spacing: 1px;
-  margin-bottom: 40px;
-  border: hidden;
-}
-/* line 631, ../sass/style.scss */
-.subscribe i {
-  display: inline-block;
-  font-size: 2em;
-  margin-bottom: 20px;
-}
-/* line 636, ../sass/style.scss */
-.subscribe input {
-  transition: background 0.55s ease;
-}
-/* line 638, ../sass/style.scss */
-.subscribe input[type=text] {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: solid 1px;
-  border-color: #fff;
-  padding: 20px;
-  width: 30%;
-  color: #fff;
-  line-height: normal;
-  vertical-align: baseline;
-  font-family: "Varela Round", sans-serif;
-}
-/* line 651, ../sass/style.scss */
-.subscribe input[type=submit] {
-  background-color: rgba(61, 201, 179, 0.5);
-  border: solid 1px;
-  border-color: rgba(61, 201, 179, 0.5);
-  padding: 20px;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  cursor: pointer;
-  line-height: normal;
-  font-family: "Varela Round", sans-serif;
-}
-/* line 665, ../sass/style.scss */
-.subscribe input[type=submit]:hover {
-  background-color: #3dc9b3;
-}
-/* line 670, ../sass/style.scss */
-.subscribe input[type=text]:hover {
-  background-color: rgba(255, 255, 255, 0.4);
-}
+
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<------CONTACT(PAGE-10)-------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 /* line 677, ../sass/style.scss */
