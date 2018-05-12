@@ -1,13 +1,31 @@
 <?php
+  
 	session_start();
   $current_user = $_SESSION['userID'];
   if(!isset($_SESSION['login_user']))
   {
     header("location: ../register.php?action=logout");
   }
+ 
 	include 'includes/db.php';
   
-  $sql = "SELECT
+    $book_name = $_POST['book_name'];
+    $pub_name = $_POST['pub_name'];
+    $author_name = $_POST['author_name']; 
+    $where = "WHERE book_quantity>0  ";
+    if(!empty($book_name)){
+        $where .= " AND book_title LIKE '%$book_name%'";
+    }
+
+    if(!empty($pub_name)){
+        $where .= " AND pub_name LIKE '%$pub_name%'";
+    }
+
+    if(!empty($author_name)){
+        $where .= " AND author_name LIKE '%$author_name%'";
+    }
+
+    $sql = "SELECT
             book_id,
             book_title,
             book_published_date,
@@ -18,7 +36,7 @@
             cat_name,
             pub_name,
             if(book_wish_id  is null ,'' ,book_wish_id )AS wish_id,
-          if(book_cart_id  is null ,'' ,book_cart_id )AS cart_id
+            if(book_cart_id  is null ,'' ,book_cart_id )AS cart_id
         FROM
             book_table AS B
         LEFT JOIN book_cat AS C
@@ -35,7 +53,7 @@
             B.book_id = W.bw_book_id AND W.bw_user_id = '$current_user'
         LEFT JOIN book_cart AS CA
         ON
-            B.book_id = CA.bc_book_id AND CA.bc_user_id = '$current_user'";
+            B.book_id = CA.bc_book_id AND CA.bc_user_id = '$current_user' ".$where." ORDER BY book_visitor DESC";
 
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result); 
@@ -64,11 +82,6 @@
 <div class="container">
   <div class="header-top">
     <div class="upper-header container">
-      <form class="search-form" action="#" method="get">
-          <i class="fa fa-search"></i>
-          <input type="text" name="s" value placeholder="Search by book title..">
-          <input type="hidden" name="post_type" value="product">
-      </form>
       <div class="logo">
           <a href="../index.php">
             <h1>Books</h1>
@@ -84,8 +97,8 @@
                       if(isset($_SESSION['login_user']))
                       {
                         echo '<li><a href="../edit_profile.php">Edit Profile</a></li>';
-                        echo '<li><a href="#">Wishlist</a></li>';
-                        echo '<li><a href="#">Cart</a></li>';
+                        echo '<li><a href="wishlist_item.php">Wishlist</a></li>';
+                        echo '<li><a href="cart_item.php">Cart</a></li>';
                         echo '<li><a href="../logout.php" class="login_user">Logout</a></li>';
                       } 
                       else
@@ -104,9 +117,41 @@
 <div id="page-wrapper" class="full-width">
     <div class="right-panel">
       <div class="title">Books</div>
+      <div class="search-bx">
+        <div class="row">
+          <div class="col-lg-12 col-md-12">
+            <form id ='searchForm' action="book.php" method="post">
+              <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                  <div class="form-group">
+                    <input type="text" class="form-control search-field" name="book_name" id="book_name" placeholder="Book Name" value="<?php echo $_POST['book_name'];?>"><span class="red"><p class="error-display book_nameErr"></p></span>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                  <div class="form-group">
+                    <input type="text" class="form-control search-field" name="pub_name" id="pub_name" placeholder="Publisher Name" value="<?php echo $_POST['pub_name'];?>"><span class="red"><p class="error-display pub_nameErr"></p></span>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                  <div class="form-group">
+                    <input type="text" class="form-control search-field" name="author_name" id="author_name" placeholder="Author Name" value="<?php echo $_POST['author_name'];?>">
+                    <span class="red"><p class="error-display author_nameErr"></p></span>
+                  </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-sm-3  col-xs-12 pull-right text-right">
+                  <button class="btn btn-sm btn-blue" id="searchBtn" type="submit" title ="" data-placement="top" data-toggle="tooltip" data-original-title="">Search</button>
+                  <button class="btn btn-sm red-btn" type="button" id="resetBtn" title ="" data-placement="top" data-toggle="tooltip" data-original-title = "">Reset</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
       	<div class="content-main">
-<?php 
-for ($i = 0; $i < count($_SESSION['BookArr']); $i++) 
+<?php
+if(count($_SESSION['BookArr'])>0)
+{ 
+  for ($i = 0; $i < count($_SESSION['BookArr']); $i++) 
 	{ 
     if($_SESSION['BookArr'][$i]['cart_id']!='')
     {
@@ -139,7 +184,13 @@ for ($i = 0; $i < count($_SESSION['BookArr']); $i++)
     echo '<button class="btn-wish" title ="'.$wish_title.'" data-placement="top" data-toggle="tooltip" data-original-title="" id="'.$_SESSION['BookArr'][$i]['book_id'].'"><i class="fa fa-heart '.$wish_class.'"></i></button>';
     echo '</div>';
     echo '</div>';
-	}	
+	}
+}
+else
+{
+  echo '<p class="red" style="margin-left:10px">There is no book available.</p>';      
+}
+
 ?>
       </div>
     </div>
@@ -169,5 +220,6 @@ for ($i = 0; $i < count($_SESSION['BookArr']); $i++)
 <script type='text/javascript' src="../javascripts/key_validation.js"></script>
 <script type='text/javascript' src="../javascripts/comman.js"></script>
 <script type='text/javascript' src="../javascripts/buy_book.js"></script>
+
 </body>
 </html>

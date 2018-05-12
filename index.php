@@ -52,8 +52,9 @@
                               if(isset($_SESSION['login_user']))
                               {
                                 echo '<li><a href="./edit_profile.php?uid='.$_SESSION['userID'].'">Edit Profile</a></li>';
-                                echo '<li><a href="#">Wishlist</a></li>';
+                                echo '<li><a href="./user/cart_item.php">Cart</a></li>';
                                 echo '<li><a href="#">Order</a></li>';
+                                echo '<li><a href="./user/wishlist_item.php">Wishlist</a></li>';
                                 echo '<li><a href="./logout.php" class="login_user">Logout</i></a></li>';
                               } 
                               else
@@ -128,9 +129,7 @@
           </div>
         </div>
 </section>
-<section class="section-padding text-center">
-  <img src="../images/book-ad3.png" style="width: 100%;">
-</section>
+
 
 <section class="portfolio text-center section-padding" id="portfolio">
     <div class="container">
@@ -291,9 +290,9 @@
     </div>
 </section> 
 
-<div class="ignite text-center">
-  <img src="../images/book-ad.jpg">
-</div>
+<!-- <div class="ignite text-center">
+  <img src="images/book-ad.jpg">
+</div> -->
   
 <section class="feature text-center section-padding" id="team">
     <div id="intro2" class="container">

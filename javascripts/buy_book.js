@@ -58,23 +58,15 @@ $(document).ready(function()
 		  });
 	});
 
-	function displayRecord()
-	{
-		$.ajax({
-		    url: "book_class.php",
-		    type: 'POST',//method type
-		    dataType:'text',
-		    cache: false,//do not allow requested page to be cached
-		    data: {ajaxcall : true,function2call: 'getAllBook'}
-		  }).done(function(data)
-		  {
-			data = JSON.parse(data);
-			$('body').waitMe('hide');
-			if(data.ebook.success == true)
-			{
-				location.reload();
-			}
-			
-		  });
-	}
+
+ $('body').on('click',"#resetBtn",function(){
+    $("#book_name").val('');
+    $("#pub_name").val('');
+    $("#author_name").val('');   
+    $("#searchForm").submit();
+  });
+
+
+
+
 });	
