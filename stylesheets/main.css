@@ -182,9 +182,9 @@ backface-visibility: hidden;
 hr{margin-bottom: 15px!important;}
 .bag{float: left; margin: 0; font-size: 25px; color: black; border-bottom: 1px dotted black;}
 .total-price{margin-left: 65%;}
-.book-detail{border: 2px solid #e3e0e0; float: left; width: 70%;}
+.book-detail{border: 2px solid #e3e0e0; float: left; width: 100%;}
 .book-receipt{border-left: 2px solid #e3e0e0; float: right; width: 28%;}
-.book-img{float: left; width: 30%; max-height: 200px; margin: 10px; padding: 5px; border: 1px solid beige;}
+.book-img{float: left; width: 25%; max-height: 225px; margin: 10px; padding: 5px; border: 1px solid beige;}
 .book-name{float: left;margin: 0;}
 .book-price{margin-left: 88%; font-size: 15px; color: black;margin-bottom: 0;}
 .seller{margin:0; float: left;}

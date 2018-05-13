@@ -106,7 +106,7 @@ $(document).ready(function()
         for(var i=0; i<len; i++)
         {
           total_amt = total_amt+ parseInt(wishlistinfo[i]['book_mrp']);
-          html += '<div class="book-detail">';
+          html += '<div class="book-detail" style="width: 70%;">';
           html += '<img src="'+wishlistinfo[i]['book_image']+'" class="book-img">';
           html += '<div class="book-details">';
           html += '<h2 class="book-name">'+wishlistinfo[i]['book_title']+'</h2>';

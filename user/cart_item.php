@@ -57,10 +57,10 @@ session_start();
     <p class="bag"><em>My Cart</em></p>
     <p class="total-price"><em id="payAmnt"></em></p>
     <div class="clearfix"></div>
-    <div  id="book_detail"></div>
+    <div  id="book_detail" class="col-md-8"></div>
  </div>
  <section>
- <div class="book-receipt container">
+ <div class="book-receipt container col-md-4">
    <strong>Price Details : </strong><br>
    <div style="float: left;">
      <p>Bag Total</p>
@@ -131,7 +131,7 @@ $(document).ready(function()
           html += '<div class="book-detail">';
           html += '<img src="'+cartinfo[i]['book_image']+'" class="book-img">';
           html += '<div class="book-details">';
-          html += '<h2 class="book-name">'+cartinfo[i]['book_title']+'</h2>';
+          html += '<h3 class="book-name">'+cartinfo[i]['book_title']+'</h3>';
           html += '<p class="book-price">Rs. '+cartinfo[i]['book_mrp']+'</p>';
           html += '<p class="author_name">Author : '+cartinfo[i]['author_name']+'</p>';
           if(cartinfo[i]['book_quantity']==1)
