@@ -102,9 +102,9 @@
                 <br><br><br>
                 <div class="row">
                   <div class="col-md-3">
-                      <div class="icon wow fadeIn" data-wow-duration="2s"><img src="images/book1.jpeg" id="book-ad"></div>
-                      <h6 class="wow fadeInDown" data-wow-delay:"2s"><b>LINCOLN IN THE BARDO //</b></h6><hr>
-                      <p class="wow fadeInUp" data-wow-delay:"3s">Lincoln in the Bardo is a 2017 experimental novel by American writer George Saunders. It is Saunders's first full-length novel and was the New York Times hardcover fiction bestseller for the week of March 5, 2017.</p>
+                      <div class="icon wow fadeIn" data-wow-duration="2s"><img src="images/book16.jpg" id="book-ad"></div>
+                      <h6 class="wow fadeInDown" data-wow-delay:"2s"><b>THE OUTSIDER //</b></h6><hr>
+                      <p class="wow fadeInUp" data-wow-delay:"3s">An oustanding work by Stephen King!<br> An unspeakable crime. A confounding investigation. At a time when the King brand has never been stronger, he has delivered one of his most unsettling and compulsively readable stories.</p>
                   </div>
                   <div class="col-md-3">
                       <div class="icon wow fadeIn" data-wow-duration="3s"><img src="images/book2.jpg" id="book-ad"></div>
@@ -112,9 +112,9 @@
                       <p class="wow fadeInUp" data-wow-delay:"3s">Sing, Unburied, Sing is a 2017 novel by Jesmyn Ward. It is about a family's dynamics in the fictional town of Bois Savauge, Mississippi, where her 2011 National Book Award-winning Salvage the Bones was set pre-Hurricane Katrina</p>
                   </div>
                   <div class="col-md-3">
-                      <div class="icon wow fadeIn" data-wow-duration="4s"><img src="images/book3.jpg" id="book-ad"></i></div>
-                      <h6 class="wow fadeInDown" data-wow-delay:"2s"><b>THREE DAUGHTERS OF EVE //</b></h6><hr>
-                      <p class="wow fadeInUp" data-wow-delay:"3s">Elif Shafak’s new novel, Three Daughters of Eve, in its efforts to speak to the broader ideological concerns that underlie the pernicious anti-Muslim hate-filled rhetoric, is a text to linger over.. Shafak focuses her tale on a Polaroid photograph.
+                      <div class="icon wow fadeIn" data-wow-duration="4s"><img src="images/book15.jpg" id="book-ad"></i></div>
+                      <h6 class="wow fadeInDown" data-wow-delay:"2s"><b>The 17th Suspect //<br>(Women's Murder Club)</b></h6><hr>
+                      <p class="wow fadeInUp" data-wow-delay:"3s">In the newest Women's Murder Club thriller by James Patterson, a killer who chooses victims personally is stalking San Francisco--and getting too close to Detective Lindsay Boxer.
                       </p>
                   </div> 
                   <div class="col-md-3">
@@ -146,7 +146,7 @@
               <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
-                         <a href="#home">
+                         <a href="" class="viewport_image_open">
                          <img src="images/book_img/Half_Girlfriend.jpg" alt="book10" class="image">
                            <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
@@ -154,17 +154,30 @@
                                 </div>
                               </div>
                                  </a>
+                                 <div id="viewport_image" class="wow zoomIn div-vp" data-wow-duration="0.5s">
+                                  <img src="images/book_img/Half_Girlfriend.jpg" alt="" id="img-vp">
+                                  <div id="desc-vp">
+                                    <h3><b><i>Half Girlfriend</i></b></h3>
+                                    <em>by Chetan Bhagat</em>
+                                    <div class="star-ratings-css">
+                                      <div class="star-top" style="width: 70%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                      <div class="star-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                    </div>
+                                    <h4 style="color: red; font-style: italic;"><b>Description: </b></h4>
+                                    <p>Once upon a time, there was a Bihari boy called Madhav.<br> He fell in love with a girl from Delhi called Riya.<br> Madhav didn't speak English well. Riya did.<br> Madhav wanted a relationship. Riya didn't.<br> Riya just wanted friendship. Madhav didn't.<br> Riya suggested a compromise. She agreed to be his half girlfriend.</p><p> From the author of the blockbuster novels Five Point Someone, One Night @ the Call Center, The 3 Mistakes of My Life, 2 States and Revolution 2020 comes a simple and beautiful love story that will touch your heart and inspire you to chase your dreams. (Written By Chetan Bhagat)</p>
+                                  </div>
+                                 </div>
                              </div>
-                          <h6 id="a2"><b>book 6</b></h6>
+                          <h6 id="a2"><b>Half Girlfriend</b></h6>
                           <hr>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                          <p>Half Girlfriend is an Indian English coming of age, young adult romance novel by Indian author Chetan Bhagat. The novel, set in rural Bihar, New Delhi, Patna, and New York, is the story of a Bihari boy in quest of winning over the girl he loves.</p>
                           </div>
                        </div>
                   <div class="col-md-3">
                     <div class="imge">
                       <div class="overly">
                         
-                          <a href="#home">
+                          <a href="" class="viewport_image_a_open">
                             <img src="images/book12.jpeg" alt="book12" class="image">
                             <div class="overlay">
                               <div class="glyphicon glyphicon-search">
@@ -172,32 +185,66 @@
                               </div>
                             </div>
                           </a>
+                          <div id="viewport_image_a" class="wow zoomIn div-vp" data-wow-duration="0.5s">
+                            <img src="images/book12.jpeg" alt="" id="img-vp">
+                            <div id="desc-vp">
+                              <h3><b><i>World's Best Boyfriend</i></b></h3>
+                              <em>by Durjoy Datta</em>
+                                <div class="star-ratings-css">
+                                  <div class="star-top" style="width: 75%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                  <div class="star-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                </div>
+                              <h4 style="color: red; font-style: italic;"><b>Description: </b></h4>
+                              <p>Hate, is a four letter word.<br>
+                                So is love.<br> 
+                                And sometimes, people can’t tell the difference…<br>
+                                Dhurv and Aranya spend a good part of their lives trying to figure out why they want to destroy each other, why they hurt each other so deeply. And, why they can’t stay away from each other. <br>
+                                The answer is just as difficult each time because all they’ve wanted is to do the worst, most miserable things to one another. <br>
+                                Yet there is something that tells them: THIS IS NOT IT.<br>
+                                If you want to know the answer to it all, read the book.</p>
+                            </div>
+                          </div>
                         </div>
-                        <h6 id="a2"><b>book 1</b></h6>
+                        <h6 id="a2"><b>World's Best Boyfriend</b></h6>
                         <hr>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                        <p>Hate, is a four letter word. So is love. And sometimes, people can’t tell the difference...If you want to know the answer to it all, read the book.The book is a complete package defining love, friendship, betrayal and hatred that exists between the main characters of the story, Dhurv and Aranya.</p>
                     </div>
                 </div>
                   <div class="col-md-3">
                     <div class="imge">
                        <div class="overly">
-                        <a href="#home">
+                        <a href="" class="viewport_image_b_open">
                         <img src="images/book11.jpeg" alt="book11" class="image">
                         <div class="overlay">
                               <div class="glyphicon glyphicon-search"><p id="gly"><b>view more</b></p>
                               </div>
                             </div>
                         </a>
+                        <div id="viewport_image_b" class="wow zoomIn div-vp" data-wow-duration="0.5s">
+                            <img src="images/book11.jpeg" alt="" id="img-vp">
+                            <div id="desc-vp">
+                              <h3><b><i>One Indian Girl</i></b></h3>
+                              <em>by Chetan Bhagat</em>
+                              <div class="star-ratings-css">
+                                <div class="star-top" style="width: 78%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                <div class="star-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                              </div>
+                              <h4 style="color: red; font-style: italic;"><b>Description: </b></h4>
+                              <p>Hi, I'm Radhika Mehta and I'm getting married this week. I work at Goldman Sachs, an investment bank. Thank you for reading my story. However, let me warn you.</p>
+                              <p>You may not like me too much.<br> One, I make a lot of money.<br> Two, I have an opinion on everything.<br> Three, I have had a boyfriend before.<br> OK, maybe two.</p>
+                              <p>Now if all this was the case with a guy, one might be cool with it. But since I am a girl these three things I mentioned don’t really make me too likeable, do they?</p>
+                            </div>
+                        </div>
                       </div>
-                      <h6 id="a2"><b>book 2</b></h6>
+                      <h6 id="a2"><b>One Indian Girl</b></h6>
                       <hr>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                      <p>Bestselling author Chetan Bhagat, writing for the first time in a female voice, brings to you One Indian Girl, the heart-warming story of a modern Indian girl - Radhika Mehta who is getting married this week.However, let me warn you. You may not like her too much.</p>
                     </div>
                 </div>
                   <div class="col-md-3">
                     <div class="imge">
                       <div class="overly">
-                       <a href="#home">
+                       <a href="" class="viewport_image_c_open">
                        <img src="images/book5.jpg" alt="book5" class="image">
                          <div class="overlay">
                               <div class="glyphicon glyphicon-search">
@@ -205,10 +252,23 @@
                               </div>
                             </div>
                                </a>
+                               <div id="viewport_image_c" class="wow zoomIn div-vp" data-wow-duration="0.5s">
+                                  <img src="images/book5.jpg" alt="" id="img-vp">
+                                  <div id="desc-vp">
+                                    <h3><b><i>Bad Wolf</i></b></h3>
+                                    <em>by Susan Sizemore</em>
+                                    <div class="star-ratings-css">
+                                      <div class="star-top" style="width: 77%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                      <div class="star-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                    </div>
+                                    <h4 style="color: red; font-style: italic;"><b>Description: </b></h4>
+                                    <p>Serafina Raider, daughter of rock star Kent Raider, has enough problems being pursued by the paparazzi.<br> She thought her world was complicated enough until Devan Nolan made her into a shinigami - <em>a hunter of evil ghosts</em>. <br>She didn't volunteer for the job, but once she is part of the shinigami team she becomes a skilled and dedicated hunter.</p><p> In Bad Wolf, the second story in the Living Dead Girl series (Black Snow if book one) , she must take on the escaped ghost she has tracked and trapped before.<br> Only this time the danger is worse. The ghost has attached itself to a werewolf and is forcing the haunted creature to murder innocent humans.</p>
+                                  </div>
+                               </div>
                              </div>
-                        <h6 id="a2"><b>book 3</b></h6>
+                        <h6 id="a2"><b>Bad Wolf</b></h6>
                         <hr>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                        <p>Serafina Raider, daughter of rock star Kent Raider, has enough problems being pursued by the paparazzi. She thought her world was complicated enough until Devan Nolan made her into a shinigami - a hunter of evil ghosts. If you want to know her journey read the book.</p>
                         </div>
                 </div>
               </div>
@@ -216,7 +276,7 @@
                     <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
-                          <a href="#home">
+                          <a href="" class="viewport_image_d_open">
                             <img src="images/book6.jpg" alt="book6" class="image">
                             <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
@@ -224,16 +284,31 @@
                                 </div>
                               </div>
                             </a>
+                            <div id="viewport_image_d" class="wow zoomIn div-vp" data-wow-duration="0.5s">
+                              <img src="images/book6.jpg" alt="" id="img-vp">
+                              <div id="desc-vp">
+                                <h3><b><i>Lies That Bind Us</i></b></h3>
+                                <em>by Andrew Hart</em>
+                                  <div class="star-ratings-css">
+                                      <div class="star-top" style="width: 73%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                      <div class="star-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                    </div>
+                                <h4 style="color: red; font-style: italic;"><b>Description: </b></h4>
+                                <p><b>From a prize-winning and New York Times bestselling author comes a chilling novel of deception under the sun... </b></p><p>Jan needs this.<br> She’s flying to Crete to reunite with friends she met there five years ago and relive an idyllic vacation. Basking in the warmth of the sun, the azure sea, and the aura of antiquity, she can once again pretend—for a little while—that she belongs. Her ex-boyfriend Marcus will be among them, but even he doesn’t know the secrets she keeps hidden behind a veil of lies. None of them really know her, and that’s only part of the problem.<br>
+                                Then again, how well does she know them?
+                                <br>When Jan awakens in utter darkness, chained to a wall, a manacle around her wrist, her echoing screams only give her a sense of how small her cell is. As she desperately tries to reconstruct what happened and determine who is holding her prisoner, dread covers despair like a hand clamped over her mouth. Because, like the Minotaur in the labyrinth in Greek myth, her captor will be coming back for her, and all the lies will catch up to her… </p>
+                              </div>
+                            </div>
                           </div>
-                          <h6 id="a2"><b>book 4</b></h6>
+                          <h6 id="a2"><b>Lies That Bind Us</b></h6>
                           <hr>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                          <p>From a prize-winning and New York Times bestselling author comes a chilling novel of deception under the sun... Jan needs this. She's flying to Crete to reunite with friends she met there five years ago and relive an idyllic vacation.Wanna know what is going to happen there, grab this book.</p>
                       </div>
                   </div>
                     <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
-                          <a href="#home">
+                          <a href="" class="viewport_image_e_open">
                           <img src="images/book13.jpeg" alt="book13" class="image">
                           <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
@@ -241,17 +316,31 @@
                                 </div>
                               </div>
                           </a>
+                          <div id="viewport_image_e" class="wow zoomIn div-vp" data-wow-duration="0.5s">
+                              <img src="images/book13.jpeg" alt="" id="img-vp">
+                              <div id="desc-vp">
+                                <h3><b><i>The Lords of Rings</i></b></h3>
+                                <em>by J.R.R. Tolkien</em>
+                                  <div class="star-ratings-css">
+                                      <div class="star-top" style="width: 95%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                      <div class="star-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                    </div>
+                                <h4 style="color: red; font-style: italic;"><b>Description: </b></h4>
+                                <p><b>One Ring to rule them all, One Ring to find them, One Ring to bring them all and in the darkness bind them.</b><br>In ancient times the Rings of Power were crafted by the Elven-smiths, and Sauron, the Dark Lord, forged the One Ring, filling it with his own power so that he could rule all others. But the One Ring was taken from him, and though he sought it throughout Middle-earth, it remained lost to him. After many ages it fell by chance into the hands of the hobbit Bilbo Baggins.</p>
+                                <p>From Sauron's fastness in the Dark Tower of Mordor, his power spread far and wide. Sauron gathered all the Great Rings to him, but always he searched for the One Ring that would complete his dominion.<br>When Bilbo reached his eleventy-first birthday he disappeared, bequeathing to his young cousin Frodo the Ruling Ring and a perilous quest: to journey across Middle-earth, deep into the shadow of the Dark Lord, and destroy the Ring by casting it into the Cracks of Doom.</p><p>The Lord of the Rings tells of the great quest undertaken by Frodo and the Fellowship of the Ring: Gandalf the Wizard; the hobbits Merry, Pippin, and Sam; Gimli the Dwarf; Legolas the Elf; Boromir of Gondor; and a tall, mysterious stranger called Strider. </p>
+                              </div>
+                            </div>
                         </div>
-                        <h6 id="a2"><b>book 5</b></h6>
+                        <h6 id="a2"><b>The Lords of Rings</b></h6>
                         <hr>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                        <p>The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien. Presents the epic depicting the Great War of the Ring, a struggle between good and evil in Middle-earth, following the odyssey of Frodo the hobbit and his companions on a quest to destroy the Ring of Power.</p>
                       </div>
                     </div>
                   
                     <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
-                         <a href="#home">
+                         <a href="" class="viewport_image_f_open">
                          <img src="images/book8.jpeg" alt="book8" class="image">
                            <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
@@ -259,26 +348,61 @@
                                 </div>
                               </div>
                                  </a>
+                                 <div id="viewport_image_f" class="wow zoomIn div-vp" data-wow-duration="0.5s">
+                              <img src="images/book8.jpeg" alt="" id="img-vp">
+                              <div id="desc-vp">
+                                <h3><b><i>The Da Vinci Code</i></b></h3>
+                                <em>by Dan Brown</em>
+                                  <div class="star-ratings-css">
+                                      <div class="star-top" style="width: 90%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                      <div class="star-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                    </div>
+                                <h4 style="color: red; font-style: italic;"><b>Description: </b></h4>
+                                <p><b>An ingenious code hidden in the works of Leonardo da Vinci.<br>A desperate race through the cathedrals and castles of Europe.<br>An astonishing truth concealed for centuries . . . unveiled at last.</b>
+
+                                <p>While in Paris, Harvard symbologist Robert Langdon is awakened by a phone call in the dead of the night. The elderly curator of the Louvre has been murdered inside the museum, his body covered in baffling symbols. As Langdon and gifted French cryptologist Sophie Neveu sort through the bizarre riddles, they are stunned to discover a trail of clues hidden in the works of Leonardo da Vinci—clues visible for all to see and yet ingeniously disguised by the painter.</p>
+
+                                <p>Even more startling, the late curator was involved in the Priory of Sion—a secret society whose members included Sir Isaac Newton, Victor Hugo, and Da Vinci—and he guarded a breathtaking historical secret. Unless Langdon and Neveu can decipher the labyrinthine puzzle—while avoiding the faceless adversary who shadows their every move—the explosive, ancient truth will be lost forever.</p>
+                              </div>
+                            </div>
                              </div>
-                          <h6 id="a2"><b>book 6</b></h6>
+                          <h6 id="a2"><b>The Da Vinci Code</b></h6>
                           <hr>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                          <p>The Da Vinci Code is a 2003 mystery thriller novel by Dan Brown. It follows "symbologist" Robert Langdon and cryptologist Sophie Neveu after a murder in the Louvre Museum in Paris causes them to become involved in a battle between the Priory of Sion and Opus Dei.</p>
                           </div>
                        </div>
                        <div class="col-md-3">
                     <div class="imge">
                        <div class="overly">
-                        <a href="#home">
+                        <a href="" class="viewport_image_g_open">
                         <img src="images/book9.jpeg" alt="book9" class="image">
                         <div class="overlay">
                               <div class="glyphicon glyphicon-search"><p id="gly"><b>view more</b></p>
                               </div>
                             </div>
                         </a>
+                        <div id="viewport_image_g" class="wow zoomIn div-vp" data-wow-duration="0.5s">
+                              <img src="images/book9.jpeg" alt="" id="img-vp">
+                              <div id="desc-vp">
+                                <h3><b><i>The Girl In The Ice</i></b></h3>
+                                <em>by Robert Bryndza</em>
+                                  <div class="star-ratings-css">
+                                      <div class="star-top" style="width: 80%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                      <div class="star-bottom"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                    </div>
+                                <h4 style="color: red; font-style: italic;"><b>Description: </b></h4>
+                                <p>Her eyes are wide open. Her lips parted as if to speak. Her dead body frozen in the ice…She is not the only one. </p>
+                                <p>When a young boy discovers the body of a woman beneath a thick sheet of ice in a South London park, Detective Erika Foster is called in to lead the murder investigation.</p>
+                                <p>The victim, a beautiful young socialite, appeared to have the perfect life. Yet when Erika begins to dig deeper, she starts to connect the dots between the murder and the killings of three prostitutes, all found strangled, hands bound and dumped in water around London.</p>
+                                <p>What dark secrets is the girl in the ice hiding?</p>
+                                <p>As Erika inches closer to uncovering the truth, the killer is closing in on Erika.</p>
+                                <p>The last investigation Erika led went badly wrong… resulting in the death of her husband. With her career hanging by a thread, Erika must now battle her own personal demons as well as a killer more deadly than any she’s faced before. But will she get to him before he strikes again?</p>
+                              </div>
+                            </div>
                       </div>
-                      <h6 id="a2"><b>book 2</b></h6>
+                      <h6 id="a2"><b>The Girl In The Ice</b></h6>
                       <hr>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                      <p>Her eyes are wide open. Her lips parted as if to speak. Her dead body frozen in the ice . . . She is not the only one.When a young boy discovers the body of a woman beneath a thick sheet of ice in a South London park, Detective Erika Foster is called in to lead the murder investigation. This crime thriller is a must read.</p>
                     </div>
                 </div>
                 </div>
@@ -305,8 +429,8 @@
              
                     <img src="images/team-01.png" alt="john snow" class="wow zoomIn">
                 
-              <h6 id="a2" class="wow fadeInUp"><b>George Saunders</b></h6><hr>
-              <p class="wow fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+              <h6 id="a2" class="wow fadeInUp"><b>Stephen King</b></h6><hr>
+              <p class="wow fadeInUp">Stephen King is the author of more than fifty books, all of them worldwide bestsellers. His recent work includes The Bill Hodges Trilogy, Revival, and Doctor Sleep. His novel 11/22/63 was named a top ten book of 2011 by The New York Times Book Review and won the Los Angeles Times Book Prize for Mystery/Thriller as well as the Best Hardcover Book Award from the International Thriller Writers Association..</p>
                <div class="social">
                  <ul id="social-button" class="list-inline">
                   <li>
@@ -331,8 +455,8 @@
              
                   <img src="images/team-02.png" alt="cersei lannister" class="wow zoomIn">
                 
-              <h6 id="a2" class="wow fadeInUp"><b>Elif Shafak</b></h6><hr>
-              <p class="wow fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+              <h6 id="a2" class="wow fadeInUp"><b>J. K. Rowling</b></h6><hr>
+              <p class="wow fadeInUp">Joanne Rowling, writing under the pen names J. K. Rowling and Robert Galbraith, is a British novelist, philanthropist, film producer, television producer and screenwriter who is best known for writing the Harry Potter fantasy series. <br>The books have won multiple awards, and sold more than 400 million copies, becoming the best-selling book series in history..</p>
               <div class="social">
                   <ul id="social-button" class="list-inline">
                     <li>
@@ -357,8 +481,8 @@
                 
                     <img src="images/team-03.png" alt="jamie lannister" class="wow zoomIn">
                 
-              <h6 id="a2" class="wow fadeInUp"><b>Hari Kunzru</b></h6><hr>
-              <p class="wow fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+              <h6 id="a2" class="wow fadeInUp"><b>James Patterson</b></h6><hr>
+              <p class="wow fadeInUp">James Patterson is the world’s bestselling author, best known for his many enduring fictional characters and series, including Alex Cross, the Women’s Murder Club, Michael Bennett. Patterson’s writing career is characterized by a single mission: to prove to everyone, from children to adults, that there is no such thing as a person who “doesn’t like to read,” only people who haven’t found the right book. </p>
               <div class="social">
                  <ul id="social-button" class="list-inline">
                   <li>
@@ -404,21 +528,21 @@
                   <div class="light-box box-hover">
                     <h2><i class="fa fa-map-marker wow bounce" data-wow-delay="0.5s" data-wow-duration="1s" data-wow-offset="1" id="fa-i"></i><br><br>
                       <span>Address</span></h2><hr>
-                      <p>Level 6, 23 Pitt St, Sydney</p>
+                      <p>EM/4 , Sector 2, Saltlake, Kolkata</p>
                    </div>
                 </div>
                 <div class="col-md-4 wow pulse">
                   <div class="light-box box-hover">
                     <h2><i class="fa fa-mobile wow wobble" data-wow-delay="1s" data-wow-duration="1s" id="fa-i"></i><br><br>
                       <span>Phone</span></h2><hr>
-                      <p>+61 9 211 3747</p>
+                      <p>+91 7031509154</p>
                     </div>
                 </div>
                 <div class="col-md-4 wow pulse">
                   <div class="light-box box-hover">
                     <h2><i class="fa fa-paper-plane wow lightSpeedIn" data-wow-delay="1s" id="fa-i"></i><br><br>
                       <span>Email</span></h2><hr>
-                      <p>hey@halcyondays.com</p>
+                      <p>pustakalaya.ebook@gmail.com</p>
                     </div>
                 </div>
               </div>
@@ -527,7 +651,18 @@
 <script type='text/javascript' src="js/waitMe.js"></script>
 <script type='text/javascript' src="javascripts/javas.js"></script>
 <script type='text/javascript' src="javascripts/wow.min_.js"></script>
+<script src="https://rawgit.com/vast-engineering/jquery-popup-overlay/gh-pages/jquery.popupoverlay.js"></script>
 <script type="text/javascript">
+
+  $('#viewport_image').popup();
+  $('#viewport_image_a').popup();
+  $('#viewport_image_b').popup();
+  $('#viewport_image_c').popup();
+  $('#viewport_image_d').popup();
+  $('#viewport_image_e').popup();
+  $('#viewport_image_f').popup();
+  $('#viewport_image_g').popup();
+
   wow = new WOW(
   {
     boxClass: 'wow',

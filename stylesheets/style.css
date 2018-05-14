@@ -517,25 +517,21 @@ html p {
 }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<------------PORTFOLIO(PAGE-6)<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-/* line 487, ../sass/style.scss */
 .portfolio .col-md-4 {
   padding-top: 80px;
 }
-/* line 490, ../sass/style.scss */
 .portfolio .image {
   width: 100%;
   display: block;
   height: auto;
   position: relative;
 }
-/* line 498, ../sass/style.scss */
 .portfolio .overly {
   width: 100%;
   display: block;
   height: auto;
   position: relative;
 }
-/* line 505, ../sass/style.scss */
 .portfolio .overlay {
   position: absolute;
   top: 0;
@@ -549,11 +545,9 @@ html p {
   transition: 0.5s ease;
   text-align: center;
 }
-/* line 519, ../sass/style.scss */
 .portfolio .overly:hover .overlay {
   width: 100%;
 }
-/* line 523, ../sass/style.scss */
 .portfolio .glyphicon {
   color: #fff;
   font-size: 30px;
@@ -564,14 +558,42 @@ html p {
   -ms-transform: translate(-50%, -50%);
   white-space: nowrap;
 }
-/* line 533, ../sass/style.scss */
 .portfolio #gly {
   color: #fff;
   font-size: 15px;
   text-transform: uppercase;
 }
 .imge{width: 82%;}
-/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-----------99-PROBLEMS(PAGE-7)<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+.div-vp{background: white; margin: 5% 15%;}
+#img-vp{float: left; margin: 80px;}
+#desc-vp{margin-left: 40%;margin-right: 5%;}
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-----------star rating<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+.star-ratings-css {
+  unicode-bidi: bidi-override;
+  color: #c5c5c5;
+  font-size: 25px;
+  height: 25px;
+  width: 100px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0;
+  text-shadow: 0px 1px 0 #a2a2a2;
+  }
+  .star-top {
+    color: #e7711b;
+    padding: 0;
+    position: absolute;
+    z-index: 1;
+    display: block;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+  .star-bottom {
+    padding: 0;
+    display: block;
+    z-index: 0;
+  }
 
 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<----TEAM(PAGE-8)-----<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 /* line 565, ../sass/style.scss */
