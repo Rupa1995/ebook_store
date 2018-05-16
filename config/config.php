@@ -24,8 +24,15 @@ define('WISHLIST','book_wish');
 
 define('MAIL_FROM_ADDRESS', 'no-reply@gmail.com');
 define('MAIL_FROM_NAME', 'Book Services');
-define('GUSER', 'pustakalaya.ebook@gmail.com'); // Mail username
+define('GUSER', 'pustakalaya.ebook@gmail.com'); 
 define('GPWD', '509154Rup@'); 
+
+
+/* Paypal payment module config info */
+define('ENCRYPT_KEY', 'ebook-data(en/de)crypt');
+define('TAXPER', '5');
+define('DISCOUNTPER', '2');
+
 
 error_reporting(E_ERROR | E_PARSE);
 ini_set("display_errors", 0);// 1 = Display Error

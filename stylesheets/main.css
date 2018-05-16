@@ -195,25 +195,49 @@ hr{margin-bottom: 15px!important;}
 .move-to-wishlist{color: blue; margin-left: 10px; margin-bottom: 5px;}
 .add-more{border:2px solid #e3e0e0; width: 62%; float: left; margin: -30px 0 0 75px; padding-top: 10px;padding-bottom: 10px; padding-left: 25%; color: gray; font-size: 15px;}
 .add-more a{ color: gray; font-size: 15px; }
-#coupons{ float: right; border: 2px solid blue; background: white; color: blue; border-radius: 4px;}
-#place-order{
+
+#place-order {
     margin-top: 25px;
     margin-left: 80px;
     display: inline-block;
-        padding: 15px 15px;
-        font-size: 15px;
-        cursor: pointer;
-        text-align: center;
-        text-decoration: none;
-        outline: none;
-        color: $white;
-        background-color: #62f2ce;
-        border: none;
-        border-radius: 5px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: bold;
-        box-sizing: border-box;
-        box-shadow: 0px 3px 0px 0px #19b78a;
-        color: whitesmoke;
+    padding: 15px 15px;
+    font-size: 15px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: $white;
+    background-color: #f4511e;
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    box-sizing: border-box;
+    color: whitesmoke;
+}
+
+#place-order span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#place-order span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+#place-order:hover span {
+  padding-right: 25px;
+}
+
+#place-order:hover span:after {
+  opacity: 1;
+  right: 0;
 }

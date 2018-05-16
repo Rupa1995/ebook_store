@@ -12,9 +12,47 @@
           case 'getWishlist' : getWishlist($conn);break;
           case 'removeEntry' : removeEntry($conn);break;
           case 'moveEntry' : moveEntry($conn);break;
+          case 'checkout' : checkout($conn);break;
     	}
     }
 
+
+function my_simple_crypt( $string, $action = 'e' ) {
+    // you may change these values to your own
+    $secret_key = ENCRYPT_KEY;
+    $secret_iv = 'pustakalaya';
+ 
+    $output = false;
+    $encrypt_method = "AES-256-CBC";
+    $key = hash( 'sha256', $secret_key );
+    $iv = substr( hash( 'sha256', $secret_iv ), 0, 16 );
+ 
+    if( $action == 'e' ) {
+        $output = base64_encode( openssl_encrypt( $string, $encrypt_method, $key, 0, $iv ) );
+    }
+    else if( $action == 'd' ){
+        $output = openssl_decrypt( base64_decode( $string ), $encrypt_method, $key, 0, $iv );
+    }
+ 
+    return $output;
+}
+
+function checkout($conn)
+{
+  $arr = $_POST['arr_val'];
+  $string = '';
+  for($i=0;$i<count($arr);$i++)
+  {
+    $string .= $arr[$i]['id'].'^'.$arr[$i]['title'].'^'.$arr[$i]['mrp'].'|||';
+  }
+  $encrypted_msg = my_simple_crypt($string,'e');
+/*  echo "encrypted_msg".$encrypted_msg;
+  $decrypted_msg = decryptData($encrypted_msg);
+  echo "decrypted_msg".$decrypted_msg;
+*/
+ echo json_encode(array('ebook' => array('success' => true,'encrypted_msg' => $encrypted_msg)));
+
+}
 function addToCart($conn)
 {
     $current_user = $_SESSION['userID'];
@@ -171,7 +209,7 @@ function removeEntry($conn)
   $running_id= $_POST['running_id'];
   $type_val = $_POST['type_val'];
 
-  if($type_val == 1)
+  if($type_val == 2)
   {
     $d_sql = "DELETE 
               FROM 

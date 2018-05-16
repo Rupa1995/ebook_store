@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'includes/db.php';
 ?>
 <!DOCTYPE html>
 <html>
@@ -57,31 +58,11 @@ session_start();
     <p class="bag"><em>My Cart</em></p>
     <p class="total-price"><em id="payAmnt"></em></p>
     <div class="clearfix"></div>
-    <div  id="book_detail" class="col-md-8"></div>
+    <div id="book_detail" class="col-md-8"></div>
  </div>
- <section>
- <div class="book-receipt container col-md-4">
-   <strong>Price Details : </strong><br>
-   <div style="float: left;">
-     <p>Bag Total</p>
-     <p>Bag Discount</p>
-     <p>Estimated Tax</p>
-     <p>Delivery</p>
-     <hr>
-     <strong>Order Total</strong>
-   </div>
-   <div style="float: right;">
-     <p id="totalprice">Rs. 568</p>
-     <p id="totaldiscount">Rs. 58</p>
-     <p id="totaltaxt">Rs. 20</p>
-     <p style="color: lightgreen;">FREE</p>
-     <hr>
-      <strong>Rs. 530</strong> 
-   </div>
-    <button id="place-order">PLACE ORDER</button>  
+ <div class="book-receipt container col-md-4" id="price_detail">
  </div>  
 </div>
-</section>
 <div class="modal fade" id="remove_confirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabela" data-backdrop="static">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
@@ -98,6 +79,7 @@ session_start();
     </div>
   </div>
 </div>
+
 <script type='text/javascript' src="../js/jquery-3.3.1.min.js"></script>
 <script type='text/javascript' src="../js/bootstrap.min.js"></script>
 <script type='text/javascript' src="../js/bootstrap-select.min.js"></script>
@@ -107,6 +89,19 @@ session_start();
 <script type="text/javascript">
 $(document).ready(function()
 {
+
+  function precisionRound(number, precision) 
+  {
+    var factor = Math.pow(10, precision);
+    return Math.round(number * factor) / factor;
+  }
+
+  var taxP = <?php echo TAXPER?>;
+  var discountP = <?php echo DISCOUNTPER?>;
+  var total_amt = 0;
+  var final_amt  = 0;
+  var product_name = '';
+  var arr_val = Array();
     var current_effect = 'win8';
     run_waitMe(current_effect);// start the loader
     $.ajax({
@@ -120,14 +115,15 @@ $(document).ready(function()
       data = JSON.parse(data);
       $('body').waitMe('hide');
       var html = '';
+      var lhtml = '';
       var len = data.ebook.cartinfo.length;
       var cartinfo = data.ebook.cartinfo;
-      var total_amt = 0;
       if(len>0)
       {
         for(var i=0; i<len; i++)
         {
           total_amt = total_amt+ parseInt(cartinfo[i]['book_mrp']);
+          arr_val.push({id : cartinfo[i]['book_id'],title : cartinfo[i]['book_title'], mrp :cartinfo[i]['book_mrp'] }); 
           html += '<div class="book-detail">';
           html += '<img src="'+cartinfo[i]['book_image']+'" class="book-img">';
           html += '<div class="book-details">';
@@ -145,6 +141,33 @@ $(document).ready(function()
           html += '</div>';
          
         }
+        var taxamt = ((taxP*total_amt)/100);
+        taxamt = precisionRound(taxamt, 2)
+        
+        var discountamt = ((discountP*total_amt)/100);
+        discountamt = precisionRound(discountamt, 2);
+        
+        final_amt = precisionRound((total_amt-discountamt)+taxamt,2);
+
+        lhtml += '<strong>Price Details : </strong><br>';
+        lhtml += '<div style="float: left;">';
+        lhtml += '<p>Bag Total</p>';
+        lhtml += '<p>Bag Discount</p>';
+        lhtml += '<p>Estimated Tax</p>';
+        lhtml += '<p>Delivery</p>';
+        lhtml += '<hr>';
+        lhtml += '<strong>Order Total</strong>';
+        lhtml += '</div>';
+        lhtml += '<div style="float: right;">';
+        lhtml += '<p id="totalprice">Rs. '+total_amt+'</p>';
+        lhtml += '<p id="totaldiscount">Rs. '+discountamt+'</p>';
+        lhtml += '<p id="totaltaxt">Rs. '+taxamt+'</p>';
+        lhtml += '<p style="color: lightgreen;">FREE</p>';
+        lhtml += '<hr>';
+        lhtml += '<strong>Rs. '+final_amt+'</strong> ';
+        lhtml += '</div>';
+        lhtml += '<button id="place-order"><span>PLACE ORDER </span></button> ';
+
       }
       else
       {
@@ -152,6 +175,7 @@ $(document).ready(function()
       }  
       $('#payAmnt').text('Rs. '+total_amt);
       $("#book_detail").append(html);
+      $("#price_detail").append(lhtml);
     });
 
 $('body').on('click','.remove-link',function(){
@@ -162,7 +186,7 @@ $('body').on('click','.remove-link',function(){
 });
 
 $('body').on('click','#delete_confirm_yes',function(){
-  var cart_id = $('#delete_wish_id').val();
+  var cart_id = $('#delete_cart_id').val();
   $.ajax({
         url: "book_class.php",
         type: 'POST',//method type
@@ -198,7 +222,28 @@ $('body').on('click','.move-to-wishlist',function(){
         }
     });
 });
- 
+
+$('body').on('click','#place-order',function()
+{
+
+  $.ajax({
+      url: "book_class.php",
+      type: 'POST',//method type
+      dataType:'text',
+      cache: false,//do not allow requested page to be cached
+      data: {ajaxcall : true,function2call: 'checkout',arr_val:arr_val,final_amt:final_amt}
+    }).done(function(data)
+    {
+      //console.log(data);
+      data= JSON.parse(data);
+      var encrty = data.ebook.encrypted_msg;
+      if(data.ebook.success==true)
+        {
+          window.location.href = 'checkout.php?amt='+final_amt+'&encrypted_msg='+encrty+'';
+        }
+    });
+  
+});
       
 }); 
 </script>
