@@ -53,11 +53,11 @@
     <div class="container">
         <div class="header-top">
             <div class="upper-header container">
-                <form class="search-form" action="#" method="get">
+               <!--  <form class="search-form" action="#" method="get">
                     <i class="fa fa-search"></i>
                     <input type="text" name="s" value placeholder="Search by book title..">
                     <input type="hidden" name="post_type" value="product">
-                </form>
+                </form> -->
                 <div class="logo">
                     <a href="index.html">
                       <h1>Books</h1>

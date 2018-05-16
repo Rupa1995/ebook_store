@@ -6,7 +6,7 @@
   {
     header("location: ../register.php?action=logout");
   }
- 
+  $book_val = $_GET['book'];
 	include 'includes/db.php';
   
     $book_name = $_POST['book_name'];
@@ -25,6 +25,14 @@
         $where .= " AND author_name LIKE '%$author_name%'";
     }
 
+    if($book_val==1)
+    {
+      $order = " ORDER BY book_title ASC";
+    }
+    else
+    {
+      $order = " ORDER BY book_visitor DESC";
+    }
     $sql = "SELECT
             book_id,
             book_title,
@@ -53,7 +61,7 @@
             B.book_id = W.bw_book_id AND W.bw_user_id = '$current_user'
         LEFT JOIN book_cart AS CA
         ON
-            B.book_id = CA.bc_book_id AND CA.bc_user_id = '$current_user' ".$where." ORDER BY book_visitor DESC";
+            B.book_id = CA.bc_book_id AND CA.bc_user_id = '$current_user' ".$where.$order." ";
 
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result); 
