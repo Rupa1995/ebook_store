@@ -24,7 +24,7 @@
 <div class="upper container">
   <div class="logo">
     <h1>Books</h1><br>
-    <span>ebook store</span>
+    <span>eBook sTore</span>
   </div>  
   <div class="pull-right menu">
     <div class="right-nav">

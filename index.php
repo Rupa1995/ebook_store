@@ -26,108 +26,100 @@
   <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/animate.css"> 
   <link rel="stylesheet" type="text/css" href="stylesheets/main.css"> 
-
 </head>
 <body>
-
  <header id="home">      
- <div class="container">
-      <div class="header-top">
-            <div class="upper-header container">
-            <!--  <form class="search-form" action="#" method="get">
-                <i class="fa fa-search"></i>
-                <input type="text" name="s" value placeholder="Search by book title..">
-                <input type="hidden" name="post_type" value="product">
-             </form> -->
-              <div class="logo">
-                <h1>Books</h1><br>
-                <span>ebook store</span>
-              </div>  
-              <div class="pull-right menu">
-                <div class="right-nav"  style="margin-right:77%;">
-                  <div class="dropdown">
-                    <i class = "fa fa-user dropdown-toggle" style = "font-size : 40px;" data-toggle="dropdown"></i>
-                        <ul class="dropdown-menu">
-                         <?php 
-                              if(isset($_SESSION['login_user']))
-                              {
-                                echo '<li><a href="./edit_profile.php?uid='.$_SESSION['userID'].'">Edit Profile</a></li>';
-                                echo '<li><a href="./user/cart_item.php">Cart</a></li>';
-                                echo '<li><a href="#">Order</a></li>';
-                                echo '<li><a href="./user/wishlist_item.php">Wishlist</a></li>';
-                                echo '<li><a href="./logout.php" class="login_user">Logout</i></a></li>';
-                              } 
-                              else
-                              { 
-                                echo '<li><a href="./register.php?action=logout" class="register_user">Login/SignUp</a></li>';
-                               }
-                             ?>
-                      </ul>
-                  </div> 
-                </div>
-              </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="lower-header container">
-              <div class="main-navig">
-                <ul class="main-nav col-md-12 col-sm-12 hidden-xs">
-                  <li><a href="user/book.php?book=1">Books</a></li>
-                  <li><a href="user/book.php?book=2">Best Sellers</a></li>
-                  <li><a href="#">Browse Genres</a></li>
-                  <li><a href="#">TextBooks</a></li>
-                  <li><a href="#">Blogs</a></li>
-                  <li><a href="#">About Us</a></li>
+  <div class="container">
+    <div class="header-top">
+      <div class="upper-header container">
+        <div class="logo">
+          <h1>Books</h1><br>
+          <span>eBook sTore</span>
+        </div>  
+        <div class="pull-right menu">
+          <div class="right-nav"  style="margin-right:77%;">
+            <div class="dropdown">
+              <i class = "fa fa-user dropdown-toggle" style = "font-size : 40px;" data-toggle="dropdown"></i>
+                  <ul class="dropdown-menu">
+                   <?php 
+                        if(isset($_SESSION['login_user']))
+                        {
+                          echo '<li><a href="./edit_profile.php?uid='.$_SESSION['userID'].'">Edit Profile</a></li>';
+                          echo '<li><a href="./user/cart_item.php">Cart</a></li>';
+                          echo '<li><a href="#">Order</a></li>';
+                          echo '<li><a href="./user/wishlist_item.php">Wishlist</a></li>';
+                          echo '<li><a href="./logout.php" class="login_user">Logout</i></a></li>';
+                        } 
+                        else
+                        { 
+                          echo '<li><a href="./register.php?action=logout" class="register_user">Login/SignUp</a></li>';
+                         }
+                       ?>
                 </ul>
-              </div>
-            </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="lower-header container">
+        <div class="main-navig">
+          <ul class="main-nav col-md-12 col-sm-12 hidden-xs">
+            <li><a href="user/book.php?book=1">Books</a></li>
+            <li><a href="user/book.php?book=2">Best Sellers</a></li>
+            <li><a href="#">Browse Genres</a></li>
+            <li><a href="#">Blogs</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-    <section class="bg-parallax-1">
-        <div class="container video-container">
-          <video id="myVideo" autoplay="true" loop>
-              <source src="videos/v1.mp4" type="video/mp4" width="100%">
-          </video>
-            <div class="overlay-desc">
-              <h1 id="h1">books world 3</h1>
-            </div>
-        </div>
-    </section>  
+  </div>
+  <section class="bg-parallax-1">
+    <div class="container video-container">
+      <video id="myVideo" autoplay="true" loop>
+        <source src="videos/v1.mp4" type="video/mp4" width="100%">
+      </video>
+      <div class="overlay-desc">
+        <h1 id="h1">eBook sTore</h1>
+      </div>
+    </div>
+  </section>  
  </header>
 
 <section class="text-center section-padding" id="features">
-      <div class="intro2 container">
-          <div class="row">
-            <div class="col-md-12">
-                <h1 class="wow fadeInDown">Books you may love</h1>
-                <br><br><br>
-                <div class="row">
-                  <div class="col-md-3">
-                      <div class="icon wow fadeIn" data-wow-duration="2s"><img src="images/book16.jpg" id="book-ad"></div>
-                      <h6 class="wow fadeInDown" data-wow-delay:"2s"><b>THE OUTSIDER //</b></h6><hr>
-                      <p class="wow fadeInUp" data-wow-delay:"3s">An oustanding work by Stephen King!<br> An unspeakable crime. A confounding investigation. At a time when the King brand has never been stronger, he has delivered one of his most unsettling and compulsively readable stories.</p>
-                  </div>
-                  <div class="col-md-3">
-                      <div class="icon wow fadeIn" data-wow-duration="3s"><img src="images/book2.jpg" id="book-ad"></div>
-                      <h6 class="wow fadeInDown" data-wow-delay:"2s"><b>SING, UNBURIED, SING  //</b></h6><hr>
-                      <p class="wow fadeInUp" data-wow-delay:"3s">Sing, Unburied, Sing is a 2017 novel by Jesmyn Ward. It is about a family's dynamics in the fictional town of Bois Savauge, Mississippi, where her 2011 National Book Award-winning Salvage the Bones was set pre-Hurricane Katrina</p>
-                  </div>
-                  <div class="col-md-3">
-                      <div class="icon wow fadeIn" data-wow-duration="4s"><img src="images/book15.jpg" id="book-ad"></i></div>
-                      <h6 class="wow fadeInDown" data-wow-delay:"2s"><b>The 17th Suspect //<br>(Women's Murder Club)</b></h6><hr>
-                      <p class="wow fadeInUp" data-wow-delay:"3s">In the newest Women's Murder Club thriller by James Patterson, a killer who chooses victims personally is stalking San Francisco--and getting too close to Detective Lindsay Boxer.
-                      </p>
-                  </div> 
-                  <div class="col-md-3">
-                        <div class="icon wow fadeIn" data-wow-duration="4s"><img src="images/book4.jpg" id="book-ad"></i></div>
-                        <h6 class="wow fadeInDown" data-wow-delay:"2s"><b>WHITE TEARS //</b></h6><hr>
-                        <p class="wow fadeInUp" data-wow-delay:"3s">Hari Kunzru's "transfixing" novel ,White Tears, is a ghost story, a terrifying murder mystery, a timely meditation on race, and a love letter to all the forgotten geniuses of American music and Delta Mississippi Blues.
-                        </p>
-                  </div> 
-              </div>
-                <div class="clearfix"></div>
-            </div>
+  <div class="intro2 container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="wow fadeInDown">Books you may love</h1>
+        <br><br><br>
+        <div class="row">
+          <div class="col-md-3">
+              <div class="icon wow fadeIn" data-wow-duration="2s"><img src="images/book16.jpg" id="book-ad"></div>
+              <h6 class="wow fadeInDown" data-wow-delay:"2s"><b>THE OUTSIDER //</b></h6><hr>
+              <p class="wow fadeInUp" data-wow-delay:"3s">An oustanding work by Stephen King!<br> An unspeakable crime. A confounding investigation. At a time when the King brand has never been stronger, he has delivered one of his most unsettling and compulsively readable stories.</p>
           </div>
+          <div class="col-md-3">
+              <div class="icon wow fadeIn" data-wow-duration="3s"><img src="images/book2.jpg" id="book-ad"></div>
+              <h6 class="wow fadeInDown" data-wow-delay:"2s"><b>SING, UNBURIED, SING  //</b></h6><hr>
+              <p class="wow fadeInUp" data-wow-delay:"3s">Sing, Unburied, Sing is a 2017 novel by Jesmyn Ward. It is about a family's dynamics in the fictional town of Bois Savauge, Mississippi, where her 2011 National Book Award-winning Salvage the Bones was set pre-Hurricane Katrina</p>
+          </div>
+          <div class="col-md-3">
+              <div class="icon wow fadeIn" data-wow-duration="4s"><img src="images/book15.jpg" id="book-ad"></i></div>
+              <h6 class="wow fadeInDown" data-wow-delay:"2s"><b>The 17th Suspect //<br>(Women's Murder Club)</b></h6><hr>
+              <p class="wow fadeInUp" data-wow-delay:"3s">In the newest Women's Murder Club thriller by James Patterson, a killer who chooses victims personally is stalking San Francisco--and getting too close to Detective Lindsay Boxer.
+              </p>
+          </div> 
+          <div class="col-md-3">
+                <div class="icon wow fadeIn" data-wow-duration="4s"><img src="images/book4.jpg" id="book-ad"></i></div>
+                <h6 class="wow fadeInDown" data-wow-delay:"2s"><b>WHITE TEARS //</b></h6><hr>
+                <p class="wow fadeInUp" data-wow-delay:"3s">Hari Kunzru's "transfixing" novel ,White Tears, is a ghost story, a terrifying murder mystery, a timely meditation on race, and a love letter to all the forgotten geniuses of American music and Delta Mississippi Blues.
+                </p>
+          </div> 
         </div>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
 </section>
 
 
@@ -146,13 +138,13 @@
               <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
-                         <a href="">
+                         <a href="#">
                          <img src="images/book_img/Half_Girlfriend.jpg" alt="book10" class="image">
-                           <div class="overlay">
+                           <!-- <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
                                   <p id="gly"><b>view more</b></p>
                                 </div>
-                              </div>
+                              </div> -->
                                  </a>
                              </div>
                           <h6 id="a2"><b>Half Girlfriend</b></h6>
@@ -164,13 +156,13 @@
                     <div class="imge">
                       <div class="overly">
                         
-                          <a href="">
+                          <a href="#">
                             <img src="images/book12.jpeg" alt="book12" class="image">
-                            <div class="overlay">
+                            <!-- <div class="overlay">
                               <div class="glyphicon glyphicon-search">
                                 <p id="gly"><b>view more</b></p>
                               </div>
-                            </div>
+                            </div> -->
                           </a>
                         </div>
                         <h6 id="a2"><b>World's Best Boyfriend</b></h6>
@@ -181,12 +173,12 @@
                   <div class="col-md-3">
                     <div class="imge">
                        <div class="overly">
-                        <a href="">
+                        <a href="#">
                         <img src="images/book11.jpeg" alt="book11" class="image">
-                        <div class="overlay">
+                        <!-- <div class="overlay">
                               <div class="glyphicon glyphicon-search"><p id="gly"><b>view more</b></p>
                               </div>
-                            </div>
+                            </div> -->
                         </a>
                       </div>
                       <h6 id="a2"><b>One Indian Girl</b></h6>
@@ -197,13 +189,13 @@
                   <div class="col-md-3">
                     <div class="imge">
                       <div class="overly">
-                       <a href="">
+                       <a href="#">
                        <img src="images/book5.jpg" alt="book5" class="image">
-                         <div class="overlay">
+                         <!-- <div class="overlay">
                               <div class="glyphicon glyphicon-search">
                                 <p id="gly"><b>view more</b></p>
                               </div>
-                            </div>
+                            </div> -->
                                </a>
                              </div>
                         <h6 id="a2"><b>Bad Wolf</b></h6>
@@ -216,13 +208,13 @@
                     <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
-                          <a href="">
+                          <a href="#">
                             <img src="images/book6.jpg" alt="book6" class="image">
-                            <div class="overlay">
+                           <!--  <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
                                   <p id="gly"><b>view more</b></p>
                                 </div>
-                              </div>
+                              </div> -->
                             </a>
                           </div>
                           <h6 id="a2"><b>Lies That Bind Us</b></h6>
@@ -233,13 +225,13 @@
                     <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
-                          <a href="">
+                          <a href="#">
                           <img src="images/book13.jpeg" alt="book13" class="image">
-                          <div class="overlay">
+                          <!-- <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
                                   <p id="gly"><b>view more</b></p>
                                 </div>
-                              </div>
+                              </div> -->
                           </a>
                         </div>
                         <h6 id="a2"><b>The Lords of Rings</b></h6>
@@ -251,13 +243,13 @@
                     <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
-                         <a href="">
+                         <a href="#">
                          <img src="images/book8.jpeg" alt="book8" class="image">
-                           <div class="overlay">
+                           <!-- <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
                                   <p id="gly"><b>view more</b></p>
                                 </div>
-                              </div>
+                              </div> -->
                                  </a>
                              </div>
                           <h6 id="a2"><b>The Da Vinci Code</b></h6>
@@ -268,11 +260,11 @@
                        <div class="col-md-3">
                     <div class="imge">
                        <div class="overly">
-                        <a href="">
+                        <a href="#">
                         <img src="images/book9.jpeg" alt="book9" class="image">
-                        <div class="overlay">
+                        <!-- <div class="overlay">
                               <div class="glyphicon glyphicon-search"><p id="gly"><b>view more</b></p>
-                              </div>
+                              </div> -->
                             </div>
                         </a>
                       </div>
@@ -527,17 +519,10 @@
 <script type='text/javascript' src="js/waitMe.js"></script>
 <script type='text/javascript' src="javascripts/javas.js"></script>
 <script type='text/javascript' src="javascripts/wow.min_.js"></script>
-<script src="https://rawgit.com/vast-engineering/jquery-popup-overlay/gh-pages/jquery.popupoverlay.js"></script>
+
 <script type="text/javascript">
 
-  $('#viewport_image').popup();
-  $('#viewport_image_a').popup();
-  $('#viewport_image_b').popup();
-  $('#viewport_image_c').popup();
-  $('#viewport_image_d').popup();
-  $('#viewport_image_e').popup();
-  $('#viewport_image_f').popup();
-  $('#viewport_image_g').popup();
+  
 
   wow = new WOW(
   {
@@ -548,7 +533,6 @@
     live: true
   })
   wow.init();
-
   var first_tym_flag = <?php echo $_SESSION['first_tym_flag']; ?>;
   var login_uid = <?php echo $_SESSION['userID']; ?>;
 </script>

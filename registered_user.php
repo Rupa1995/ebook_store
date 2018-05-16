@@ -61,7 +61,7 @@
                 <div class="logo">
                     <a href="index.html">
                       <h1>Books</h1>
-                      <span>ebook store</span>
+                      <span>eBook sTore</span>
                     </a>
                 </div>  
             </div>

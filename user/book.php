@@ -72,7 +72,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ebook - Edit Profile</title>
+  <title>Ebook - Book</title>
   <link rel="icon" type="images/png" href="images/book.png">
   <meta charset="utf-8">
   <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width,height=device-height">
@@ -93,7 +93,7 @@
       <div class="logo">
           <a href="../index.php">
             <h1>Books</h1>
-            <span>ebook store</span>
+            <span>eBook sTore</span>
           </a>
       </div>  
       <div class="pull-right menu">

@@ -92,7 +92,7 @@ for($i=0;$i<count($items);$i++)
       <div class="logo">
           <a href="../index.php">
             <h1>Books</h1>
-            <span>ebook store</span>
+            <span>eBook sTore</span>
           </a>
       </div>  
       <div class="pull-right menu">

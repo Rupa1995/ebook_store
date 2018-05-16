@@ -33,7 +33,7 @@
       <div class="logo">
           <a href="index.php">
             <h1>Books</h1>
-            <span>ebook store</span>
+            <span>eBook sTore</span>
           </a>
       </div>  
       <div class="pull-right menu">
@@ -45,8 +45,9 @@
                       if(isset($_SESSION['login_user']))
                       {
                         echo '<li><a href="edit_profile.php">Edit Profile</a></li>';
-                        echo '<li><a href="#">Wishlist</a></li>';
-                        echo '<li><a href="#">Cart</a></li>';
+                        echo '<li><a href="./user/cart_item.php">Cart</a></li>';
+                        echo '<li><a href="#">Order</a></li>';
+                        echo '<li><a href="./user/wishlist_item.php">Wishlist</a></li>';
                         echo '<li><a href="logout.php" class="login_user">Logout</a></li>';
                       } 
                       else
