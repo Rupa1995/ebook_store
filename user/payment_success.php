@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'includes/db.php';
-
+include 'includes/function.php';
 $items = array();
 $shipping = array();
 $order = array();
@@ -46,7 +46,9 @@ $sql_add = "INSERT INTO address
 			zip = '".$shipping['postal_code']."'";
 			
 $result = mysqli_query($conn, $sql_add); 
-
+$item_html = '';
+$mail = new PHPMailer(); 
+$item_count = count($items);
 for($i=0;$i<count($items);$i++)
 {
 	$sql_item = "INSERT INTO item_table
@@ -55,8 +57,24 @@ for($i=0;$i<count($items);$i++)
 				 item_name = '".$items[$i]['name']."',
 				 item_price = '".$items[$i]['price']."',
 				 item_order_id = '".$last_id."'";
+    $result = mysqli_query($conn, $sql_item);
 
-    $result = mysqli_query($conn, $sql_item); 
+    $sql_img = "SELECT 
+                  book_image
+                FROM 
+                book_table 
+                WHERE book_id = '".$items[$i]['sku']."'";
+    $result = mysqli_query($conn, $sql_img); 
+    $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    $book_image = $row['book_image'];
+
+    $mail->AddEmbeddedImage($book_image, $book_image, $book_image);
+    $item_html.= '<div style="border: 2px solid #e3e0e0; float: left; width: 100%;">';
+    $item_html.= '<img src="cid:'.$book_image.'" style="float: left; width: 25%; max-height: 200px; margin: 0px; padding: 0px; border: 1px solid beige;">';
+    $item_html.= '<h3 style="margin-left: 50%; ">'.$items[$i]['name'].'</h3>';
+    $item_html.= '<p style="margin-left: 50%; font-size: 15px; color: black;margin-bottom: 0;">Rs. '.$items[$i]['price'].'</p>';
+    $item_html.= '</div>';
+ 
 
     $d_sql = "DELETE 
               FROM 
@@ -66,6 +84,85 @@ for($i=0;$i<count($items);$i++)
 
     $result_del = mysqli_query($conn, $d_sql);           
 }
+
+$mailContent = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+      <html xmlns="http://www.w3.org/1999/xhtml">
+        <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+            <title>BOOK - User Registration</title>
+        </head>
+        <body>
+          <div style="width:100%;background:#F2F2F2;font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#404D5E;overflow:hidden;line-height:18px;">
+          <div style="width:570px;margin:15px 15px;background:#fff;padding:15px;border:solid 1px #EDEDED;overflow:hidden;">
+          <div style="overflow:hidden;border-bottom:solid 1px #E0E0E0;padding-bottom:15px;margin-bottom:15px;">
+          <div style="width:50%;float:left;overflow:hidden;">
+            <img src="https://i.pinimg.com/originals/c4/fc/3d/c4fc3d8aaf399bdfcd7eb9c8deb319dd.jpg" width="50" height="50" />
+          </div>
+          <div style="width:50%;float:left;overflow:hidden;"></div>
+          </div>
+          <div style="overflow:hidden;">                
+            <p style="font-size:14px;">Dear Reader,</p>
+            <p style="font-size:14px;">
+            We are pleased to inform you that '.$item_count.' item from your order '.$order['id'].' has been shipped!</p>
+            <div style="width: 100%;">
+              <h3><b>Delivery Address : </b></h3>
+              <p style="font-size:14px;">'.$shipping['recipient_name'].'</p>
+              <p style="font-size:14px;">'.$shipping['line1'].', '.$shipping['line2'].',</p>
+              <p style="font-size:14px;">'.$shipping['city'].',</p>
+              <p style="font-size:14px;">'.$shipping['state'].' - '.$shipping['postal_code'].'</p>
+            </div>
+            <hr>
+            '.$item_html.'
+            <p style="font-size:14px;"><strong>Total :</strong> '.$order['amt'].'(inclusive of tax)</p>
+            <br>
+            <p style="font-size:14px;margin:0;">Thank You</p>
+            <br>
+            <br>
+            <p style="color:#828282;margin:0;"><i><br>This notification was automatically generated. Please do not reply to this mail.</i></p>
+        </div>
+      </div>
+    </div>
+  </div>              
+</body>
+</html>';
+
+    $sql_mail = "SELECT 
+                  user_name
+                FROM 
+                user_table 
+                WHERE 
+                user_id = '".$order['by']."'";
+    $result = mysqli_query($conn, $sql_mail); 
+    $row2 = mysqli_fetch_array($result,MYSQLI_ASSOC);
+    
+    $emailId = $row2['user_name'];
+
+    $toaddr = explode("," , $emailId);
+    $error;
+     
+    $mail->IsSMTP(); 
+    $mail->SMTPDebug = 0;  
+    $mail->SMTPAuth = true;  
+    $mail->SMTPSecure = 'ssl'; 
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Port = 465;
+    $mail->Username = GUSER;                 
+    $mail->Password = GPWD; 
+    $mail->IsHTML(true);         
+    $mail->SetFrom(MAIL_FROM_ADDRESS, MAIL_FROM_NAME);
+    $mail->Subject = 'Order Confirmation';
+    
+    $mail->Body = html_entity_decode($mailContent);
+    
+    foreach($toaddr as $ad){
+      $mail->AddAddress(trim($ad));
+    }
+    //$mail->AddAddress($to);
+    if(!$mail->Send()) {
+      //echo $mail->ErrorInfo;
+    } else {
+      //echo "Mail Sent";
+    }
 
 ?>
 <!DOCTYPE html>
