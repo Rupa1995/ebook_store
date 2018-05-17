@@ -92,7 +92,7 @@ function displayRecords(offset)
 		html += '</td>';
 
 
-        html += '<td class="action">';                             
+        html += '<td class="action" style="text-align:center">';                             
         html +='<span data-toggle="tooltip" data-placement="top" title="Order Details"><a href="#" class="link_show_log_order icon-blue" id="'+data.ebook.order[i].order_id+'"><span aria-hidden="true" class="fa fa-dashboard"></span></a></span>';
         html += '</td>';
 
