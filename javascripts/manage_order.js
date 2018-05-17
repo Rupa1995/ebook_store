@@ -179,8 +179,8 @@ $('body').on("click",".link_show_log_order", function()
 
 		        	sum = sum + parseInt(data.ebook.orderDetails[i]['item_price']);
 		      }
-		       	$('#userLogTBodyCus').append(html);
-		       	$("#itemListBody").append(ihtml);
+		       	$('#userLogTBodyCus').html(html);
+		       	$("#itemListBody").html(ihtml);
 		       	$("#totalAmount").html('<b>Total Amount : </b>'+sum+'<br>');
 		       	$("#tax").html('<b>Tax : </b>'+precisionRound(data.ebook.orderDetails[0]['oder_amt'] - sum,2)+'<br>');
 		       	$("#netBalance").html('<b>Net Balance : </b>'+data.ebook.orderDetails[0]['oder_amt']+'<br>');
