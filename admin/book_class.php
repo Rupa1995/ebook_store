@@ -28,6 +28,8 @@
             case 'getPublisherLog' : getPublisherLog($conn);break;
             case 'activatePublisher' : activatePublisher($conn);break;
             case 'deactivatePublisher' : deactivatePublisher($conn);break;
+            case 'getOrderList' : getOrderList($conn);break;
+            case 'getOrder': getOrder($conn); break;
     	}
     }
 
@@ -710,6 +712,74 @@ function activatePublisher($conn)
   $result_log = mysqli_query($conn, $add_qry); 
 
   echo json_encode(array('ebook' => array('activate' => $result,'log_update'=>$result_log)));               
+}
+
+function getOrderList($conn)
+{
+    $flag = $_POST['flag'];
+    $offset = $_POST['offset'];
+    $limit = " LIMIT ".PAGINATION_COUNT." OFFSET $offset";
+
+    $sql = "SELECT 
+                order_id,
+                payment_id,
+                order_time,
+                order_by,
+                oder_amt,
+                order_name,
+                concat(user_fname,' ', user_lname) as userName
+            FROM 
+                order_table 
+            LEFT JOIN
+                user_table ON order_by = user_id
+            ORDER BY `order_table`.`order_time` DESC".$limit;
+
+
+    $result = mysqli_query($conn, $sql);
+    $rowcount = mysqli_num_rows($result); 
+    $result = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    
+    echo json_encode(array('ebook' => array('order' => $result,'orderCountList'=>$rowcount)));        
+}
+
+function getOrder($conn)
+{
+    $order_id = $_POST['order_id'];
+   
+    $sql = "SELECT
+                address_id,
+                aorder_id,
+                street1,
+                street2,
+                astate_id,
+                acontry_id,
+                region,
+                city,
+                zip,
+                item_name,
+                item_price,
+                order_name,
+                oder_amt,
+                states.name AS state_name,
+                countries.name AS country_name
+            FROM
+                address
+            LEFT JOIN
+                item_table ON aorder_id = item_order_id
+            LEFT JOIN
+                order_table ON aorder_id = order_id    
+            LEFT JOIN
+                states ON astate_id = states.id
+            LEFT JOIN
+                countries ON acontry_id = countries.id        
+            WHERE
+                item_order_id = ".$order_id." AND auser_id = 0";
+
+
+    $result = mysqli_query($conn, $sql);
+    $result = mysqli_fetch_all($result,MYSQLI_ASSOC);
+    
+    echo json_encode(array('ebook' => array('orderDetails' => $result)));        
 }
 
 ?>  

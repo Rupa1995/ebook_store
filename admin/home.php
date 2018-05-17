@@ -92,7 +92,7 @@
 			</a>
 		</div>
 		<div class="link_box col-md-4">
-			<a href="">
+			<a href="order.php">
 				<div class="box_img">
 					<img src="../images/categ5.gif" height="100px" width="150px">
 				</div>
