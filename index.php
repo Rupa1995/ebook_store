@@ -67,8 +67,8 @@
             <li><a href="user/book.php?book=1">Books</a></li>
             <li><a href="user/book.php?book=2">Best Sellers</a></li>
             <li><a href="#">Browse Genres</a></li>
-            <li><a href="#">Blogs</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a href="user/blogs.php">Blogs</a></li>
+            <li><a href="user/about_us.php">About Us</a></li>
           </ul>
         </div>
       </div>
