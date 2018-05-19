@@ -66,7 +66,7 @@
           <ul class="main-nav col-md-12 col-sm-12 hidden-xs">
             <li><a href="user/book.php?book=1">Books</a></li>
             <li><a href="user/book.php?book=2">Best Sellers</a></li>
-            <li><a href="#">Browse Genres</a></li>
+            <li><a href="user/browser_genre.php">Browse Genres</a></li>
             <li><a href="user/blogs.php">Blogs</a></li>
             <li><a href="user/about_us.php">About Us</a></li>
           </ul>
