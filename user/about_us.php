@@ -50,7 +50,7 @@
     </div><hr>
   <div class="clearfix"></div>
   </div>
-  <div><img src="../images/about.png"style="padding-bottom: 50px; width: 100%;"></div>
+  <div><img src="../images/about.jpeg"style="padding-bottom: 50px; width: 100%; max-height: 400px;"></div>
 <div class="container">
     <div class="col-md-4">
       <h4>Browse books online //</h4>

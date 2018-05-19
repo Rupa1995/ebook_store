@@ -13,6 +13,7 @@
           case 'removeEntry' : removeEntry($conn);break;
           case 'moveEntry' : moveEntry($conn);break;
           case 'checkout' : checkout($conn);break;
+          case 'booklistCat' : booklistCat($conn);break;
     	}
     }
 
@@ -305,6 +306,48 @@ function moveEntry($conn)
   $fresult = mysqli_query($conn, $d_sql);
   echo json_encode(array('ebook' => array('moveEntry' => $fresult)));
 
+}
+
+function booklistCat($conn)
+{
+  $current_user = $_SESSION['userID'];
+  $cat_id = $_POST['selectedValues'];
+  $sql = "SELECT
+            book_id,
+            book_title,
+            book_published_date,
+            book_mrp,
+            book_quantity,
+            author_name,
+            book_image,
+            cat_name,
+            pub_name,
+            if(book_wish_id  is null ,'' ,book_wish_id )AS wish_id,
+            if(book_cart_id  is null ,'' ,book_cart_id )AS cart_id
+        FROM
+            book_table AS B
+        LEFT JOIN book_cat AS C
+        ON
+            B.book_cat_id = C.cat_id
+        LEFT JOIN author_table AS A
+        ON
+            B.book_authid = A.author_id
+        LEFT JOIN pub_info AS P
+        ON
+            B.book_pubid = P.pub_id
+        LEFT JOIN book_wish AS W
+        ON
+            B.book_id = W.bw_book_id AND W.bw_user_id = '$current_user'
+        LEFT JOIN book_cart AS CA
+        ON
+            B.book_id = CA.bc_book_id AND CA.bc_user_id = '$current_user' 
+        WHERE
+            cat_id IN (".$cat_id.")"; 
+
+    $result = mysqli_query($conn, $sql);
+    $result = mysqli_fetch_all($result,MYSQLI_ASSOC); 
+
+    echo json_encode(array('ebook' => array('boot_list' => $result)));         
 }
 
 ?> 
