@@ -35,7 +35,7 @@ include 'includes/db.php';
                  <?php 
                       if(isset($_SESSION['login_user']))
                       {
-                        echo '<li><a href="../edit_profile.php">Edit Profile</a></li>';
+                        echo '<li><a href="../edit_profile.php?uid='.$_SESSION['userID'].'">Edit Profile</a></li>';
                         echo '<li><a href="book.php">Book</a></li>';
                         echo '<li><a href="wishlist_item.php">Wishlist</a></li>';
                         echo '<li><a href="../logout.php" class="login_user">Logout</a></li>';
