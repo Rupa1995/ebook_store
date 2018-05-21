@@ -1,21 +1,23 @@
 <?php 
    include 'includes/db.php';
    session_start();
+   $error = '';
    if(isset($_GET['val]']))
-   $val = $_GET['val'];
+   {
+    $val = $_GET['val']; 
+   }
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       $myusername = mysqli_real_escape_string($conn,$_POST['username_login']);
       $mypassword = mysqli_real_escape_string($conn,$_POST['password_login']); 
       $mypassword = md5($mypassword);
 
-      $sql = "
-            SELECT
+      $sql = "SELECT
              user_id AS u_id, 
              user_admin_flag AS admin_flag,
              user_name AS uname,
              first_tym_flag
             FROM 
-              ".user_table." 
+              ".LOGIN_TABLE." 
             WHERE 
               user_name = '$myusername' AND 
               user_password = '$mypassword' AND
@@ -45,7 +47,6 @@
       }
       else {
          $error = "Your Login Name or Password is invalid";
-         echo $error;
       }
    }
 ?> 
@@ -62,17 +63,15 @@
   <link rel="stylesheet" href="css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-  
   <link rel="stylesheet" type="text/css" href="stylesheets/register.css">
   <link rel="stylesheet" type="text/css" href="stylesheets/main.css"> 
-
 </head>
 <body id="body_log">
 <div class="container">
   <div class="header-top">
-    <div class="upper-header container">
+    <div class="upper-header container"> 
       <div class="logo">
-          <a href="index.html">
+          <a href="index.php">
           	<h1>Books</h1>
           	<span>eBook sTore</span>
           </a>
@@ -110,12 +109,14 @@
   <form action="" method="post">
 		<fieldset class="register-input-container">
 			<div class="register-input-item">
-				<input type="email" name="username_login" class="user-name register-user-input" placeholder="User Email" >
+				<input type="email" name="username_login" class="user-name register-user-input" placeholder="User Email" required >
 				<div id="login_name_error" class="val_error"></div>
 			</div>
 			<div class="register-input-item">
-				<input type="password" name="password_login" class="user-password register-user-input" placeholder="Choose Password">
-				<div id="login_password_error" class="val_error"></div>
+				<input type="password" name="password_login" class="user-password register-user-input" placeholder="Choose Password" required>
+				<div id="login_password_error" style="color: #FF1F1F;">
+        <span><?php echo $error; ?></span>    
+        </div>
 			</div>
     </fieldset>
 		<fieldset class="login-button-container">
@@ -128,31 +129,34 @@
 			<a href="#" class="register-link" id="reg_new">Register here!</a></p>
 		</div>
 	</div>
-  </div>   
+  </div>  
+
 <div class="register-box form2">
 	<div><p class="register-title">Sign Up with Us</p></div>
-	<form class="register-form" action="registered_user.php" method="post">
 		<fieldset class="register-input-container">
+      <div class="register-input-item">
+        <input type="text" name="fname" id="fname" class="user-email register-user-input" placeholder="First Name">
+        <div id="fname_error" class="val_error"></div>
+      </div>
+      <div class="register-input-item">
+        <input type="text" name="lname" id="lname" class="user-email register-user-input" placeholder="Last Name">
+        <div id="lname_error" class="val_error"></div>
+      </div>
 			<div class="register-input-item">
-				<input type="email" name="username" class="user-email register-user-input" placeholder="User Email" required>
-				<div id="email_error" type="hidden"></div>
+				<input type="email" name="username" id="username" class="user-email register-user-input" placeholder="User Email">
+				<div id="email_error" class="val_error"></div>
 			</div>
 			<div class="register-input-item">
-				<input maxlength="10" type="text" name="mobile" class="user-mobile register-user-input" placeholder="Mobile number(for order status update)" onblur="phoneverify()" onfocus="resetvalue()" id="mobile" required>
-				<div id="errors" type="hidden"></div>
+				<input type="password" name="password" id="pwd" class="user-password register-user-input" placeholder="Enter Password" id="password">
 			</div>
 			<div class="register-input-item">
-				<input type="password" name="password" class="user-password register-user-input" placeholder="Choose Password" required id="password" onfocus="resetvalue()">
-			</div>
-			<div class="register-input-item">
-				<input type="password" name="password_confirmation" class="user-password register-user-input" placeholder="Confirm Password" id="password_confirm" onblur="passwordverify()" onfocus="resetvalue()">
-				<div id="password_error" type="hidden"></div>
+				<input type="password" name="password_confirmation" id="cnfpwd" class="user-password register-user-input" placeholder="Confirm Password" id="password_confirm">
+				<div id="password_error" class="val_error"></div>
 			</div>
 		</fieldset>
 		<fieldset class="register-button-container">
-			<button class="register-button">REGISTER</button>
+			<button class="register-button" id="register">REGISTER</button>
 		</fieldset>
-	</form>
 	<div class="register-link-container">
 		<div class="register-login-link">
 			<p class="message"><span class="register-info-link">Already have an account?</span>
@@ -162,18 +166,141 @@
 </div>
 </div>
 
+<div class="modal fade welcome-modal" id="newuser_pop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+     <div class="modal-dialog modal-sm" role="document" style="width: 30%;">
+      <div class="modal-content">
+         <div class="modal-body text-center" >
+          <h2 class="welcome">Welcome </h2>
+          <p class="message-welcome">to Ebook Store, a <b>TIU</b> product</p>
+            <p id="Cuname"></p>
+            <p id="Cpass"></p>
+           <button type="button" data-dismiss="modal" aria-label="Close" data-toggle="tooltip" data-original-title="" class="btn btn-lg btn-yellow" id ="welcome_ok" >Continue</button>        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade welcome-modal" id="erro_pop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+     <div class="modal-dialog modal-sm" role="document" style="width: 36%;">
+      <div class="modal-content">
+         <div class="modal-body text-center" >
+          <h2 class="welcome">Welcome </h2>
+          <p class="message-welcome">to Ebook Store, a <b>TIU</b> product</p>
+           <p>User Name : <span class="red" id="err_username"></span> already exits, Please try with different User Name or Login with Same</p>
+           <button type="button" aria-label="Close" data-toggle="tooltip" data-original-title="" class="btn btn-lg btn-blue" id ="login_again" >Login wih Same</button> 
+           <button type="button" aria-label="Close" data-toggle="tooltip" data-original-title="" class="btn btn-lg btn-grey" id ="register_new" >Register New</button>        
+        </div>
+      </div>
+    </div>
+  </div>
+
 <script src="js/jquery-3.3.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-
-<script src="javascripts/register.js"></script>
-<script src="javascripts/register_new.js"></script>
 <script type="text/javascript">
-  var val = <?php echo $val; ?>;
+$(document).ready(function()
+{
+  $('.message a').click(function() {
+    $('.form1').animate({height: "toggle", opacity: "toggle"}, "slow");
+     $('.form2').animate({height: "toggle", opacity: "toggle"}, "slow");
+  }); 
+
+  $("body").on('click','#register',function(){
+    $('.val_error').text('').hide();
+    var fname = $("#fname").val();
+    var lname = $("#lname").val();
+    var uname = $("#username").val();
+    var pwd = $("#pwd").val();
+    var cnfpwd = $("#cnfpwd").val();
+    var valid = 1;
+    if(fname.trim()==''||fname.trim()==null)
+    {
+      $("#fname_error").html('<span>Please Enter First Name.</span>').show();
+      valid = 0;
+    }
+
+    if(lname.trim()==''||lname.trim()==null)
+    {
+      $("#lname_error").html('<span>Please Enter Last Name.</span>').show();
+      valid = 0;
+    }
+
+    if(uname.trim()==''||uname.trim()==null)
+    {
+      $("#email_error").html('<span>Please Enter User Email.</span>').show();
+      valid = 0;
+    }
+
+    if(pwd.trim()==''||pwd.trim()==null)
+    {
+      $("#password_error").html('<span>Please Enter Password.</span>').show();
+      valid = 0;
+    }
+
+    if(cnfpwd.trim()==''||cnfpwd.trim()==null)
+    {
+      $("#password_error").html('<span>Please Enter Confirm Password.</span>').show();
+      valid = 0;
+    }
+
+    if(pwd.trim()!=cnfpwd.trim())
+    {
+      $("#password_error").html('<span>Password and Confirm Password should be same.</span>').show();
+      valid = 0;
+    }
+
+    if(valid==1)
+    {
+      $.ajax({
+          url: "registered_user.php",
+          type: 'POST',//method type
+          dataType:'text',
+          cache: false,//do not allow requested page to be cached
+          data: {fname:fname,lname:lname,uname:uname,pwd:pwd,cnfpwd:cnfpwd}
+        }).done(function(data)
+        {
+         data = JSON.parse(data);
+         var new_user = data.ebook.inserted;
+
+          if(new_user == 1)
+          {
+            $("#Cuname").text(data.ebook.userName);
+            $("#Cpass").text(data.ebook.pass);
+            $("#newuser_pop").modal('show');   
+          }
+          else
+          {
+            $("#err_username").text(data.ebook.userName);
+            $("#erro_pop").modal('show');
+          }
+
+          $("#login_again").on("click",function(e)
+          {
+            window.location = "register.php?action=logout";
+          });
+          $("#register_new").on("click",function(e)
+          {
+            window.location = "register.php?val=1";
+          });  
+
+          $("#welcome_ok").on("click", function(e){
+            if(new_user==1)
+            {
+             window.location = "index.php";
+            }
+          });
+         
+        });
+    }
+  });
+
+  var val = '<?php echo $val; ?>';
   if(val == 1)
   {
     $('#reg_new').trigger('click');
   }
-  
+
+
+});
 </script>
 </body>
 </html>

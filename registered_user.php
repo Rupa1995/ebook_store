@@ -1,10 +1,11 @@
 <?php
   include 'includes/db.php';
   session_start();
-  $u_name = $_POST['username'];
-  $u_mobile = $_POST['mobile'];
-  $u_password = $_POST['password'];
-  $u_password = md5($u_password);
+  $u_name = $_POST['uname'];
+  $fname = $_POST['fname'];
+  $lname = $_POST['lname'];
+  $u_password = $_POST['pwd'];
+  $u_password_md5 = md5($u_password);
   $check_exist = "SELECT
                     user_name
                   FROM
@@ -23,104 +24,59 @@
                 ".LOGIN_TABLE." 
                 SET 
                 user_name = '$u_name', 
-                user_password = '$u_password', 
+                user_password = '$u_password_md5', 
                 user_isactive = '1',
-                first_tym_flag = '1'
-                user_admin_flag = '0', 
-                user_mobile = '$u_mobile'";
-    $result = mysqli_query($conn,$sql_insert);              
+                first_tym_flag = '1',
+                user_admin_flag = '0',
+                user_lname = '$lname', 
+                user_fname = '$fname'";           
+    
+    $result = mysqli_query($conn,$sql_insert);  
+    $_SESSION['login_user'] = $u_name;
+    $_SESSION['first_tym_flag'] = 1;
+    $_SESSION['userID'] = mysqli_insert_id($conn);
   }
-  
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Ebook Store - SignUp</title>
-  <link rel="icon" type="images/png" href="images/book.png">
-  <meta charset="utf-8">
-  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width,height=device-height">
-   <link href="https://fonts.googleapis.com/css?family=Varela+Round&amp;subset=hebrew,latin-ext,vietnamese" rel="stylesheet">
-
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-
-  <link rel="stylesheet" type="text/css" href="stylesheets/register.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/main.css">
-  
-</head>
-<body>
-    <div class="container">
-        <div class="header-top">
-            <div class="upper-header container">
-                <div class="logo">
-                    <a href="index.php">
-                      <h1>Books</h1>
-                      <span>eBook sTore</span>
-                    </a>
-                </div>  
+  if($result_insert == true || $result_insert !=0)
+    {
+        $mailContent = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+          <html xmlns="http://www.w3.org/1999/xhtml">
+            <head>
+              <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                <title>BOOK - User Registration</title>
+            </head>
+            <body>
+              <div style="width:100%;background:#F2F2F2;font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#404D5E;overflow:hidden;line-height:18px;">
+              <div style="width:570px;margin:15px 15px;background:#fff;padding:15px;border:solid 1px #EDEDED;overflow:hidden;">
+              <div style="overflow:hidden;border-bottom:solid 1px #E0E0E0;padding-bottom:15px;margin-bottom:15px;">
+              <div style="width:50%;float:left;overflow:hidden;">
+                <img src="https://i.pinimg.com/originals/c4/fc/3d/c4fc3d8aaf399bdfcd7eb9c8deb319dd.jpg" width="50" height="50" />
+              </div>
+              <div style="width:50%;float:left;overflow:hidden;"></div>
+              </div>
+            <div style="overflow:hidden;">                
+              <p style="font-size:14px;">Dear Reader,</p>
+              <p style="font-size:14px;">
+              This email is to confirm that a new user has been created. If you have any queries please contact me, your administrator,
+                <b style="color:#03A1FF;">pustakalaya.ebook@gmail.com</b>
+              </p>
+              <p style="font-size:14px;"><strong>Username :</strong> '.$u_name.'</p>
+              <p style="font-size:14px;"><strong>Password :</strong> '.$u_password.'</p>
+              <p style="font-size:14px;margin:0;">Thank You for your business.</p>
+              <br>
+              <p style="font-size:14px;margin:0;">Thank You</p>
+              <br>
+              <br>
+              <p style="color:#828282;margin:0;"><i><br>This notification was automatically generated. Please do not reply to this mail.</i></p>
             </div>
-            <div class="clearfix"></div>
-         </div>
-    </div>
-   
-<div class="modal fade welcome-modal" id="newuser_pop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
-     <div class="modal-dialog modal-sm" role="document" style="width: 30%;">
-      <div class="modal-content">
-         <div class="modal-body text-center" >
-          <h2 class="welcome">Welcome </h2>
-          <p class="message-welcome">to Ebook Store, a <b>TIU</b> product</p>
-            <p>User Name :  <?php echo $u_name; ?></p>
-            <p>Contact : <?php echo $u_mobile; ?></p>
-           <button type="button" data-dismiss="modal" aria-label="Close" data-toggle="tooltip" data-original-title="" class="btn btn-lg btn-yellow" id ="welcome_ok" >Continue</button>        
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal fade welcome-modal" id="erro_pop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
-     <div class="modal-dialog modal-sm" role="document" style="width: 36%;">
-      <div class="modal-content">
-         <div class="modal-body text-center" >
-          <h2 class="welcome">Welcome </h2>
-          <p class="message-welcome">to Ebook Store, a <b>TIU</b> product</p>
-           <p>User Name : <span class="red"><?php echo $u_name; ?></span> already exits, Please try with different User Name or Login with Same</p>
-           <button type="button" aria-label="Close" data-toggle="tooltip" data-original-title="" class="btn btn-lg btn-blue" id ="login_again" >Login wih Same</button> 
-           <button type="button" aria-label="Close" data-toggle="tooltip" data-original-title="" class="btn btn-lg btn-grey" id ="register_new" >Register New</button>        
-        </div>
-      </div>
-    </div>
-  </div>
-  <script src="js/jquery-3.3.1.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script type="text/javascript">
-    var new_user = <?php echo $result; ?>;
-    if(new_user == 1)
-    {
-      $("#newuser_pop").modal('show');   
-    }
-    else
-    {
-      $("#erro_pop").modal('show');
+      </div>              
+    </body>
+  </html>';
+    
+    $email_send_result =  sendEmail($u_name, MAIL_FROM_ADDRESS, MAIL_FROM_NAME, 'User Registration', $mailContent);
     }
     
-    $("#login_again").on("click",function(e)
-    {
-      window.location = "register.php?action=logout";
-    });
-    $("#register_new").on("click",function(e)
-    {
-      window.location = "register.php?val=1";
-    });  
-
-    $("#welcome_ok").on("click", function(e){
-      if(new_user==1)
-      {
-        header("location: index.php");
-      }
-    });
-  </script>
-
-
-</body>
-</html> 
+  echo json_encode(array('ebook' => array('inserted' => $result,'userName' => $u_name, 'pass' => $u_password)));
+  
+?>
