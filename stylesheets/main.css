@@ -147,20 +147,21 @@ transition: .5s ease;
 backface-visibility: hidden;
 }
 .overlay {
+  padding-top: 40%;
   position: absolute;
   top: 15px;
   bottom: 67px;
-  background-color: rgba(61, 201, 179, 0.5);
+  background-color: rgba(4, 31, 107, 0.7);
   overflow: hidden;
   width: 0;
   height: auto;
   transition: 0.5s ease;
   text-align: center;
 }
-.image-title{
-  color: #fff;
+.image-title b{
+  color: whitesmoke;
   font-style: italic;
-  font-size: 15px;
+  font-size: 30px;
   text-transform: uppercase;
 }
 .div-vp{background: white; margin: 5% 15%;}

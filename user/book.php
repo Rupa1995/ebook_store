@@ -186,10 +186,8 @@ if(count($_SESSION['BookArr'])>0)
     echo '<div class="admin-box" id="">';
     echo '<div class="panel panel-back noti-box">';
     echo '<div class="image-logo"><a href ="" class ="viewport_image_open"><img src="'.$_SESSION['BookArr'][$i]['book_image'].'">';
-    echo '<div class ="overlay"><div class="glyphicon glyphicon-search"><p class="image-title"><b>'.$_SESSION['BookArr'][$i]['book_title'].'</b></p></div></div>'; 
+    echo '<div class ="overlay image-title"><h3><b>'.$_SESSION['BookArr'][$i]['book_title'].'</b></h3></div>'; 
     echo '</a>';
-    echo '<div id="viewport_image" class="wow zoomIn div-vp" data-wow-duration="0.5s"><img src="'.$_SESSION['BookArr'][$i]['book_image'].'" alt="" id="img-vp">';
-    echo '</div>';
     echo '</div>';
     echo '<button class="btn-cart" title ="'.$cart_title.'" data-placement="top" data-toggle="tooltip" data-original-title="" id="'.$_SESSION['BookArr'][$i]['book_id'].'"><i class="fa fa-cart-plus '.$cart_class.'"></i></button>';
     echo '<button class="btn-wish" title ="'.$wish_title.'" data-placement="top" data-toggle="tooltip" data-original-title="" id="'.$_SESSION['BookArr'][$i]['book_id'].'"><i class="fa fa-heart '.$wish_class.'"></i></button>';
@@ -231,12 +229,5 @@ else
 <script type='text/javascript' src="../javascripts/key_validation.js"></script>
 <script type='text/javascript' src="../javascripts/comman.js"></script>
 <script type='text/javascript' src="../javascripts/buy_book.js"></script>
-  <script src="https://rawgit.com/vast-engineering/jquery-popup-overlay/gh-pages/jquery.popupoverlay.js"></script>
-  <script>
-    $('#viewport_image').popup();
-    $('#viewport_image').popup();
-    $('#viewport_image').popup();
-    $('#viewport_image').popup();
-  </script>
 </body>
 </html>
