@@ -197,9 +197,9 @@ $('body').on('click','#okBtn',function()
 
              html += '<div class="admin-box" id="">';
              html += '<div class="panel panel-back noti-box">';
-             html += '<div class="image-logo"><img src="'+data.ebook.boot_list[i].book_image+'">';
-             html += '<p class="image-title">'+data.ebook.boot_list[i].book_title+'</p>'; 
-             html += '</div>';
+             html += '<div class="image-logo"><a href =""><img src="'+data.ebook.boot_list[i].book_image+'">';
+             html += '<div class ="overlay image-title"><h3><b>'+data.ebook.boot_list[i].book_title+'</b></h3></div>'; 
+             html += '</a></div>';
              html += '<button class="btn-cart" title ="'+cart_title+'" data-placement="top" data-toggle="tooltip" data-original-title="" id="'+data.ebook.boot_list[i].book_id+'"><i class="fa fa-cart-plus '+cart_class+'"></i></button>';
              html += '<button class="btn-wish" title ="'+wish_title+'" data-placement="top" data-toggle="tooltip" data-original-title="" id="'+data.ebook.boot_list[i].book_id+'"><i class="fa fa-heart '+wish_class+'"></i></button>';
              html += '</div>';

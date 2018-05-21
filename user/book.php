@@ -185,7 +185,7 @@ if(count($_SESSION['BookArr'])>0)
 
     echo '<div class="admin-box" id="">';
     echo '<div class="panel panel-back noti-box">';
-    echo '<div class="image-logo"><a href ="" class ="viewport_image_open"><img src="'.$_SESSION['BookArr'][$i]['book_image'].'">';
+    echo '<div class="image-logo"><a href =""><img src="'.$_SESSION['BookArr'][$i]['book_image'].'">';
     echo '<div class ="overlay image-title"><h3><b>'.$_SESSION['BookArr'][$i]['book_title'].'</b></h3></div>'; 
     echo '</a>';
     echo '</div>';
