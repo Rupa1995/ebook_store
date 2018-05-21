@@ -10,7 +10,7 @@
       
 function phoneverify()
   {
-    var phoneno = /^\+91?\d{10}$/;
+    var phoneno = /^\d{10}$/;
     while(mobile.value !=""){
     if(mobile.value.match(phoneno))
     {

@@ -146,25 +146,45 @@ position: relative;
 transition: .5s ease;
 backface-visibility: hidden;
 }
-.image-title{
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    font-size: 15px;
-    color: #000;
-    margin: 0;
-    font-style: italic;
-    opacity: 0;
+.overlay {
+  position: absolute;
+  top: 15px;
+  bottom: 67px;
+  background-color: rgba(61, 201, 179, 0.5);
+  overflow: hidden;
+  width: 0;
+  height: auto;
+  transition: 0.5s ease;
+  text-align: center;
 }
+.image-title{
+  color: #fff;
+  font-style: italic;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.div-vp{background: white; margin: 5% 15%;}
+#img-vp{float: left; margin: 80px;}
 /*.admin-box .text-box{position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}*/
 
-.panel-back:hover .image-logo {
-  opacity: 0.3;
+.panel-back:hover .image-logo .overlay {
+  /*opacity: 0.3;*/
+  width: 88%;
 }
 
 .panel-back:hover .image-title {
-  opacity: 1;
+  opacity: 99;
+  width: 100%;
+}
+.glyphicon {
+  color: #fff;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  white-space: nowrap;
 }
 
 /*.admin-box .text-box{position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}*/

@@ -86,8 +86,8 @@ $transaction->setAmount($amount)
             ->setItemList($itemList);
 
 $redirectUrls = new \PayPal\Api\RedirectUrls();
-$redirectUrls->setReturnUrl("http://localhost/ebook_store/user/excute.php?success=true&amount=$price")
-              ->setCancelUrl("http://localhost/ebook_store/user/excute.php?success=false");
+$redirectUrls->setReturnUrl("http://library.com/user/excute.php?success=true&amount=$price")
+              ->setCancelUrl("http://library.com/user/excute.php?success=false");
 $payment = new \PayPal\Api\Payment();
 $payment->setIntent('sale')
     ->setPayer($payer)

@@ -15,7 +15,7 @@
              user_name AS uname,
              first_tym_flag
             FROM 
-              ".LOGIN_TABLE." 
+              ".user_table." 
             WHERE 
               user_name = '$myusername' AND 
               user_password = '$mypassword' AND
@@ -71,11 +71,6 @@
 <div class="container">
   <div class="header-top">
     <div class="upper-header container">
-     <!--  <form class="search-form" action="#" method="get">
-          <i class="fa fa-search"></i>
-          <input type="text" name="s" value placeholder="Search by book title..">
-          <input type="hidden" name="post_type" value="product">
-      </form> -->
       <div class="logo">
           <a href="index.html">
           	<h1>Books</h1>
@@ -112,14 +107,6 @@
 <div class="container-fluid register-container">
   <div class="login-box form1">
 	<div><p class="register-title">Log In</p></div>
-<!-- 	<div class="register-third-party">
-		<p class="register-btn-info">- EASILY USING -</p>
-		<div class="social-login">
-    	<a href="#"><i class="fa fa-facebook fa-lg"></i>facebook</a>
-    	<a href="#"><i class="fa fa-google-plus fa-lg"></i>Google</a>
-    </div>
-	</div>
-	<p class="info-text">- OR USING EMAIL -</p> -->
   <form action="" method="post">
 		<fieldset class="register-input-container">
 			<div class="register-input-item">
@@ -144,14 +131,6 @@
   </div>   
 <div class="register-box form2">
 	<div><p class="register-title">Sign Up with Us</p></div>
-	<!-- <div class="register-third-party">
-		<p class="register-btn-info">- EASILY USING -</p>
-		 <div class="social-login">
-	     <a href="#"><i class="fa fa-facebook fa-lg"></i>facebook</a>
-	     <a href="#"><i class="fa fa-google-plus fa-lg"></i>Google</a>
-    </div>
-	</div>
-	<p class="info-text">- OR USING EMAIL -</p> -->
 	<form class="register-form" action="registered_user.php" method="post">
 		<fieldset class="register-input-container">
 			<div class="register-input-item">
@@ -159,11 +138,11 @@
 				<div id="email_error" type="hidden"></div>
 			</div>
 			<div class="register-input-item">
-				<input type="text" name="mobile" class="user-mobile register-user-input" placeholder="Mobile number(for order status update)" onblur="phoneverify()" onfocus="resetvalue()" id="mobile" required>
+				<input maxlength="10" type="text" name="mobile" class="user-mobile register-user-input" placeholder="Mobile number(for order status update)" onblur="phoneverify()" onfocus="resetvalue()" id="mobile" required>
 				<div id="errors" type="hidden"></div>
 			</div>
 			<div class="register-input-item">
-				<input type="password" name="password" class="user-password register-user-input" placeholder="Choose Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required id="password" onfocus="resetvalue()">
+				<input type="password" name="password" class="user-password register-user-input" placeholder="Choose Password" required id="password" onfocus="resetvalue()">
 			</div>
 			<div class="register-input-item">
 				<input type="password" name="password_confirmation" class="user-password register-user-input" placeholder="Confirm Password" id="password_confirm" onblur="passwordverify()" onfocus="resetvalue()">

@@ -132,7 +132,7 @@
 				</a>
 			</div>
 			<div class="zoom_img" style="position: absolute; top: 0; left: 0;margin-top: 370px;">
-				<a href="users.php" data-placement="right" data-toggle ="tooltip" title data-original-title ="Dashboard">
+				<a href="user.php" data-placement="right" data-toggle ="tooltip" title data-original-title ="Dashboard">
 					<img src="../images/users.png">
 				</a>
 			</div>
