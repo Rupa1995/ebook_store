@@ -33,6 +33,26 @@ define('ENCRYPT_KEY', 'ebook-data(en/de)crypt');
 define('TAXPER', '5');
 define('DISCOUNTPER', '2');
 
+define('EMAIL_TEMPLATE_HEADER','<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div style="width:100%;background:#F2F2F2;font-family:Arial, Helvetica, sans-serif;font-size:12px;color:#404D5E;overflow:hidden;line-height:18px;">
+<div style="width:570px;margin:15px 15px;background:#fff;padding:15px;border:solid 1px #EDEDED;overflow:hidden;">
+<div style="overflow:hidden;border-bottom:solid 1px #E0E0E0;padding-bottom:15px;margin-bottom:15px;">
+<div style="width:50%;float:left;overflow:hidden;">
+<img src="https://i.pinimg.com/originals/c4/fc/3d/c4fc3d8aaf399bdfcd7eb9c8deb319dd.jpg" width="50" height="50"  /></div>
+<div style="width:50%;float:left;overflow:hidden;">
+</div>
+</div>');
+define('EMAIL_TEMPLATE_FOOTER','<br>
+<p style="color:#828282;margin:0;"><i><br>This notification was automatically generated. Please do not reply to this mail.</i></p>
+</div>
+</div>
+</div>
+</body>
+</html>');
 
 error_reporting(E_ERROR | E_PARSE);
 ini_set("display_errors", 0);// 1 = Display Error

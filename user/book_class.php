@@ -1,5 +1,6 @@
 <?php
 	include 'includes/db.php';
+  include 'includes/function.php';
 	session_start();
 	if(isset($_POST['function2call']) && !empty($_POST['function2call'])) 
 	{
@@ -14,6 +15,9 @@
           case 'moveEntry' : moveEntry($conn);break;
           case 'checkout' : checkout($conn);break;
           case 'booklistCat' : booklistCat($conn);break;
+          case 'getOrder' : getOrder($conn);break;
+          case 'sendMail' : sendMail($conn);break;
+          case 'getItemlist' : getItemlist($conn);break;
     	}
     }
 
@@ -348,6 +352,110 @@ function booklistCat($conn)
     $result = mysqli_fetch_all($result,MYSQLI_ASSOC); 
 
     echo json_encode(array('ebook' => array('boot_list' => $result)));         
+}
+
+function getOrder($conn)
+{
+    $current_user = $_SESSION['userID'];
+    $subtotal = [];
+    $sql = "SELECT
+                order_id,
+                street1,
+                street2,
+                city,
+                zip,
+                order_name,
+                order_time,
+                oder_amt,
+                payment_id,
+                states.name AS state_name,
+                countries.name AS country_name
+            FROM
+                address
+            LEFT JOIN
+                order_table ON aorder_id = order_id    
+            LEFT JOIN
+                states ON astate_id = states.id
+            LEFT JOIN
+                countries ON acontry_id = countries.id        
+            WHERE
+                order_by = ".$current_user." AND auser_id = 0";
+
+
+    $result = mysqli_query($conn, $sql);
+    $result = mysqli_fetch_all($result,MYSQLI_ASSOC);
+
+    for($i=0;$i<count($result);$i++)
+    {
+      $s_item = "SELECT 
+                  SUM(`item_price`) AS subtotal 
+                FROM 
+                  `item_table` 
+                WHERE 
+                  `item_order_id`= ".$result[$i]['order_id']."";
+      $result_sub = mysqli_query($conn, $s_item);
+      $result_sub = mysqli_fetch_array($result_sub,MYSQLI_ASSOC);
+      
+      array_push($subtotal,$result_sub['subtotal']);       
+    }
+
+    $sql_item_c = "SELECT 
+              COUNT(`order_id`) AS item_count
+            FROM 
+              `order_table` 
+            LEFT JOIN item_table ON item_order_id = order_id
+            WHERE
+               order_by = ".$current_user."  
+            GROUP by order_id";
+
+    $result_item = mysqli_query($conn, $sql_item_c);
+    $result_item = mysqli_fetch_all($result_item,MYSQLI_ASSOC);        
+    
+    echo json_encode(array('ebook' => array('orderDetails' => $result,'item_count'=>$result_item,'subtotal'=>$subtotal)));        
+}
+
+function sendMail($conn)
+{
+  $subject = $_POST['subject'];
+  $desc = $_POST['desc'];
+  $payment_id = $_POST['payment_id'];
+
+  $mailContent = EMAIL_TEMPLATE_HEADER.$desc.EMAIL_TEMPLATE_FOOTER;
+
+  $email_send_result =  sendEmail('ranirupa47@gmail.com', MAIL_FROM_ADDRESS, MAIL_FROM_NAME, 'Issue'.$payment_id, $mailContent);
+
+    if($email_send_result == 0)
+    {   
+      echo json_encode(array('mail_sent' => 0));
+    }
+    else
+    {
+      echo json_encode(array('mail_sent' => 1));
+    }
+}
+
+function getItemlist($conn)
+{
+  $order_id = $_POST['order_id'];
+
+  $sql = " SELECT
+            book_title,
+            author_name,
+            book_image,
+            book_mrp
+          FROM
+            `item_table`
+          LEFT JOIN 
+          `book_table` ON item_book_id = book_id
+          LEFT JOIN 
+          `author_table` ON author_id = book_authid    
+          WHERE
+           item_order_id = ".$order_id."";
+
+    $result_item = mysqli_query($conn, $sql);
+    $result_item = mysqli_fetch_all($result_item,MYSQLI_ASSOC);        
+    
+    echo json_encode(array('ebook' => array('itemInfo' => $result_item)));         
 }
 
 ?> 
