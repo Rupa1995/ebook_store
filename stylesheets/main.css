@@ -177,16 +177,6 @@ backface-visibility: hidden;
   opacity: 99;
   width: 100%;
 }
-.glyphicon {
-  color: #fff;
-  font-size: 30px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  white-space: nowrap;
-}
 
 /*.admin-box .text-box{position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);}*/
 
@@ -262,3 +252,38 @@ hr{margin-bottom: 15px!important;}
   opacity: 1;
   right: 0;
 }
+/*---------------------------order-----------------------------*/
+.my-profile{width: 994px; padding-top: 105px; position: relative; margin: 0 auto 15px;}
+.card{background-color: whitesmoke; border-radius: 3px; box-shadow: 0 2px 2px 0 hsla(0,0%,78%, .5);}
+.my-profile_left{border-left: 1px solid #eee; padding: 5px; float: left; min-height: 567px; vertical-align: top;width: 258px;}
+.my-profile_right{width: calc(100% - 260px); border-left: 1px solid #eee; float: right; vertical-align: top;position: relative;min-height: 567px;}
+.profile-nav_detail{padding: 30px 0; text-align: center; border-bottom: 1px solid #eee;}
+.account-profile-img{height: 90px; width: 90px; border-radius: 90px; margin-left: 33%; background-image: url("../images/profile-logo.jpeg");}
+.account-profile-name{color: #333; font-size: 14px; font-weight: 500; padding-top: 30px;}
+.account-profile-phone{font-size: 12px; padding-top: 10px;}
+.profile-nav_list{line-height: 53px; list-style: none; display: block;}
+.list-unstyled{list-style: none; padding-left: 0; margin-top: 0; margin-bottom: 0;}
+.profile-item-list{border-bottom: 1px solid #eee; cursor: pointer; font-size: 14px; display: list-item;}
+.item-text{padding: 0 55px; color: gray; font-size: 20px;}
+.fa-map-marker::before , .fa-archive::before, .fa-clock-o::before{padding-right: 10px;}
+.my-cart{font-size: 14px; padding: 40px 30px 0; color: #888;}
+.my-cart-box{ border-radius: 3px; box-shadow: 0 1px 1px gray; }
+.my-cart-box-header{background-color: #f9f9f9; border-top: 1px solid #eee; border-bottom: 1px solid #eee; border-top-left-radius: 3px;border-top-right-radius: 3px; font-weight: 500; padding: 12px 0 12px 30px;}
+.my-cart-box-header-date{padding-top: 6px; float: left;}
+.report-issue{font-size: 12px; margin-right: 12px; padding: 8px 9px; background-color: #f9f9f9; border: 1px solid #e96125; color: #e96125; float: right;}
+.my-order-timeline{font-size: 14px; padding: 0; width: 160px; display: inline-block; margin: 0; vertical-align: top;word-break: break-all;}
+.timeline{text-align: left;position: relative; color: #333; margin-left: -50px;}
+.timeline-box{text-align: center; font-size: 17px;}
+.my-order{padding: 20px;}
+.my-order-header{display: inline-block; cursor: default;}
+.my-order-store{padding-top: 0; font-size: 18px; color: black;}
+.order-detail{color: gray; font-size: 15px;}
+.dot{padding: 5px;}
+.my-order-list{border-top:0; display: inline-block; float: right; margin: 0; padding: 0; vertical-align: top; font-weight: 400; text-align: right;}
+.my-order-list-item{margin-left: 0;}
+.order-list{padding-right: 17px;color: #e96125; font-size: 15px;}
+.cart-box-details{border-top: 1px solid #eee;}
+.cart-view-more{ border-radius: 3px 3px 0 0; color: #888;cursor: pointer; text-align: center;}
+.list-group-item h4{text-align: initial; margin-right: 75%;}
+.pay{float: left;margin-left: 30%;}
+.pay-amt{float: right;margin-right: 30%;}

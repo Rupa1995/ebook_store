@@ -20,7 +20,7 @@
   <div class="header-top">
     <div class="upper-header container">
       <div class="logo">
-          <a href="index.php">
+          <a href="home.php">
             <h1>Books</h1>
             <span>ebook store</span>
           </a>

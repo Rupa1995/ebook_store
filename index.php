@@ -46,7 +46,7 @@
                         {
                           echo '<li><a href="./edit_profile.php?uid='.$_SESSION['userID'].'">Edit Profile</a></li>';
                           echo '<li><a href="./user/cart_item.php">Cart</a></li>';
-                          echo '<li><a href="#">Order</a></li>';
+                          echo '<li><a href="./user/order.php">Order</a></li>';
                           echo '<li><a href="./user/wishlist_item.php">Wishlist</a></li>';
                           echo '<li><a href="./logout.php" class="login_user">Logout</i></a></li>';
                         } 
