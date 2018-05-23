@@ -34,7 +34,7 @@ CREATE TABLE `address` (
   `city` varchar(45) DEFAULT NULL,
   `zip` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`address_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -43,7 +43,7 @@ CREATE TABLE `address` (
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
-INSERT INTO `address` VALUES (1,2,0,'Banneghatta Road','JP Nagar',17,101,'3rd Phase','Bangalore','560078'),(2,1,0,'Salt Lake','',41,101,'','Kolkata','700091'),(3,1,0,'AJ  - 109 Salt Lake','',41,101,'','Kolkata','700091'),(4,0,1,'AJ-104','Salt Lake',41,101,'IN','Kolkata','700091'),(5,0,2,'AJ-104','Salt Lake',41,101,'IN','Kolkata','700091');
+INSERT INTO `address` VALUES (1,2,0,'AJ  - 109','Salt Lake',41,101,'','Kolkata','700091');
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +59,7 @@ CREATE TABLE `author_table` (
   `author_name` varchar(100) NOT NULL,
   `author_isactive` int(11) NOT NULL DEFAULT '1' COMMENT '1= Active 0 =Inactive',
   PRIMARY KEY (`author_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +68,7 @@ CREATE TABLE `author_table` (
 
 LOCK TABLES `author_table` WRITE;
 /*!40000 ALTER TABLE `author_table` DISABLE KEYS */;
-INSERT INTO `author_table` VALUES (1,'Harper Lee',1),(2,'Gabriel Garcia Marquez',1),(3,'Stephen King',1),(4,'J. K. Rowling',1),(5,'Ruskin Bond',1),(6,'Chetan Bhagats',1);
+INSERT INTO `author_table` VALUES (1,'Ruskin Bond',1),(2,'Chetan Bhagats',1),(3,'Durjoy Datta',1),(4,'Andrew Hart',1),(5,'J. R. R. Tolkien',1),(6,'Dan Brown',1);
 /*!40000 ALTER TABLE `author_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,7 +86,7 @@ CREATE TABLE `author_table_log` (
   `modified_time` datetime NOT NULL,
   `log_data` text NOT NULL,
   PRIMARY KEY (`at_log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -95,7 +95,6 @@ CREATE TABLE `author_table_log` (
 
 LOCK TABLES `author_table_log` WRITE;
 /*!40000 ALTER TABLE `author_table_log` DISABLE KEYS */;
-INSERT INTO `author_table_log` VALUES (1,6,1,'2018-05-06 19:57:39','{\"author_name\":{\"Chetan Bhagat\":\"Chetan Bhagats\"}}'),(2,6,1,'2018-05-06 20:00:56','{\"catStatus\":{\"Activate\":\"Deactivate\"}}'),(3,6,1,'2018-05-12 02:33:24','{\"catStatus\":{\"Deactivate\":\"Activate\"}}');
 /*!40000 ALTER TABLE `author_table_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,7 +111,7 @@ CREATE TABLE `book_cart` (
   `bc_user_id` int(10) NOT NULL,
   `bc_added_tym` datetime NOT NULL,
   PRIMARY KEY (`book_cart_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,7 +135,7 @@ CREATE TABLE `book_cat` (
   `cat_name` varchar(100) NOT NULL,
   `cat_isactive` int(11) NOT NULL DEFAULT '1' COMMENT '1= Active 0 =Inactive',
   PRIMARY KEY (`cat_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -145,7 +144,7 @@ CREATE TABLE `book_cat` (
 
 LOCK TABLES `book_cat` WRITE;
 /*!40000 ALTER TABLE `book_cat` DISABLE KEYS */;
-INSERT INTO `book_cat` VALUES (1,'Southern Gothic',1),(2,'Magic realism',1),(3,'Tragedy',1),(4,'Tragic comedy',1),(5,'Mythology',1),(6,'Adventure',1),(7,'Mystery',1),(8,'Horror',1);
+INSERT INTO `book_cat` VALUES (1,'Tragedy',1),(2,'Tragic comedy',1),(3,'Mythology',1),(4,'Adventure',1),(5,'Mystery',1),(6,'Horror',1),(7,'Thriller',1),(8,'Romantic',1),(9,'Fiction',1);
 /*!40000 ALTER TABLE `book_cat` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,7 +162,7 @@ CREATE TABLE `book_cat_log` (
   `modified_time` datetime NOT NULL,
   `log_data` text NOT NULL,
   PRIMARY KEY (`bc_log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -172,7 +171,6 @@ CREATE TABLE `book_cat_log` (
 
 LOCK TABLES `book_cat_log` WRITE;
 /*!40000 ALTER TABLE `book_cat_log` DISABLE KEYS */;
-INSERT INTO `book_cat_log` VALUES (1,1,1,'2018-05-06 18:16:11','{\"cat_name\":{\"Southern Gothi\":\"Southern Gothic\"}}'),(2,1,1,'2018-05-06 18:52:16','{\"catStatus\":{\"Deactivate\":\"Activate\"}}'),(3,1,1,'2018-05-06 18:54:11','{\"catStatus\":{\"Activate\":\"Deactivate\"}}'),(4,1,1,'2018-05-06 19:00:19','{\"catStatus\":{\"Deactivate\":\"Activate\"}}');
 /*!40000 ALTER TABLE `book_cat_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,7 +193,7 @@ CREATE TABLE `book_table` (
   `book_visitor` int(10) NOT NULL DEFAULT '10',
   `book_image` text NOT NULL,
   PRIMARY KEY (`book_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,7 +202,7 @@ CREATE TABLE `book_table` (
 
 LOCK TABLES `book_table` WRITE;
 /*!40000 ALTER TABLE `book_table` DISABLE KEYS */;
-INSERT INTO `book_table` VALUES (1,'To Kill a Mockingbird',1,1,1,'2018-05-01',45,4,0,'../images/book_img/220px-To_Kill_a_Mockingbird.JPG'),(2,'One Hundred Years of Solitude',2,2,2,'2018-05-01',797,4,0,'../images/book3.jpg'),(3,'Go Set a Watchman',2,1,2,'2018-05-01',786,6,0,'../images/book4.jpg'),(4,'Half Girlfriend',5,6,5,'2018-05-11',123,2,10,'../images/book_img/Half_Girlfriend.jpg');
+INSERT INTO `book_table` VALUES (1,'The Da Vinci Code',1,6,5,'2003-04-10',399,3,22,'../images/book_img/vinci.jpg'),(2,'Origin',2,6,4,'2017-04-10',521,2,10,'../images/book_img/origin.jpg'),(3,'The Lost Symbol',2,6,7,'2009-09-15',220,6,10,'../images/book_img/LostSymbol.jpg'),(4,'The Lord of the Rings',3,5,7,'1954-06-19',425,4,25,'../images/book_img/ring.jpg'),(5,'Lies That Bind Us',4,4,1,'2015-06-02',563,2,10,'../images/book_img/lies.jpg'),(6,'The Blue Umbrella',5,1,1,'1980-05-01',84,5,17,'../images/book_img/blueumbreall.jpg'),(7,'The World\'s Worst Boyfriend ',5,3,8,'2070-05-01',384,5,10,'../images/book_img/bestbf.jpg'),(8,'One Indian Girl',5,2,9,'2015-08-14',178,3,30,'../images/book_img/One-Indian-Girl-by-Chetan-Bhagat.png'),(9,'Half Girlfriend',5,2,8,'2014-02-14',178,3,10,'../images/book_img/Half_Girlfriend.jpg');
 /*!40000 ALTER TABLE `book_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -222,7 +220,7 @@ CREATE TABLE `book_table_log` (
   `modified_time` datetime NOT NULL,
   `log_data` text NOT NULL,
   PRIMARY KEY (`bt_log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -231,7 +229,6 @@ CREATE TABLE `book_table_log` (
 
 LOCK TABLES `book_table_log` WRITE;
 /*!40000 ALTER TABLE `book_table_log` DISABLE KEYS */;
-INSERT INTO `book_table_log` VALUES (1,1,1,'2018-05-05 15:21:17','{\"quantity\":{\"3\":\"4\"}}'),(2,2,1,'2018-05-05 15:23:04','{\"quantity\":{\"2\":\"3\"}}'),(3,2,1,'2018-05-05 15:23:49','{\"quantity\":{\"3\":\"4\"}}'),(4,1,1,'2018-05-05 15:25:05','{\"quantity\":{\"4\":\"3\"}}'),(5,3,1,'2018-05-05 22:12:21','{\"book_mrp\":{\"78\":\"786\"}}'),(6,1,1,'2018-05-06 23:46:33','{\"book_published_date\":{\"2018-05-07\":\"2018-05-09\"}}'),(7,1,1,'2018-05-06 23:50:00','{\"book_published_date\":{\"2018-05-09\":\"2018-05-01\"}}'),(8,1,1,'2018-05-06 23:58:40','{\"book_published_date\":{\"2018-05-01\":\"2018-05-04\"}}'),(9,1,1,'2018-05-07 00:10:38','{\"book_published_date\":{\"2018-05-04\":\"2018-05-02\"}}'),(10,1,1,'2018-05-07 00:13:12','{\"book_published_date\":{\"2018-05-02\":\"2018-05-01\"}}'),(11,1,1,'2018-05-07 00:14:29','{\"book_published_date\":{\"2018-05-01\":\"2018-05-16\"}}'),(12,1,1,'2018-05-12 01:33:32','{\"book_quantity\":{\"3\":\"4\"}}'),(13,1,1,'2018-05-12 01:34:42','{\"book_quantity\":{\"3\":\"4\"}}'),(14,1,1,'2018-05-12 01:35:33','{\"book_quantity\":{\"3\":\"4\"}}'),(15,1,1,'2018-05-12 01:38:00','{\"book_published_date\":{\"2018-05-16\":\"2018-05-01\"}}'),(16,3,1,'2018-05-12 01:49:55',''),(17,3,1,'2018-05-12 01:51:04',''),(18,3,1,'2018-05-12 01:53:57',''),(19,3,1,'2018-05-12 01:54:30',''),(20,3,1,'2018-05-12 01:55:39',''),(21,1,1,'2018-05-12 02:23:26',''),(22,1,1,'2018-05-12 02:24:18',''),(23,1,1,'2018-05-12 02:24:42',''),(24,2,1,'2018-05-12 02:24:58','');
 /*!40000 ALTER TABLE `book_table_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -248,7 +245,7 @@ CREATE TABLE `book_wish` (
   `bw_user_id` int(10) NOT NULL,
   `bw_added_tym` datetime NOT NULL,
   PRIMARY KEY (`book_wish_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -300,7 +297,7 @@ CREATE TABLE `item_table` (
   `item_price` int(10) NOT NULL,
   `item_order_id` int(10) NOT NULL,
   PRIMARY KEY (`item_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -309,7 +306,6 @@ CREATE TABLE `item_table` (
 
 LOCK TABLES `item_table` WRITE;
 /*!40000 ALTER TABLE `item_table` DISABLE KEYS */;
-INSERT INTO `item_table` VALUES (1,3,'Go Set a Watchman',786,1),(2,1,'To Kill a Mockingbird',45,2);
 /*!40000 ALTER TABLE `item_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,7 +324,7 @@ CREATE TABLE `order_table` (
   `oder_amt` float NOT NULL,
   `order_name` varchar(250) NOT NULL,
   PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -337,7 +333,6 @@ CREATE TABLE `order_table` (
 
 LOCK TABLES `order_table` WRITE;
 /*!40000 ALTER TABLE `order_table` DISABLE KEYS */;
-INSERT INTO `order_table` VALUES (1,'PAY-8T078325DC3405401LL6FJAY','2018-05-16 15:56:11',2,809.58,'Rupa Rani'),(2,'PAY-8E887336X0923293NLL6FKTQ','2018-05-16 15:59:42',2,46.35,'Rupa Rani');
 /*!40000 ALTER TABLE `order_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -362,7 +357,7 @@ CREATE TABLE `pub_info` (
 
 LOCK TABLES `pub_info` WRITE;
 /*!40000 ALTER TABLE `pub_info` DISABLE KEYS */;
-INSERT INTO `pub_info` VALUES (1,'J. B. Lippincott & Co.',1),(2,'Harper & Row',1),(3,'Jaico Publishing House',1),(4,'Westland Publication',1),(5,'Rupa & Co.',1);
+INSERT INTO `pub_info` VALUES (1,'Transworld & Bantam Books',1),(2,'Doubleday',1),(3,'Allen & Unwin',1),(4,'Westland Publication',1),(5,'Rupa & Co.',1);
 /*!40000 ALTER TABLE `pub_info` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -380,7 +375,7 @@ CREATE TABLE `pub_table_log` (
   `modified_time` datetime NOT NULL,
   `log_data` text NOT NULL,
   PRIMARY KEY (`pt_log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -389,7 +384,6 @@ CREATE TABLE `pub_table_log` (
 
 LOCK TABLES `pub_table_log` WRITE;
 /*!40000 ALTER TABLE `pub_table_log` DISABLE KEYS */;
-INSERT INTO `pub_table_log` VALUES (1,4,1,'2018-05-06 21:08:23','{\"pub_name\":{\"Westland Publications\":\"Westland Publication\"}}'),(2,4,1,'2018-05-06 21:10:57','{\"catStatus\":{\"Activate\":\"Deactivate\"}}'),(3,4,1,'2018-05-06 21:11:15','{\"catStatus\":{\"Activate\":\"Deactivate\"}}'),(4,4,1,'2018-05-06 21:12:22','{\"catStatus\":{\"Activate\":\"Deactivate\"}}'),(5,4,1,'2018-05-06 21:27:58','{\"catStatus\":{\"Activate\":\"Deactivate\"}}'),(6,4,1,'2018-05-06 21:31:04','{\"catStatus\":{\"Deactivate\":\"Activate\"}}');
 /*!40000 ALTER TABLE `pub_table_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -432,7 +426,7 @@ CREATE TABLE `user_log` (
   `log_data` text,
   `luser_id` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`user_log_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -441,7 +435,6 @@ CREATE TABLE `user_log` (
 
 LOCK TABLES `user_log` WRITE;
 /*!40000 ALTER TABLE `user_log` DISABLE KEYS */;
-INSERT INTO `user_log` VALUES (1,'2018-04-29 23:23:15','2','{\"area\":{\"3rd\":\"Bannerghatta Road\"}}','2'),(2,'2018-04-30 22:54:29','1','{\"userStatus\":{\"Activate\":\"Deactivate\"}}','2'),(4,'2018-04-30 23:47:18','1','{\"userStatus\":{\"Deactivate\":\"Activate\"}}','2'),(5,'2018-05-01 23:04:36','1','{\"street1\":{\"Salt Lake\":\"AJ  - 109 Salt Lake\"}}','1');
 /*!40000 ALTER TABLE `user_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -472,7 +465,7 @@ CREATE TABLE `user_table` (
 
 LOCK TABLES `user_table` WRITE;
 /*!40000 ALTER TABLE `user_table` DISABLE KEYS */;
-INSERT INTO `user_table` VALUES (1,'portaladmin@ebook.in','202cb962ac59075b964b07152d234b70',1,1,33445566,'Portal','Admin',2),(2,'riturajreso@gmail.com','202cb962ac59075b964b07152d234b70',1,0,NULL,'Ravi','Kumar',1);
+INSERT INTO `user_table` VALUES (1,'portaladmin@ebook.in','202cb962ac59075b964b07152d234b70',1,1,33445566,'Portal','Admin',2),(2,'riturajreso@gmail.com','202cb962ac59075b964b07152d234b70',1,0,7829162630,'Rituraj','Verma',2);
 /*!40000 ALTER TABLE `user_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -485,4 +478,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-16 21:41:11
+-- Dump completed on 2018-05-23 23:58:28
