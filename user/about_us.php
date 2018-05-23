@@ -71,13 +71,13 @@
     
       <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-6 legals">
-             <p><a href="#home">Terms & Conditions</a> |
-             <a href="#home">Legals</a>
+             <p><a href="">Terms & Conditions</a> |
+             <a href="">Legals</a>
              </p>     
           </div>
           <div class="col-md-6 col-sm-6 col-xs-6 credit">
-              <p>Developed & Designed by <a href="#home"><em>Rupa Rani</em></a> exclusively for <a href="#home">
-                <em>Innoraft</em></a></p>
+              <p>Developed & Designed by <a href=""><em>Rupa Rani</em></a> exclusively for <a href="https://technoindiauniversity.ac.in/" target="_blank">
+                <em>Techno India University</em></a></p>
           </div>
       </div>
 

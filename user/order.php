@@ -54,7 +54,7 @@ include 'includes/db.php';
  </div>
  <div class="wrapper">
   <p style="font-size: 25px; color: black;"><em style="border-bottom: 1px dotted black;">My Order</em></p>
- 	<div class="card">
+ 	<div class="card1">
  		<div class="my-profile_right">
  			<div class="my-carts">
  				<div class="my-cart">

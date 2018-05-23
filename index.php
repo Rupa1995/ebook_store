@@ -138,7 +138,7 @@
               <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
-                         <a href="#">
+                         <a href="">
                          <img src="images/book_img/Half_Girlfriend.jpg" alt="book10" class="image">
                            <!-- <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
@@ -156,7 +156,7 @@
                     <div class="imge">
                       <div class="overly">
                         
-                          <a href="#">
+                          <a href="">
                             <img src="images/book12.jpeg" alt="book12" class="image">
                             <!-- <div class="overlay">
                               <div class="glyphicon glyphicon-search">
@@ -173,7 +173,7 @@
                   <div class="col-md-3">
                     <div class="imge">
                        <div class="overly">
-                        <a href="#">
+                        <a href="">
                         <img src="images/book11.jpeg" alt="book11" class="image">
                         <!-- <div class="overlay">
                               <div class="glyphicon glyphicon-search"><p id="gly"><b>view more</b></p>
@@ -208,7 +208,7 @@
                     <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
-                          <a href="#">
+                          <a href="">
                             <img src="images/book6.jpg" alt="book6" class="image">
                            <!--  <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
@@ -225,7 +225,7 @@
                     <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
-                          <a href="#">
+                          <a href="">
                           <img src="images/book13.jpeg" alt="book13" class="image">
                           <!-- <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
@@ -243,7 +243,7 @@
                     <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
-                         <a href="#">
+                         <a href="">
                          <img src="images/book8.jpeg" alt="book8" class="image">
                            <!-- <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
@@ -260,7 +260,7 @@
                        <div class="col-md-3">
                     <div class="imge">
                        <div class="overly">
-                        <a href="#">
+                        <a href="">
                         <img src="images/book9.jpeg" alt="book9" class="image">
                         <!-- <div class="overlay">
                               <div class="glyphicon glyphicon-search"><p id="gly"><b>view more</b></p>
@@ -281,11 +281,7 @@
      </div>
     </div>
 </section> 
-
-<!-- <div class="ignite text-center">
-  <img src="images/book-ad.jpg">
-</div> -->
-  
+ 
 <section class="feature text-center section-padding" id="team">
     <div id="intro2" class="container">
       <div class="row">
@@ -302,17 +298,17 @@
                <div class="social">
                  <ul id="social-button" class="list-inline">
                   <li>
-                    <a href="#home" class="social-btn wow rollIn">
+                    <a href="https://www.stephenking.com/" target="_blank" class="social-btn wow rollIn">
                       <i class="fa fa-dribbble"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="#home" class="social-btn wow rollIn">
+                    <a href="https://twitter.com/stephenking" target="_blank" class="social-btn wow rollIn">
                       <i class="fa fa-twitter"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="#home" class="social-btn wow rollIn">
+                    <a href="http://www.facebook.com/OfficialStephenKing" target="_blank" class="social-btn wow rollIn">
                       <i class="fa fa-envelope"></i>
                     </a>
                   </li>
@@ -328,17 +324,17 @@
               <div class="social">
                   <ul id="social-button" class="list-inline">
                     <li>
-                      <a href="#home" class="social-btn wow rollIn">
+                      <a href="https://www.jkrowling.com/" target="_blank" class="social-btn wow rollIn">
                         <i class="fa fa-dribbble"></i>
                       </a>
                     </li>
                     <li>
-                      <a href="#home" class="social-btn wow rollIn">
+                      <a href="http://www.twitter.com/jk_rowling" target="_blank" class="social-btn wow rollIn">
                         <i class="fa fa-twitter"></i>
                       </a>
                     </li>
                     <li>
-                      <a href="#home" class="social-btn wow rollIn">
+                      <a href="http://www.facebook.com/JKRowling" target="_blank" class="social-btn wow rollIn">
                         <i class="fa fa-envelope"></i>
                       </a>
                     </li>
@@ -354,17 +350,17 @@
               <div class="social">
                  <ul id="social-button" class="list-inline">
                   <li>
-                    <a href="#home" class="social-btn wow rollIn">
+                    <a href="http://www.jamespatterson.com/" target="_blank" class="social-btn wow rollIn">
                       <i class="fa fa-dribbble"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="#home" class="social-btn wow rollIn">
+                    <a href="http://www.twitter.com/jp_books" target="_blank" class="social-btn wow rollIn">
                       <i class="fa fa-twitter"></i>
                     </a>
                   </li>
                   <li>
-                    <a href="#home" class="social-btn wow rollIn">
+                    <a href="http://www.facebook.com/JamesPatterson" target="_blank" class="social-btn wow rollIn">
                       <i class="fa fa-envelope"></i>
                     </a>
                   </li>
@@ -418,17 +414,17 @@
                  <div class="social">
                           <ul id="social-button" class="list-inline">
                             <li>
-                              <a href="#home" class="social-btn wow rollIn">
+                              <a href="https://www.linkedin.com" target="_blank" class="social-btn wow rollIn">
                                 <i class="fa fa-dribbble"></i>
                               </a>
                             </li>
                             <li>
-                              <a href="#home" class="social-btn wow rollIn">
+                              <a href="https://twitter.com/" target="_blank" class="social-btn wow rollIn">
                                 <i class="fa fa-twitter"></i>
                               </a>
                             </li>
                             <li>
-                              <a href="#home" class="social-btn wow rollIn">
+                              <a href="https://mail.google.com/mail" target="_blank" class="social-btn wow rollIn">
                                 <i class="fa fa-envelope"></i>
                               </a>
                             </li>
@@ -444,13 +440,13 @@
     
       <div class="row">
           <div class="col-md-6 col-sm-6 col-xs-6 legals">
-             <p><a href="#home">Terms & Conditions</a> |
-             <a href="#home">Legals</a>
+             <p><a href="">Terms & Conditions</a> |
+             <a href="">Legals</a>
              </p>     
           </div>
           <div class="col-md-6 col-sm-6 col-xs-6 credit">
-              <p>Developed & Designed by <a href="#home"><em>Rupa Rani</em></a> exclusively for <a href="#home">
-                <em>Innoraft</em></a></p>
+              <p>Developed & Designed by <a href=""><em>Rupa Rani</em></a> exclusively for <a href="https://technoindiauniversity.ac.in/" target="_blank">
+                <em>Techno India University</em></a></p>
           </div>
       </div>
 

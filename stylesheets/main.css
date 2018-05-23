@@ -253,7 +253,7 @@ hr{margin-bottom: 15px!important;}
   right: 0;
 }
 /*---------------------------order-----------------------------*/
-.card{margin-left: 100px; width: calc(100% - 260px); background-color: whitesmoke; border-radius: 3px; box-shadow: 0 2px 2px 0 hsla(0,0%,78%, .5);}
+.card1{margin-left: 100px; width: calc(100% - 260px); background-color: whitesmoke; border-radius: 3px; box-shadow: 0 2px 2px 0 hsla(0,0%,78%, .5);}
 .my-profile_right{ border-left: 1px solid #eee; vertical-align: top;position: relative;min-height: 567px;}
 .profile-nav_detail{padding: 30px 0; text-align: center; border-bottom: 1px solid #eee;}
 .account-profile-img{height: 90px; width: 90px; border-radius: 90px; margin-left: 33%; background-image: url("../images/profile-logo.jpeg");}
