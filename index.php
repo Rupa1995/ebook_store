@@ -138,8 +138,8 @@
               <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
-                         <a href="">
-                         <img src="images/book_img/Half_Girlfriend.jpg" alt="book10" class="image">
+                         <a href="#">
+                         <img src="images/book_img/Half_Girlfriend.jpg" style="max-height: 300px"  alt="Half_Girlfriend" class="image">
                            <!-- <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
                                   <p id="gly"><b>view more</b></p>
@@ -156,8 +156,8 @@
                     <div class="imge">
                       <div class="overly">
                         
-                          <a href="">
-                            <img src="images/book12.jpeg" alt="book12" class="image">
+                          <a href="#">
+                            <img src="images/book_img/bestbf.jpg" alt="bestbf" style="max-height: 300px" class="image">
                             <!-- <div class="overlay">
                               <div class="glyphicon glyphicon-search">
                                 <p id="gly"><b>view more</b></p>
@@ -173,8 +173,8 @@
                   <div class="col-md-3">
                     <div class="imge">
                        <div class="overly">
-                        <a href="">
-                        <img src="images/book11.jpeg" alt="book11" class="image">
+                        <a href="#">
+                        <img src="images/book_img/One-Indian-Girl-by-Chetan-Bhagat.png" style="max-height: 300px" alt="oneindiaG" class="image">
                         <!-- <div class="overlay">
                               <div class="glyphicon glyphicon-search"><p id="gly"><b>view more</b></p>
                               </div>
@@ -190,7 +190,7 @@
                     <div class="imge">
                       <div class="overly">
                        <a href="#">
-                       <img src="images/book5.jpg" alt="book5" class="image">
+                       <img src="images/book5.jpg" alt="book5" style="max-height: 320px" class="image">
                          <!-- <div class="overlay">
                               <div class="glyphicon glyphicon-search">
                                 <p id="gly"><b>view more</b></p>
@@ -208,8 +208,8 @@
                     <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
-                          <a href="">
-                            <img src="images/book6.jpg" alt="book6" class="image">
+                          <a href="#">
+                            <img src="images/book_img/lies.jpg" alt="lies" style="max-height: 300px" class="image">
                            <!--  <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
                                   <p id="gly"><b>view more</b></p>
@@ -225,8 +225,8 @@
                     <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
-                          <a href="">
-                          <img src="images/book13.jpeg" alt="book13" class="image">
+                          <a href="#">
+                          <img src="images/book_img/ring.jpg" alt="ring"  style="max-height: 300px" class="image">
                           <!-- <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
                                   <p id="gly"><b>view more</b></p>
@@ -243,8 +243,8 @@
                     <div class="col-md-3">
                       <div class="imge">
                         <div class="overly">
-                         <a href="">
-                         <img src="images/book8.jpeg" alt="book8" class="image">
+                         <a href="#">
+                         <img src="images/book_img/vinci.jpg" alt="vinci" style="max-height: 300px" class="image">
                            <!-- <div class="overlay">
                                 <div class="glyphicon glyphicon-search">
                                   <p id="gly"><b>view more</b></p>
@@ -260,8 +260,8 @@
                        <div class="col-md-3">
                     <div class="imge">
                        <div class="overly">
-                        <a href="">
-                        <img src="images/book9.jpeg" alt="book9" class="image">
+                        <a href="#">
+                        <img src="images/book9.jpeg" alt="book9" style="max-height: 300px" class="image">
                         <!-- <div class="overlay">
                               <div class="glyphicon glyphicon-search"><p id="gly"><b>view more</b></p>
                               </div> -->
